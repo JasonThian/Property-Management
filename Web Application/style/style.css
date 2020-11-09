@@ -562,7 +562,7 @@ input[name="searchbar"]{
 }
 
 
-.add{
+.add, .remove{
 	position: absolute;
 	top: 48%;
 	left: 95%;	
@@ -576,6 +576,9 @@ input[name="searchbar"]{
 	font-size: 1.2vw;
 }
 
+.remove{
+	/**/
+}
 
 /*admin only features*/
 #create-admin{
