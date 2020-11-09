@@ -114,42 +114,6 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
 <script src="firebase.js"></script>
 <script src="auth(logged in).js"></script>
-
-<script>
-	function addTenants(){
-		var residentType = document.getElementById('resident-type');
-		var haveTenant = document.getElementById('have-tenant');
-		if(resident-type.value === "landlord"){
-			haveTenant.style.display = "block";
-		}
-		else if(resident-type.value == "tenant"){
-			haveTenant.style.display = "none";
-		}		
-	}
-	
-	
-	/*$('.add').on('click', add);
-    $('.remove').on('click', remove);
-
-	/*function add() {
-	  var new_carplate_no = parseInt($('#total_carplate_no').val()) + 1;
-	  var new_input = "<input type='text' id='new_" + new_carplate_no + "'>";
-
-	  $('#new_carplate_no').append(new_input);
-	  
-	  $('#total_carplate_no').val(new_carplate_no);
-	}*/
-
-	/*function remove() {
-	  var last_carplate_no = $('#total_carplate_no').val();
-
-	  if (last_carplate_no > 1) {
-		$('#new_' + last_carplate_no).remove();
-		$('#total_carplate_no').val(last_carplate_no - 1);
-	  }
-	}*/
-</script>
 <script src="add-residents.js"></script>
-
 </body>
 </html>
