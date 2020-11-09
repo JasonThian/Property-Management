@@ -90,8 +90,12 @@
 					<label for="carplate-no">Carplate No.</label>
 					<input type="text" id="carplate-number" class="form-control" placeholder="QAA123" required>
 					
+
 						<button class="add">Add carplate</button>
 						<!--button class="remove">Remove carplate</button-->
+
+						<button id="add" class="add" type="button">Add</i></button>					
+
 					
 					<div id="new_carplate_no"></div>
 					<input type="hidden" value="1" id="total_carplate_no">
@@ -114,6 +118,42 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
 <script src="firebase.js"></script>
 <script src="auth(logged in).js"></script>
+
+
+<script>
+	var new_carplate_no = 0;
+
+
+	document.getElementById('add').addEventListener("click", function(e){
+		e.preventDefault();
+		add(new_carplate_no++);
+	});
+													
+
+	function add() {
+	  	
+	  	var new_input = 
+		"<input type='text' id='carplate"+new_carplate_no+"' id='carplate-number' class='form-control' class='form-control' placeholder='QAA123' required'><button class='remove' id='"+new_carplate_no+"' type='button'>Remove</button>";
+
+	  	$('#new_carplate_no').append(new_input);
+	  
+		
+		var button_list = document.getElementsByClassName("remove");
+		for (var i=0; i< button_list.length; i++ ) {
+
+			button_list[i].addEventListener("click", function(){
+				remove(this.id);
+				this.remove();
+			});
+		}
+		
+	}
+
+	function remove(elementno) {
+	  	var carplates = document.getElementById("carplate"+elementno);
+		carplates.remove();
+	}
+</script>
 <script src="add-residents.js"></script>
 </body>
 </html>
