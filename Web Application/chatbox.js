@@ -12,19 +12,22 @@ db.collection("landlord").doc(userid).get().then(function(doc) {
 	if (doc.exists) {
 		var username = document.getElementById("username");
 		username.innerHTML = `<h6>${doc.data().name}</h6>`;
-
-		var pathReference = storage.ref(doc.data().imageurl);
+		if(doc.data().imageurl != null){
+			var pathReference = storage.ref(doc.data().imageurl);
 			
-		pathReference.getDownloadURL().then(function(url) {
-				
-			var imgset = document.getElementById('profile-image');
-			imgset.src = url;
-				
-		}).catch(function(error) {
-			console.log(error);
-		});
+			pathReference.getDownloadURL().then(function(url) {
+
+				var imgset = document.getElementById('profile-image');
+				imgset.src = url;
+
+			}).catch(function(error) {
+				console.log(error);
+			});
+		}
+		
 	} else {
 		// doc.data() will be undefined in this case
+		
 		console.log("No such document!");
 	}
 }).catch(function(error) {
@@ -74,11 +77,10 @@ docref.orderBy("time","desc").limit(5)
 					</div>
 				  </div>`+ chats;
 			}
-			
-			if(i == 5 || querysize < 5){
-				//insert send message box
-				chats = chats + `<div class='row'>
-						<div class='col-12'>
+        });
+	//insert send message box
+			chats = chats + `<div class='row'>
+						<div class='col-10'>
 						  <div class="chat-box-tray">
 							<i class="far fa-grin"></i>
 							<input type="text" placeholder="Type your message here..." id="message">
@@ -87,10 +89,8 @@ docref.orderBy("time","desc").limit(5)
 						</div>
 					  </div>`;
 
-				chat_list.innerHTML = chats;
-				//add on click event on the icon
-				var icon = document.getElementById("send-message");
-				icon.addEventListener("click",sendmessage);
-			}
-        });
+			chat_list.innerHTML = chats;
+			//add on click event on the icon
+			var icon = document.getElementById("send-message");
+			icon.addEventListener("click",sendmessage);
     });

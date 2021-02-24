@@ -14,11 +14,12 @@ auth.onAuthStateChanged(user => {
 function addTenants(){
 	var residentType = document.getElementById('resident-type');
 	var haveTenant = document.getElementById('have-tenant');
+	console.log(residentType.value);
 	if(residentType.value == "landlord"){
-		haveTenant.style.display = "block";
+		haveTenant.style.display = "none";
 	}
 	else if(residentType.value == "tenant"){
-		haveTenant.style.display = "none";
+		haveTenant.style.display = "block";
 	}
 }
 document.getElementById('add-resident-form').addEventListener("submit", function(e){
@@ -30,7 +31,14 @@ document.getElementById('add-resident-form').addEventListener("submit", function
 	var email = document.getElementById('email').value;
 	var unitno = document.getElementById('unitno').value;
 	var restype = document.getElementById('resident-type').value;
-
+	
+	var carplates_element = document.getElementById('carplates').getElementsByTagName("input");
+	var carplates = new Array();
+	for(i=0;i<carplates_element.length;i++)
+	{
+		carplates[i]=carplates_element[i].value;
+	}
+	
 	//disable fields
 	updatefields(true);
 	
@@ -39,12 +47,20 @@ document.getElementById('add-resident-form').addEventListener("submit", function
 	if(name == "" ||idno == "" ||contact == "" ||email == "" ||unitno == "" ||restype == "" ){
 		
 	}else{
-		createresident(name,idno,contact,email,unitno,restype)
+		if(restype == "tenant"){
+			var id = document.getElementById('id').value;
+			
+			console.log(ref);
+			createresident(name,idno,contact,email,unitno,restype,carplates,id);
+		}else{
+			createresident(name,idno,contact,email,unitno,restype,carplates,"");
+		}
+		//
 	}
 	
 });
 
-async function createresident(username,idno,contacts,emails,units,role){
+async function createresident(username,idno,contacts,emails,units,role,carplates,landlordref){
 	
 	const createUser = functions.httpsCallable('createUser');
 	createUser({ email: emails,pass:idno }).then(result => {
@@ -57,13 +73,17 @@ async function createresident(username,idno,contacts,emails,units,role){
 			contact: contacts,
 			email: emails,
 			unit: firebase.firestore.FieldValue.arrayUnion(units), 
-			role: role
+			role: role,
+			carplate: carplates,
+			landlords: landlordref,
+			dateupdated: new Date(),
+			rmsg: ""
 			
 			}).then(()=>{
 				console.log("user created successfully");
 				//re-enable fields
 				updatefields(false);
-				
+				alert("user created successfully");
 			}).catch(err => {
 				console.error("Error adding document: ", err);
 				alert(err);
@@ -72,7 +92,7 @@ async function createresident(username,idno,contacts,emails,units,role){
 			});
 		}else{
 			console.log(result);
-			alert(result.data.message);
+			alert("User creation failed");
 			updatefields(false);
 		}
 		

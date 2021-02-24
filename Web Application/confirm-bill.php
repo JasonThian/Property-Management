@@ -1,4 +1,8 @@
 <?php
+require 'vendor/autoload.php';
+
+use Konekt\PdfInvoice\InvoicePrinter;
+$message = "";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -6,25 +10,83 @@ use PHPMailer\PHPMailer\Exception;
 // Load Composer's autoloader
 require '../vendor/autoload.php';
 
-if(empty($_POST['price']) || empty($_POST['payment-desc']) || empty($_POST['user_id']) || empty($_POST['name']) || empty($_POST['unit_no']) || empty($_POST['contact']) || empty($_POST['email'])){
-	print_r($_POST);
+$timestamp = strtotime("now");
+
+if(isset($_POST['item0'])){
+	$item1=$_POST['item0'];
+}else
+	$item1="";
+	
+if(isset($_POST['item1'])){
+	$item2=$_POST['item1'];
+}else
+	$item2="";
+
+if(isset($_POST['item2'])){
+	$item3=$_POST['item2'];
+}else
+	$item3="";
+	
+if(isset($_POST['item3'])){
+	$item4=$_POST['item3'];
+}else
+	$item4="";
+	
+if(isset($_POST['item4'])){
+	$item5=$_POST['item4'];
+}else
+	$item5="";
+	
+	
+if(isset($_POST['ip0'])){
+	$price1=$_POST['ip0'];
+}else
+	$price1="";
+	
+if(isset($_POST['ip1'])){
+	$price2=$_POST['ip1'];
+}else
+	$price2="";
+	
+if(isset($_POST['ip2'])){
+	$price3=$_POST['ip2'];
+}else
+	$price3="";
+	
+if(isset($_POST['ip3'])){
+	$price4=$_POST['ip3'];
+}else
+	$price4="";
+	
+if(isset($_POST['ip4'])){
+	$price5=$_POST['ip4'];
+}else
+	$price5="";
+
+if(empty($_POST['user_id']) || empty($_POST['name']) || empty($_POST['unit_no']) || empty($_POST['contact']) || empty($_POST['email'])){
+	
 	function setData($data){}
+
 }
 else
 {
-	//initialize variables
-	$name = $_POST['name'];
-	$price = $_POST['price'];
-	$payment = $_POST['payment-desc'];
-	$unitno = $_POST['unit_no'];
-	$email = $_POST['email'];
-//	$contact = $_POST['contact'];
-	
 	function setData($data)
 	{
 		$value = $_POST["$data"];
-		echo "<input type='hidden' value='$value' id='$data' name='$data' />";
+		//echo "<input type='hidden' value='$value' id='$data' name='$data' />";
+		echo $value;
 	}
+	
+	chmod("bills/", 777);
+	
+	//initialize variables
+	$name = $_POST['name'];
+	$price = "test";
+	$payment = "8.00";
+	$unitno = $_POST['unit_no'];
+	$email = $_POST['email'];
+//	$contact = $_POST['contact'];
+	getinv($item1,$price1,$item2,$price2,$item3,$price3,$item4,$price4,$item5,$price5,$timestamp);
 	
 	if(isset($_POST['user_id'])){
 		$msg = "Hi $name, your bills for unit $unitno is now ready for payment";
@@ -53,12 +115,11 @@ else
 
 		$mail->Subject = 'Reminder for Bill';
 		$mail->Body    = $bodyContent;
-
+		$mail->AddAttachment(getcwd()."/bills/$timestamp.pdf", $name = "$timestamp",  $encoding = 'base64', $type = 'application/pdf');
 		if(!$mail->send()) {
-			echo 'Message could not be sent.';
-			echo 'Mailer Error: ' . $mail->ErrorInfo;
+			$message = "Message could not be sent.<br>Mailer Error: " . $mail->ErrorInfo;
 		} else {
-			echo 'Message has been sent';
+			$message = 'Message has been sent';
 		}
 	}
 	
@@ -90,7 +151,41 @@ else
 	
 	
 }
+function getinv($desc1,$price1,$desc2,$price2,$desc3,$price3,$desc4,$price4,$desc5,$price5,$timestamp){
+	
 
+  $invoice = new InvoicePrinter();
+  
+  /* Header settings */
+  $invoice->setLogo("images/dryx-black.png");   //logo image path
+  $invoice->setColor("#007fff");      // pdf color scheme
+  $invoice->setType("Monthly Bill");    // Invoice Type
+  $invoice->setReference("INV-0000001");   // Reference
+  $invoice->setDate(date('M dS ,Y',time()));   //Billing Date
+  $invoice->setTime(date('h:i:s A',time()));   //Billing Time
+  $invoice->setDue(date('M dS ,Y',strtotime('+3 months')));    // Due Date
+  $invoice->setFrom(array("D'ryx Management Office","D'ryx Resident","Sunny Hill Garden","Kuching Sabah, 93250"));
+  $invoice->setTo(array("name","D'ryx Resident","Sunny Hill Garden","Kuching Sabah, 93250"));
+  
+  $invoice->addItem($desc1,"",1,0,floatval($price1),0,floatval($price1));
+  $invoice->addItem($desc2,"",1,0,floatval($price2),0,floatval($price2));
+  $invoice->addItem($desc3,"",1,0,floatval($price3),0,floatval($price3));
+  $invoice->addItem($desc4,"",1,0,floatval($price4),0,floatval($price4));
+  $invoice->addItem($desc5,"",1,0,floatval($price5),0,floatval($price5));
+  
+  $invoice->addTotal("Total",9460);
+  
+  //$invoice->addBadge("Payment Paid");
+  
+  //$invoice->addTitle("Important Notice");
+  
+  //$invoice->addParagraph("No item will be replaced or refunded if you don't have the invoice with you.");
+  
+  $invoice->setFooternote("D'ryx Residence");
+  
+  $invoice->render("bills/".$timestamp.".pdf","F");
+  
+}
 ?>
 <!doctype html>
 <html>
@@ -108,19 +203,68 @@ else
 </head>
 	<body>
 		<div class="sidebar">
-			<header><img src="images/dryx-black.png" alt="dryx-logo" width="50%"></header>
-			<ul>
-				<li><a href="residents.html"><i class="fas fa-user-friends"></i>Residents</a></li>
-				<li><a href="livechat.html"><i class="fas fa-comment-dots"></i>Live Chat</a></li>
-				<li><a href="update-bill.html"><i class="fas fa-bolt"></i>Update bill</a></li>
-				<li><a href="payment-log.html"><i class="fas fa-money-bill-alt"></i>Payment Log</a></li>
-				<li><a href="visitor-log.html"><i class="fas fa-address-card"></i>Visitor Log</a></li>
-				<li><a href="announcement.html"><i class="fas fa-bell"></i>Announcements</a></li>
-				<li><a href="bookings.html"><i class="fas fa-building"></i>Facility bookings</a></li>
-				<li><a href="login.html" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-			</ul>
+		<header><img src="images/dryx-black.png" alt="dryx-logo" width="50%"></header>
+		<ul>
+			<li><a href="residents.html"><i class="fas fa-user-friends"></i>Residents</a></li>
+			<li><a href="livechat.html"><i class="fas fa-comment-dots"></i>Live Chat</a></li>
+			<li><a href="update-bill.html"><i class="fas fa-bolt"></i>Update bill</a></li>
+			<li><a href="payment-log.html"><i class="fas fa-money-bill-alt"></i>Payment Log</a></li>
+			<li><a href="visitor-log.html"><i class="fas fa-address-card"></i>Visitor Log</a></li>
+			<li><a href="announcement.html"><i class="fas fa-bell"></i>Announcements</a></li>
+			<li><a href="bookings.html"><i class="fas fa-building"></i>Facility bookings</a></li>
+			<li><a href="login.html" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+		</ul>
 		</div>
-		<?php setData('user_id'); setData('price'); setData('payment-desc'); setData('name'); setData('contact'); setData('unit_no'); setData('email'); ?>
+		
+		<div class="content">	
+		<!--img src="images/success.png" alt="success-icon" style="width:5%"/>
+		<h1 class="bill-updated">Bill Updated</h1>
+		<h1 class="bill-updated-text">Updated bill will be sent to user shortly!</h1>
+		<h1 class="redirect">Please wait, you will be redirected to the homepage shortly....</h1-->
+		
+		<div>
+			<table id="update-bill-table" class="table table-bordered">  
+			  <tbody>
+				<tr>
+					<td class="table-info">User ID</td>
+					<td><?php setData('user_id');?></td>
+				</tr>
+
+				<tr>
+					<td class="table-info">Unit no</td>
+					<td><?php setData('unit_no');?></td>
+				</tr>
+				
+				<tr>
+					<td class="table-info">Name</td>
+					<td><?php setData('name');?></td>
+				</tr>
+
+				<tr>
+					<td class="table-info">Contact</td>
+					<td><?php setData('contact');?></td>
+				</tr>
+				
+				<tr>
+					<td class="table-info">Email</td>
+					<td><?php setData('email');?></td>
+				</tr>
+
+				<tr>
+					<td class="table-info">Price</td>
+					<td>90.00</td>
+				</tr>
+				<tr>
+					<td class="table-info">Description</td>
+					<td>Payment Bill</td>
+				</tr>
+			  </tbody>
+			</table>
+		</div>
+		
+		<!--?php setData('user_id'); setData('price'); setData('payment-desc'); setData('name'); setData('contact'); setData('unit_no'); setData('email'); ?>-->
+		<p style="position:absolute; left: 20%;"><?php echo $message; ?></p>
+	</div>
 	</body>
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>

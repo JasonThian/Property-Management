@@ -42,8 +42,7 @@ db.collection("booking").get().then((querySnapshot) => {
         doc.data().contact,
         facility,
         date,
-        duration,
-        "<button>Approve</button><button>Reject</button>"
+        duration
       ]).draw();
     });
   });

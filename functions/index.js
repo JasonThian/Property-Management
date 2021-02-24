@@ -55,6 +55,21 @@ exports.createUser = functions.https.onCall((data,context)=>{
 
 exports.deleteUser = functions.https.onCall((data,context)=>{
 	return admin.auth().deleteUser(data.uid)
+	.then((userRecord) => {
+		console.log('Successfully deleted user');
+		return {
+				message: `Success`
+		};
+	}).catch(function(error) {
+		console.log('Error deleting user:', error);
+		return {
+			message: error
+		};
+	});
+});
+
+exports.checkclaims = functions.https.onCall((data,context)=>{
+	return admin.auth().getUser(data.uid).
 	.then(function() {
 		console.log('Successfully deleted user');
 		return {

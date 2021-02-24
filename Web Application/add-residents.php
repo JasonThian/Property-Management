@@ -1,3 +1,22 @@
+<?php
+$name = "";
+$id = "";
+
+$element = "";
+$selected = "";
+$disabled = "disabled";
+if(isset($_POST['id']) && isset($_POST['name'])){
+	$name = $_POST['name'];
+	$id = $_POST['id'];
+		
+	$element = "<input type='hidden' value='$id' id='id'></input>";
+		
+	$selected = "selected";
+//	echo "<script>console.log('isset')</script>";
+	$disabled = "";
+}
+
+?>
 <!doctype html>
 <html>
 <head>
@@ -34,13 +53,14 @@
 		<a id ="create-admin" href="create-admin.html" ><i class="fas fa-plus"></i>  Create Admin</a>
 		
 		<form action="" method="post" class="mt-0 col-md-10" id="add-resident-form">
-		
+			<?php echo $element;?>
+			
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
 					<label for="resident-type">Resident Type</label>
-					<select onClick="addTenants()" class="form-control" id="resident-type">
+					<select onChange="addTenants()" class="form-control" id="resident-type">
 						<option value="landlord">Landlord</option>
-						<option value="tenant">Tenant</option>
+						<option value="tenant" <?php echo $selected; echo $disabled;?>>Tenant</option>
 					</select>
 				</div>
 				
@@ -56,15 +76,11 @@
 					<input type="text" name="name" id="name" class="form-control" placeholder="Full name (e.g. John Doe)" required>
 				</div>
 				
-				<div id="have-tenant" class="col-md-4 mb-4 px-4">
-					<label for="tenant">Tenant</label>
+				<div id="have-tenant" class="col-md-4 mb-4 px-4" style="display:none;">
+					<label for="tenant">landlord</label>
 					<div class="tenant">							
-						<input id="yes-button" type="radio" name="radAnswer" value="yes" class="gender">
-						<label for="yes">Yes</label>							
-						
-						<input id="no-button" type="radio" name="radAnswer" value="no" class="gender">
-						<label for="no">No</label>
-					</div>	
+						<input id="yes-button" type="text" name="radAnswer" class="gender" <?php echo "value='$name'"?> disabled>		
+					</div>
 				</div>
 			</div>
 			
@@ -83,11 +99,14 @@
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
 					<label for="email">Email</label>
-					<input type="text" id="carplateNo" class="form-control" placeholder="QAA123" required>		
+					<input type="text" id="email" class="form-control" placeholder="eg. example@gmail.com" required>		
+
+
 				</div>
 				
-				<div class="col-md-4 mb-4 px-4">
+				<div class="col-md-4 mb-4 px-4" id="carplates">
 					<label for="carplate-no">Carplate No.</label>
+
 					<input type="text" id="carplate-number" class="form-control" placeholder="QAA123" required>
 					
 
@@ -96,9 +115,18 @@
 
 						<button id="add" class="add" type="button">Add</i></button>					
 
+
+					<div class="form-inline">
+						<input type="text" id="carplate-number" class="form-control mr-1" placeholder="QAA123" required>
+						<button id="add" class="btn btn-primary" type="button">Add</button>
+					</div>
+
 					
-					<div id="new_carplate_no"></div>
-					<input type="hidden" value="1" id="total_carplate_no">
+					<div class="form-inline">
+						<div id="new_carplate_no">
+						
+						</div>				
+					</div>
 				</div>
 			</div>
 			
@@ -132,22 +160,34 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 
 	function add() {
 	  	
-	  	var new_input = 
-		"<input type='text' id='carplate"+new_carplate_no+"' id='carplate-number' class='form-control' class='form-control' placeholder='QAA123' required'><button class='remove' id='"+new_carplate_no+"' type='button'>Remove</button>";
+		
+	  	var new_input = "<input type='text' id='carplate"+new_carplate_no+"' id='carplate-number' class='form-control mr-1' class='carplates' placeholder='QAA123' required'><button name='remove-carplate' class='btn btn-primary' id='"+new_carplate_no+"' type='button'>Remove</button>";
 
 	  	$('#new_carplate_no').append(new_input);
-	  
-		
-		var button_list = document.getElementsByClassName("remove");
+				
+		var button_list = document.getElementsByName("remove-carplate");
 		for (var i=0; i< button_list.length; i++ ) {
 
 			button_list[i].addEventListener("click", function(){
 				remove(this.id);
 				this.remove();
 			});
+			
+			//Got bug
+			if(i >= 4){				
+				alert("You can only add up to 5 carplates.");
+				document.getElementById('button').disabled = true;
+			}
 		}
 		
 	}
+
+	function remove(elementno) {
+	  	var carplates = document.getElementById("carplate"+elementno);
+		carplates.remove();
+	}
+</script>
+<script src="add-residents.js"></script>
 
 	function remove(elementno) {
 	  	var carplates = document.getElementById("carplate"+elementno);

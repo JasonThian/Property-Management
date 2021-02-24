@@ -111,8 +111,9 @@ ul li:hover a{
   transition: all 0.3s ease-in-out;
 }
 
-.loginpage input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+.loginpage input[type=button]:hover, .loginpage input[type=submit]:hover, .loginpage input[type=reset]:hover  {
   background-color: #CCA679;
+  cursor: pointer;
 }
 
 .loginpage input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -195,8 +196,80 @@ ul li:hover a{
 	left: 36%;
 }
 
-/* Resident List */
-#resident-list, #payment-log, #visitor-log, #bookings{
+/* Resident List , Payment Log, Visitor Log*/
+#resident-list, #payment-log, #visitor-log{
+	position: absolute;
+	width: 75%;
+	margin-top: 11%;
+	left: 22%;
+	right: 5%;
+}
+
+
+#bookings{
+	position: absolute;
+	width: 75%;
+	margin-top: 10%;
+	left: 22%;
+	right: 5%;
+	overflow: auto;
+}
+
+th{
+	font-size: 1vw;
+	background-color: #C8E0FF!important;
+	font-family: "Nunito", sans-serif; 
+}
+
+td{
+	font-size: 0.8vw;
+	padding: 2%;
+	border-bottom: 1px solid #7278B9!important;
+}
+
+td input, td button{
+	border: none;
+	border-radius: 5px;
+	padding: 10%;
+}
+
+td input{
+	background-color: #28a745;
+	color: white;
+	cursor: pointer;
+}
+
+td button{
+	background-color: #dc3545;
+	color: white;
+	cursor: pointer;
+}
+
+/* Data Tables */
+.dataTables_paginate {
+	position: fixed;
+	left: 75%;
+	margin-top: 3%;
+	
+}
+
+
+.dataTables_filter{
+	position: absolute;
+	left: 75%;
+	margin-top: 7%;
+}
+
+.dataTables_length{
+	display: none;
+}
+
+.dt-body-nowrap {
+   white-space: nowrap;
+}
+
+/* Update bill */
+#update-bill-table{
 	position: absolute;
 	width: 70%;
 	margin-top: 11%;
@@ -244,7 +317,7 @@ ul li:hover a{
 /*Update bill page*/
 .update-bill{
 	background: white;
-	z-index: 900;		
+	z-index: 1;		
 	position: relative;	
 }
 
@@ -438,32 +511,47 @@ input[name="searchbar"]{
 	background-color: #CCA679;
 }
 
+/* Update bill */
+.content img{
+	position: fixed;
+	top: 10%;
+	left: 55%;
+}
 
-.add, .remove{
-	position: absolute;
-	top: 48%;
-	left: 95%;	
-	background-color: #C8E0FF;
+.content .bill-updated{
+	top: 25%;
+	left: 45%;
 	color: #5F6392;
-	border: none;
-	border-radius: 5px;
-	padding: 1% 2%;
-	font-weight: bold;	
-	font-family: 'Nunito', sans-serif;
-	font-size: 1.2vw;
 }
 
-.remove{
-	/**/
-}
+.content .bill-updated-text{
+	left: 40%;
+	top: 35%;
+	font-size: 1.8vw;
+	color: maroon;
+}	
 
 /*admin only features*/
 #create-admin{
 	display:none;
 }
 
+.btn-primary{
+	background-color: #C8E0FF !important;
+	color: #5F6392 !important;
+	border: none !important;
+	border-radius: 5px !important;
+	font-family: 'Nunito', sans-serif !important;
+	font-size: 1.2vw !important;
+}
 
-
+/*invoice*/
+/*invoice*/
+#confirm_bill{
+	position: absolute;
+    width: 200px;
+    right: 0;
+}
 
 
 

@@ -30,81 +30,20 @@
 	<div class="content">
 		<h1>Visitor Log</h1>
 		
-		<table id="visitor-log" class="table table-bordered striped ">
+		<table id="visitor-log" class="table hover order-column">
 			<thead>
 				<tr>
-					<th>Visitor ID</th>
+					<th>Resident Name</th>
 					<th>Identification No.</th>
-					<th>Name</th>
 					<th>Contact No.</th>
-					<th>Resident</th>
-					<th>Visit Date</th>
+					<th>Check-In Time</th>
+					<th>Check-Out Time</th>
+					<th>Status</th>
 				</tr>
 			</thead>
 			
 			<tbody id="list">
-				<tr>
-					<td>000001</td>
-					<td>Ali</td>
-					<td>870621-13-5457</td>
-					<td>0198756769</td>
-					<td>Robert Pattinson</td>
-					<td>26/9/2020</td>				
-				</tr>
-				
-				<tr>
-					<td>000001</td>
-					<td>Ali</td>
-					<td>870621-13-5457</td>
-					<td>0198756769</td>
-					<td>Robert Pattinson</td>
-					<td>26/9/2020</td>				
-				</tr>
-				
-				<tr>
-					<td>000001</td>
-					<td>Ali</td>
-					<td>870621-13-5457</td>
-					<td>0198756769</td>
-					<td>Robert Pattinson</td>
-					<td>26/9/2020</td>				
-				</tr>
-				
-				<tr>
-					<td>000001</td>
-					<td>Ali</td>
-					<td>870621-13-5457</td>
-					<td>0198756769</td>
-					<td>Robert Pattinson</td>
-					<td>26/9/2020</td>				
-				</tr>
-				
-				<tr>
-					<td>000001</td>
-					<td>Ali</td>
-					<td>870621-13-5457</td>
-					<td>0198756769</td>
-					<td>Robert Pattinson</td>
-					<td>26/9/2020</td>				
-				</tr>
-				
-				<tr>
-					<td>000001</td>
-					<td>Ali</td>
-					<td>870621-13-5457</td>
-					<td>0198756769</td>
-					<td>Robert Pattinson</td>
-					<td>26/9/2020</td>				
-				</tr>
-				
-				<tr>
-					<td>000001</td>
-					<td>Ali</td>
-					<td>870621-13-5457</td>
-					<td>0198756769</td>
-					<td>Robert Pattinson</td>
-					<td>26/9/2020</td>				
-				</tr>
+			
 			</tbody>
 		</table>
 		
@@ -113,17 +52,19 @@
 				<ul class="pagination"></ul>
 			</nav>
 		</div>
-		
-		<script>
-			$(document).ready(function() {
-				$('#visitor-log').DataTable({
-					"pagingType": "simple_numbers",
-					info: false,
-					dom: '<"top">rt<"bottom"lfp><"clear">'
-				});
-				
-			} ); 
-		</script>		
+			
 	</div>
 </body>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-functions.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
+<script src="firebase.js"></script>
+<script src="auth(logged in).js"></script>
+<script src="visitor-log.js"></script>
 </html>

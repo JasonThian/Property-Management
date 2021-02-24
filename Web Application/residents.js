@@ -17,8 +17,16 @@ var t = $('#resident-list').DataTable({
 				});	
 db.collection("landlord").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-		console.log(doc.data().name);
 		
+		if(doc.data().role == 'landlord')
+			var button = `<form style="position:relative;" method="post" action="add-residents.php">
+<input type="hidden" value="${doc.id}" name="id"></input>
+<input type="hidden" value="${doc.data().name}" name="name"></input>
+<input type="submit" value="Add tenant"></input>
+</form>`
+		else
+			var button = '';
+		console.log(button);
 		t.row.add( [
             doc.data().name,
             doc.data().email,
@@ -26,7 +34,8 @@ db.collection("landlord").get().then((querySnapshot) => {
             doc.data().ic,
             doc.data().unit,
 			doc.data().role,
-			`<button id='${doc.id}' class='deleteuser'>Delete</button>`
+			`<button id='${doc.id}'type="button" class='deleteuser'>Delete</button>`,
+			button
         ] ).draw( );
     });
 	
@@ -39,6 +48,7 @@ db.collection("landlord").get().then((querySnapshot) => {
 
 		});
 	}
+	
 });
 
 async function deleteUser(ele_id){

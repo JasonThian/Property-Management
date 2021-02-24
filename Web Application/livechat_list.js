@@ -58,18 +58,23 @@ function chat(){
 		var img = document.getElementsByClassName('profile-image');
 		var d = 0;
 		for(i = 0; i < url_list.length; i++){
+			if(url_list[i] != null){
+				var pathReference = storage.ref(url_list[i]);
 			
-			var pathReference = storage.ref(url_list[i]);
-			
-			pathReference.getDownloadURL().then(function(url) {
-				
-				var imgset = document.getElementsByClassName('profile-image');
-				imgset[d].src = url;
+				pathReference.getDownloadURL().then(function(url) {
+
+					var imgset = document.getElementsByClassName('profile-image');
+					imgset[d].src = url;
+					d++;
+					
+				}).catch(function(error) {
+					console.log(error);
+				});
+			}else{
 				d++;
-				
-			}).catch(function(error) {
-				console.log(error);
-			});
+			}
+			
+			
 		}
 	});
 }
