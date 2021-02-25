@@ -216,55 +216,46 @@ function getinv($desc1,$price1,$desc2,$price2,$desc3,$price3,$desc4,$price4,$des
 		</ul>
 		</div>
 		
-		<div class="content">	
-		<!--img src="images/success.png" alt="success-icon" style="width:5%"/>
-		<h1 class="bill-updated">Bill Updated</h1>
-		<h1 class="bill-updated-text">Updated bill will be sent to user shortly!</h1>
-		<h1 class="redirect">Please wait, you will be redirected to the homepage shortly....</h1-->
-		
-		<div>
-			<table id="update-bill-table" class="table table-bordered">  
+		<table id="update-bill-table" class="table mx-4 my-5">  
 			  <tbody>
 				<tr>
-					<td class="table-info">User ID</td>
-					<td><?php setData('user_id');?></td>
+					<td class="table-primary text-center h5" style="background-color: #C8E0FF; color: #5F6392;">User ID</td>
+					<td class="text-center h5"><small style="color: #007bff; "><?php setData('user_id');?></small></td>
 				</tr>
 
 				<tr>
-					<td class="table-info">Unit no</td>
-					<td><?php setData('unit_no');?></td>
+					<td class="table-primary text-center h5" style="background-color: #C8E0FF; color: #5F6392;">Unit no</td>
+					<td class="text-center h5"><small><?php setData('unit_no');?></small></td>
 				</tr>
 				
 				<tr>
-					<td class="table-info">Name</td>
-					<td><?php setData('name');?></td>
+					<td class="table-primary text-center h5" style="background-color: #C8E0FF; color: #5F6392;">Name</td>
+					<td class="text-center h5"><small><?php setData('name');?></small></td>
 				</tr>
 
 				<tr>
-					<td class="table-info">Contact</td>
-					<td><?php setData('contact');?></td>
+					<td class="table-primary text-center h5" style="background-color: #C8E0FF; color: #5F6392;">Contact</td>
+					<td class="text-center h5"><small><?php setData('contact');?></small></td>
 				</tr>
 				
 				<tr>
-					<td class="table-info">Email</td>
-					<td><?php setData('email');?></td>
+					<td class="table-primary text-center h5" style="background-color: #C8E0FF; color: #5F6392;">Email</td>
+					<td class="text-center h5"><small><?php setData('email');?></small></td>
 				</tr>
 
 				<tr>
-					<td class="table-info">Price</td>
-					<td>90.00</td>
+					<td class="table-primary text-center h5" style="background-color: #C8E0FF; color: #5F6392;">Price</td>
+					<td class="text-center text-success h5">90.00</td>
 				</tr>
 				<tr>
-					<td class="table-info">Description</td>
-					<td>Payment Bill</td>
+					<td class="table-primary text-center h5" style="background-color: #C8E0FF; color: #5F6392;">Description</td>
+					<td class="text-center h5">Payment Bill</td>
 				</tr>
 			  </tbody>
 			</table>
-		</div>
-		
+        
 		<!--?php setData('user_id'); setData('price'); setData('payment-desc'); setData('name'); setData('contact'); setData('unit_no'); setData('email'); ?>-->
 		<p style="position:absolute; left: 20%;"><?php echo $message; ?></p>
-	</div>
 	</body>
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
