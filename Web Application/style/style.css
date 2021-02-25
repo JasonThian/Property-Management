@@ -536,16 +536,15 @@ input[name="searchbar"]{
 	display:none;
 }
 
-.btn-primary{
+/* .btn-primary{
 	background-color: #C8E0FF !important;
 	color: #5F6392 !important;
 	border: none !important;
 	border-radius: 5px !important;
 	font-family: 'Nunito', sans-serif !important;
 	font-size: 1.2vw !important;
-}
+} */
 
-/*invoice*/
 /*invoice*/
 #confirm_bill{
 	position: absolute;
