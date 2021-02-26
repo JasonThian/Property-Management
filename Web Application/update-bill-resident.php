@@ -237,5 +237,22 @@ div.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-wei
 		this.style.backgroundColor = "#7278B9";
 	};
 </script>
+<script>
+	/* function hideButtons(){
+		var s = document.getElementById("send");
+		var c = document.getElementById("cancel");
+		
+		var invoice = document.getElementById("inv_box");
+		
+		if(invoice.style.display === block){
+			s.style.display = "block";
+			c.style.display = "block";
+		}
+		else{
+			s.style.display = "none";
+			c.style.display = "none";
+		}
+	} */
+</script>
 </body>
 </html>
