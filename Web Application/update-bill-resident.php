@@ -132,7 +132,9 @@ div.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-wei
 					<input type="text" name="unit_no" id="unit_no" class="form-control" <?php setValue($_POST['unit']); ?> placeholder="B-8-1" required <?php disable(); ?> />
 				</div>	
 			</div>
-			<input type="submit" value="Generate Invoice" id="generate_inv"/>
+			
+			<!-- New -->
+			<input id="generate_inv" class="btn" style="font-style: bold; background-color: rgba(114, 120, 185); color: white;" type="submit" value="Generate Invoice"/>
 				
 			
 			<!--<button action="confirm_bill.php" id="update-button" type="submit" value="Update" name="update"><i class="fas fa-check"></i> Update</button>-->				
@@ -225,5 +227,15 @@ div.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-wei
 <script src="firebase.js"></script>
 <script src="auth(logged in).js"></script>
 <script src="update-bill-resident.js"></script>
+<!-- New -->
+<script>
+	document.getElementById("generate_inv").onmouseover = function(){
+		this.style.backgroundColor = "#CCA679";
+	};
+
+	document.getElementById("generate_inv").onmouseout = function(){
+		this.style.backgroundColor = "#7278B9";
+	};
+</script>
 </body>
 </html>
