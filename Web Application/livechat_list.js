@@ -28,15 +28,16 @@ function chat(){
 		var date = doc.data().dateupdated.toDate();
 		var hour = date.getUTCHours();
 		var minute = date.getMinutes();
+		var units = doc.data().unit.toString();
 		
-		var user =`<a href="chatbox.html?${doc.id}"><div class="friend-drawer" id="${doc.id}" >
+		var user =`<div class="friend-drawer" id="${doc.id}" >
 				  <img id="user0img" class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/robocop.jpg" alt="">
 				  <div class="text">
-					<h6>${doc.data().name}</h6>		
+					<h6>${doc.data().name}(${units})</h6>		
 					<p class="text-muted">${doc.data().rmsg}</p>
 				  </div>
 				  <span class="time text-muted small">${hour +":" + minute}</span>
-				</div></a>
+				</div>
 				<hr>`
 		
 		url_list.push(doc.data().imageurl);
@@ -75,6 +76,14 @@ function chat(){
 			}
 			
 			
+		}
+	}).then(() => {
+		var landlords = document.getElementsByClassName('friend-drawer');
+		
+		for (var i = 0; i < landlords.length; i++) {
+			landlords[i].addEventListener('click', async function(e){
+					window.open("chatbox.html?"+this.id);
+			});
 		}
 	});
 }

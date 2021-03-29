@@ -1,16 +1,21 @@
 <?php
 $img = "";
 if(isset($_FILES['annc_image']['name'])){
-	$img = $_FILES['annc_image']['name'];
-	echo $img;
+	$img = $_REQUEST['imageurl'];
 	
 	$url = "https://fcm.googleapis.com/fcm/send";
 
 	$fields=array(
-		"to" => "/topics/announcement",
+		"to"=>"/topics/announcement",
 		"notification" => array(
 			"body" => $_REQUEST['annc_msg'],
 			"title" => $_REQUEST['annc_name'],
+			"image" => $img,
+			"click_action" => "FCM_PLUGIN_ACTIVITY"
+		),
+		"data"=>array(
+			"body"=> $_REQUEST['annc_msg'],
+			"title"=>$_REQUEST['annc_name'],
 			"image" => $img
 		)
 	);
@@ -30,7 +35,7 @@ if(isset($_FILES['annc_image']['name'])){
 	curl_close($ch);
 	
 	
-	 header( "refresh:5; url=residents.html" ); 
+	header( "refresh:5; url=residents.html" ); 
 }
 
 ?>

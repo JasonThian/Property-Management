@@ -238,6 +238,29 @@ td input{
 	color: white;
 	cursor: pointer;
 }
+.limit_slot input, .limit_slot input[type=number]
+{
+	
+	border-bottom: 1px solid #7278B9!important;
+	border-radius: 5px;
+	padding: 1%;
+	color: black;
+	background-color:white;
+	
+}
+
+td input[type=number]{
+	
+	color: white;
+	cursor: pointer;
+}
+
+th button
+{
+	background-color: #dc3545;
+	color: white;
+	cursor: pointer;
+}
 
 td button{
 	background-color: #dc3545;

@@ -1,12 +1,16 @@
 var url = "";
 var blob = "";
-$("#image_url").change(function(){
-	var name = document.getElementById('image_url');
+var tokens = [];
+
+document.getElementById("image_url").addEventListener("change",function(){
+	console.log("changed img");
 	if (this.files && this.files[0]) {
 		var reader = new FileReader();
 		
 		url = this.files[0]['name'];
 		blob = this.files[0];
+		console.log(url);
+		
 		console.log(this.files[0]['name']);
 		reader.onload = function(e) {
 			
@@ -21,6 +25,7 @@ $("#image_url").change(function(){
 });
 
 $("#annc-form").submit(function(event){
+	event.preventDefault();
 	
 	var title = document.getElementById("form_title").value;
 	var msg = document.getElementById("form_msg").value;
@@ -39,6 +44,7 @@ $("#annc-form").submit(function(event){
 //insert to db function
 async function firebasedb(ann_title,ann_description,ann_imageurl,ann_date){
 	
+	
 	await db.collection("announcement").add({
 
     title: ann_title,
@@ -46,17 +52,29 @@ async function firebasedb(ann_title,ann_description,ann_imageurl,ann_date){
 	imageurl: ann_imageurl,
 	date: ann_date
 		
-	}).then(function(docRef) {
+	}).then(async function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
 		console.log(blob);
 		var announceref = storage.ref().child("announcement/"+url);
 		
 		announceref.put(blob).then(function(snapshot) {
 			console.log('Uploaded a blob or file!');
+			
+			
+			snapshot.ref.getDownloadURL().then(function(downloadURL) {
+				console.log("File available at", downloadURL);
+				var annc_form = document.getElementById("annc-form");
+				
+				var input = document.createElement("input");
+				input.type = "hidden";
+				input.name = "imageurl";
+				input.value = downloadURL;
+				annc_form.appendChild(input);
+				
+				annc_form.submit();
+			});
+			
 		});
-		
-		
-	}).then(() =>{
 		
 	}).catch(function(error) {
 		console.error("Error adding document: ", error);

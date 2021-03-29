@@ -11,7 +11,9 @@ db.collection("landlord").doc(userid).get().then(function(doc) {
 		
 	if (doc.exists) {
 		var username = document.getElementById("username");
-		username.innerHTML = `<h6>${doc.data().name}</h6>`;
+		var units = doc.data().unit.toString();
+		
+		username.innerHTML = `<h6>${doc.data().name}(${units})</h6>`;
 		if(doc.data().imageurl != null){
 			var pathReference = storage.ref(doc.data().imageurl);
 			

@@ -28,23 +28,41 @@ var t = $('#bookings').DataTable({
   "sDom": '<"top"i>rt<"bottom"flp><"clear">'
 });
 
+ const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+
 db.collection("booking").get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
+  querySnapshot.forEach(async (doc) => {
     var user_id = doc.data().user_id;
     var facility = doc.data().facility;
     var date = doc.data().date;
     var duration = doc.data().duration;
-    db.collection("landlord").doc(user_id).get().then(function (doc) {
-      t.row.add([
-        doc.data().name,
-        doc.data().email,
-        doc.data().unit,
-        doc.data().contact,
-        facility,
-        date,
-        duration
-      ]).draw();
-    });
+	var time = doc.data().time;
+	
+	//format data
+	var dateObj = new Date(date);
+	var month = monthNames[dateObj.getMonth()];
+	var day = String(dateObj.getDate()).padStart(2, '0');
+	var year = dateObj.getFullYear();
+	var date = day  + '-'+ month  + '-' + year;
+	
+    let user_doc = await db.collection("landlord").doc(user_id).get();
+	
+	if(user_doc.exists){
+		console.log(user_doc.data().name);
+		
+		t.row.add([
+			user_doc.data().name,
+			user_doc.data().email,
+			user_doc.data().unit,
+			user_doc.data().contact,
+			facility,
+			date,
+			time,
+			duration
+		  ]).draw();
+	}
+	
   });
 
 });
