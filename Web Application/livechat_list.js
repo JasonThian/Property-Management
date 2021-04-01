@@ -7,83 +7,55 @@ var resident_list = document.getElementById("livechat-resident");
 var rid_list = [];
 var user_element = "";
 
-//db.collection("landlord").orderBy("Date Updated","desc").get().then((querySnapshot) => {
-//    querySnapshot.forEach((doc) => {
-//		console.log("User ID: "+doc.id);
-//		rid_list.push(doc.id);
-//    });
-//});
 
-
-
-
-function chat(){
+async function chat(){
 	var i = 0;
 	var url_list = [];
-	const p1 = db.collection("landlord").orderBy("dateupdated","desc").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-		
-		
+	const p1 = db.collection("landlord").orderBy("dateupdated","desc").get().then(async (querySnapshot) => {
+    querySnapshot.forEach(async (doc) => {
 		
 		var date = doc.data().dateupdated.toDate();
 		var hour = date.getUTCHours();
 		var minute = date.getMinutes();
 		var units = doc.data().unit.toString();
-		
+
 		var user =`<div class="friend-drawer" id="${doc.id}" >
-				  <img id="user0img" class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/robocop.jpg" alt="">
+				  <img id="${doc.data().imageurl}" class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/robocop.jpg" alt="">
 				  <div class="text">
 					<h6>${doc.data().name}(${units})</h6>		
 					<p class="text-muted">${doc.data().rmsg}</p>
 				  </div>
 				  <span class="time text-muted small">${hour +":" + minute}</span>
 				</div>
-				<hr>`
+				<hr>`;
 		
-		url_list.push(doc.data().imageurl);
-		user_element = user_element.concat(user);
-		resident_list.innerHTML = user_element;
-
-
-		i++;
-
 		
+		resident_list.innerHTML += user;
+
 		});
-		
-		return url_list;
+		//console.log(resident_list.innerHTML);
 	});
 	
 	
-	p1.then((url_list) => {
-	
-		var img = document.getElementsByClassName('profile-image');
-		var d = 0;
-		for(i = 0; i < url_list.length; i++){
-			if(url_list[i] != null){
-				var pathReference = storage.ref(url_list[i]);
-			
-				pathReference.getDownloadURL().then(function(url) {
-
-					var imgset = document.getElementsByClassName('profile-image');
-					imgset[d].src = url;
-					d++;
-					
-				}).catch(function(error) {
-					console.log(error);
-				});
-			}else{
-				d++;
+	p1.then(async () => {
+		var profile = document.getElementsByClassName('profile-image');
+		for (var i = 0; i < profile.length; i++) {
+			if(profile[i].id !=""){
+				var pathReference = storage.ref(profile[i].id);
+				let url = await pathReference.getDownloadURL();
+				profile[i].src = url
 			}
-			
-			
 		}
-	}).then(() => {
-		var landlords = document.getElementsByClassName('friend-drawer');
 		
+		var landlords = document.getElementsByClassName('friend-drawer');
+		console.log(landlords.length);
 		for (var i = 0; i < landlords.length; i++) {
-			landlords[i].addEventListener('click', async function(e){
-					window.open("chatbox.html?"+this.id);
+			
+			console.log(landlords[i]);
+			landlords[i].addEventListener('click', function(e){
+				console.log(this.id+" clicked");
+				window.open("chatbox.html?"+this.id);
 			});
 		}
-	});
+	})
 }

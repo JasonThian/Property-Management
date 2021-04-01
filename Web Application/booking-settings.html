@@ -27,8 +27,9 @@
 			<li><a href="login.html" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
 		</ul>
 	</div>
-	<div class="content">
+	<div class="content1">
 		<h1>Booking Setting</h1>
+		
 		
 		<table id="resident-list" class="table hover order-column">
 			<thead>
@@ -139,22 +140,30 @@
 			</tr>
 			<tr >
 			<td class="limit_slot" colspan="3">
+				<form class="facility_selection">
+				  <label for="facility">Facility</label>
+				  <select name="facility" id="facility">
+					<option value="bbq">BBQ PIT</option>
+					<option value="lounge">SKY LOUNGE</option>
+					<option value="pp">GYM</option>
+					<option value="AV">AV ROOM</option>
+					<option value="AV">SAUNA</option>					
+				  </select>
+				 
+				</form>
+			
 				<label for="unitno">Limit</label>
-				<input type="number" name="limit" value=""/>
+				<input id="limit" type="number" name="limit"/>
 				<p>*The default booking limit for each timeslot is 3</p>
+				<button id="complete-button" type="submit" name="done"><i class="fas fa-check"></i>  Done</button>
 			</td>
 			</tr>
-			
 			</tbody>
+			
 
 			
 		</table>
 		
-		<div class="pagination-container">
-			<nav>
-				<ul class="pagination"></ul>
-			</nav>
-		</div>
 			
 	</div>
 	

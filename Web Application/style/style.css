@@ -200,7 +200,7 @@ ul li:hover a{
 #resident-list, #payment-log, #visitor-log{
 	position: absolute;
 	width: 75%;
-	margin-top: 11%;
+	margin-top: 8%;
 	left: 22%;
 	right: 5%;
 }
@@ -330,6 +330,18 @@ td button{
 	padding: 1% 2%;
 	left: 75%;
 	top: 13%;
+}
+#complete-button{
+	
+	background-color: #C8E0FF;
+	color: #5F6392;
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	padding: 1% 2%;
+	
+	
+	
 }
 
 #done-button:hover{
@@ -516,6 +528,21 @@ input[name="searchbar"]{
 	font-size: 1.8vw;
 	color: maroon;
 }
+
+/*Content*/
+.content1{
+	background: white;
+	z-index: 900;		
+	position: relative;	
+}
+
+.content1 h1{
+	position: fixed;
+	color: #CCA679;	
+	top: 3%;
+	left: 22%;
+}
+
 
 .content .redirect{
 	left: 40%;
