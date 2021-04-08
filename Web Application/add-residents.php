@@ -32,7 +32,6 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 </head>
 
 <body>
-	<!-- Place required backend part is fill with #-->
 	<div class="sidebar">
 		<header><img src="images/dryx-black.png" alt="dryx-logo" width="50%"></header>
 		<ul>
