@@ -13,14 +13,15 @@ db.collection("billing").get().then((querySnapshot) => {
     db.collection("landlord").doc(user_id).get().then(function (doc) {
       t.row.add([
         doc.data().name,
-		doc.data().email,
+		    doc.data().email,
         doc.data().contact,
         doc.data().unit,
         "RM "+amount.toFixed(2),
-		status
+        status
       ]).draw();
 		
     });
   });
 
 });
+
