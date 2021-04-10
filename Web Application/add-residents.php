@@ -104,20 +104,12 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 				</div>
 				
 				<div class="col-md-4 mb-4 px-4" id="carplates">
-					<label for="carplate-no">Carplate No.</label>
-
-					<input type="text" id="carplate-number" class="form-control" placeholder="QAA123" required>
-					
-
-						<button class="add">Add carplate</button>
-						<!--button class="remove">Remove carplate</button-->
-
-						<button id="add" class="add" type="button">Add</i></button>					
+					<label for="carplate-no">Carplate No.</label>		
 
 
 					<div class="form-inline">
 						<input type="text" id="carplate-number" class="form-control mr-1" placeholder="QAA123" required>
-						<button id="add" class="btn btn-primary" type="button">Add</button>
+						<button id="add" class='btn btn-primary' type="button">Add</i></button>
 					</div>
 
 					
@@ -150,15 +142,13 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 <script>
 	var new_carplate_no = 0;
 
-
-	document.getElementById('add').addEventListener("click", function(e){
+		document.getElementById('add').addEventListener("click", function(e){
 		e.preventDefault();
 		add(new_carplate_no++);
-	});
+		});	
 													
 
-	function add() {
-	  	
+	function add() { 	
 		
 	  	var new_input = "<input type='text' id='carplate"+new_carplate_no+"' id='carplate-number' class='form-control mr-1' class='carplates' placeholder='QAA123' required'><button name='remove-carplate' class='btn btn-primary' id='"+new_carplate_no+"' type='button'>Remove</button>";
 
@@ -173,20 +163,15 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 			});
 			
 			//Got bug
-			if(i >= 4){				
+			if(button_list.length > 3){		
+				document.getElementById('add').disabled = true;
 				alert("You can only add up to 5 carplates.");
-				document.getElementById('button').disabled = true;
+				alert = false;
 			}
+
 		}
 		
 	}
-
-	function remove(elementno) {
-	  	var carplates = document.getElementById("carplate"+elementno);
-		carplates.remove();
-	}
-</script>
-<script src="add-residents.js"></script>
 
 	function remove(elementno) {
 	  	var carplates = document.getElementById("carplate"+elementno);
