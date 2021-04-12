@@ -196,8 +196,8 @@ ul li:hover a{
 	left: 36%;
 }
 
-/* Resident List , Payment Log, Visitor Log*/
-#resident-list, #payment-log, #visitor-log{
+/* Resident List , Payment Log, Visitor Log, Issue Report */
+#resident-list, #payment-log, #visitor-log, #issue-report{
 	position: absolute;
 	width: 75%;
 	margin-top: 8%;
