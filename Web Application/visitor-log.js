@@ -23,6 +23,7 @@ db.collection("visitor").get().then((querySnapshot) => {
         doc.data().username,
 		doc.data().ic,
         doc.data().contact,
+		doc.data().carplate,
         checkin_time,
 		checkout_time,
 		doc.data().status,

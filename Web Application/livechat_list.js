@@ -54,7 +54,7 @@ async function chat(){
 			console.log(landlords[i]);
 			landlords[i].addEventListener('click', function(e){
 				console.log(this.id+" clicked");
-				window.open("chatbox.html?"+this.id);
+				window.open("chatbox.php?"+this.id);
 			});
 		}
 	})

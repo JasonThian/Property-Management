@@ -7,62 +7,35 @@
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
-	<div class="sidebar">		
-		<ul>
-			<img src="images/dryx-logo.png" alt="dryx-logo">
-			<li><a href="residents.html"><i class="fas fa-user-friends"></i>Residents</a></li>
-			<li><a href="livechat.html"><i class="fas fa-comment-dots"></i>Live Chat</a></li>
-			<li><a href="update-bill.html"><i class="fas fa-bolt"></i>Update bill</a></li>
-			<li><a href="payment-log.html"><i class="fas fa-money-bill-alt"></i>Payment Log</a></li>
-			<li><a href="visitor-log.html"><i class="fas fa-address-card"></i>Visitor Log</a></li>
-			<li><a href="announcement.html"><i class="fas fa-bell"></i>Announcements</a></li>
-			<li><a href="bookings.html"><i class="fas fa-building"></i>Facility bookings</a></li>
-			<li><a href="login.html" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-		</ul>
-	</div>
-	
-	<!-- Image Pop Up Container -->
-	<div id="img-container" onclick="hide();" style="display:none; position:absolute; text-align:center; z-index:1000; background: rgba(0, 0, 0, 0.7); height:100%; width:100%">
-		<img id="img-holder" style="height:auto;width:75%;max-height:540px; max-width:960px; z-index:2000; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"/>
-	</div>
-	
+	<?php
+		include "navbar.php";
+	?>
 	<div class="content">
-		<h1>Issue Report</h1>
+		<h1>Facility</h1>
 		
-		<table id="issue-report" class="table hover order-column">
+		<table id="resident-list" class="table hover order-column">
+		<div  style="margin:0 auto; width:580px; height: 290px;">
+			<canvas id="myChart" width="580" height="290"></canvas>
+		</div>	
 			<thead>
 				<tr>
-					<th>Date</th>
 					<th>Name</th>
-					<th>Phone Number</th>
-					<th>Email</th>
-					<th>Block Number</th>
-					<th>Image</th>
-					<th>Description</th>
-					<th>Status</th>
 					<th>Action</th>
 				</tr>
-			</thead>
-			
-			<tbody id="list">
-			
-			</tbody>
+			</thead>		
 		</table>
-		
-		<div class="pagination-container">
-			<nav>
-				<ul class="pagination"></ul>
-			</nav>
-		</div>
 			
 	</div>
+	
 </body>
+
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
 <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -75,5 +48,5 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="firebase.js"></script>
 <script src="auth(logged in).js"></script>
 <script src="date.format.js"></script>
-<script src="issue-report.js"></script>
+<script src="facility.js"></script>
 </html>

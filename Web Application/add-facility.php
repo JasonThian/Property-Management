@@ -9,46 +9,31 @@
 </head>
 
 <body>
-	<div class="sidebar">		
-		<ul>
-			<img src="images/dryx-logo.png" alt="dryx-logo">
-			<li><a href="residents.html"><i class="fas fa-user-friends"></i>Residents</a></li>
-			<li><a href="livechat.html"><i class="fas fa-comment-dots"></i>Live Chat</a></li>
-			<li><a href="update-bill.html"><i class="fas fa-bolt"></i>Update bill</a></li>
-			<li><a href="payment-log.html"><i class="fas fa-money-bill-alt"></i>Payment Log</a></li>
-			<li><a href="visitor-log.html"><i class="fas fa-address-card"></i>Visitor Log</a></li>
-			<li><a href="announcement.html"><i class="fas fa-bell"></i>Announcements</a></li>
-			<li><a href="bookings.html"><i class="fas fa-building"></i>Facility bookings</a></li>
-			<li><a href="login.html" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-		</ul>
-	</div>
+	<!-- Place required backend part is fill with #-->
+	<?php
+		include "navbar.php";
+	?>
 	
 	<div class="create-admin">
 		<h1>Residents</h1>
 		<a id ="add-residents" href="add-residents.php" ><i class="fas fa-plus"></i>  Add Residents</a>
 		<a id ="create-admin" href="create-admin.html" ><i class="fas fa-plus"></i>  Create Admin</a>
 		
-		<form action="" method="post" class="mt-0 col-md-10" id="add-resident-form">
+		<form action="" method="post" class="mt-0 col-md-10" id="facility_form">
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
-					<label for="email" >Email</label>
-					<input type="text" id="email" class="form-control" pattern="^[^ ]+@[^ ]+\.[a-z]{2,6}$" placeholder="john@hotmail.com" required>
+					<label for="Fname" >Name</label>
+					<input type="text" id="Fname" class="form-control"placeholder="john@hotmail.com" required>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-md-4 mb-4">
+				  <label for="img">Select image:</label>
+				  <input type="file" id="img" name="img" accept="image/*">
 				</div>
 			</div>
 
-			<div class="form-row">
-				<div class="col-md-4 mb-4">
-					<label for="password">Password</label>
-					<input type="password" id="password" class="form-control" required>		
-				</div>
-			</div>
-			
-			<div id="confirm-password" class="form-row">
-				<div class="col-md-4 mb-4">
-					<label for="confirm-password">Confirm Password</label>
-					<input type="password" name="confirmPassword" class="form-control" id="cpassword" required>		
-				</div>
-			</div>
+		
 				
 			<button id="create-button" type="submit" name="create"><i class="fas fa-check"></i>  Create</button>					
 		</form>
@@ -64,6 +49,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
 <script src="firebase.js"></script>
 <script src="auth(logged in).js"></script>
-<script src="add-admin.js"></script>
+<script src="add-facility.js"></script>
+
 </body>
 </html>

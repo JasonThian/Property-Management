@@ -14,14 +14,20 @@ auth.onAuthStateChanged(user => {
 function addTenants(){
 	var residentType = document.getElementById('resident-type');
 	var haveTenant = document.getElementById('have-tenant');
+	var havehoushold = document.getElementById('have-household');
 	console.log(residentType.value);
 	if(residentType.value == "landlord"){
 		haveTenant.style.display = "none";
+		
 	}
 	else if(residentType.value == "tenant"){
 		haveTenant.style.display = "block";
 	}
+	else if(residentType.value == "household"){
+		havehoushold.style.display = "block";
+	}
 }
+
 document.getElementById('add-resident-form').addEventListener("submit", function(e){
 	e.preventDefault();    //stop form from submitting
 	
@@ -47,10 +53,8 @@ document.getElementById('add-resident-form').addEventListener("submit", function
 	if(name == "" ||idno == "" ||contact == "" ||email == "" ||unitno == "" ||restype == "" ){
 		
 	}else{
-		if(restype == "tenant"){
+		if(restype == "tenant" ||restype=="household"){
 			var id = document.getElementById('id').value;
-			
-			console.log(ref);
 			createresident(name,idno,contact,email,unitno,restype,carplates,id);
 		}else{
 			createresident(name,idno,contact,email,unitno,restype,carplates,"");
@@ -71,6 +75,7 @@ async function createresident(username,idno,contacts,emails,units,role,carplates
 		  	name: username,
 			ic: idno,
 			contact: contacts,
+			imageurl: "",
 			email: emails,
 			unit: firebase.firestore.FieldValue.arrayUnion(units), 
 			role: role,

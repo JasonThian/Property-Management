@@ -19,11 +19,18 @@ db.collection("landlord").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
 		
 		if(doc.data().role == 'landlord')
-			var button = `<form style="position:relative;" method="post" action="add-residents.php">
+			var button = `<form style="position:relative; " method="post" action="add-residents.php">
 <input type="hidden" value="${doc.id}" name="id"></input>
 <input type="hidden" value="${doc.data().name}" name="name"></input>
 <input type="submit" value="Add tenant"></input>
+<input style="margin-top:10px;" type="submit" value="Add household"></input>
 </form>`
+		else if(doc.data().role == 'tenant')
+			var button = `<form style="position:relative;" method="post" action="add-residents.php">
+				<input type="hidden" value="${doc.id}" name="id"></input>
+				<input type="hidden" value="${doc.data().name}" name="name"></input>
+				<input  type="submit" value="Add household"></input>
+				</form>`
 		else
 			var button = '';
 		console.log(button);
@@ -35,6 +42,7 @@ db.collection("landlord").get().then((querySnapshot) => {
             doc.data().unit,
 			doc.data().role,
 			`<button id='${doc.id}'type="button" class='deleteuser'>Delete</button>`,
+			button,
 			button
         ] ).draw( );
     });

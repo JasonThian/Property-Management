@@ -202,19 +202,15 @@ function getinv($desc1,$price1,$desc2,$price2,$desc3,$price3,$desc4,$price4,$des
 	<script src="confirm-bill.js"></script>
 </head>
 	<body>
-	<div class="sidebar">		
-		<ul>
-			<img src="images/dryx-logo.png" alt="dryx-logo">
-			<li><a href="residents.html"><i class="fas fa-user-friends"></i>Residents</a></li>
-			<li><a href="livechat.html"><i class="fas fa-comment-dots"></i>Live Chat</a></li>
-			<li><a href="update-bill.html"><i class="fas fa-bolt"></i>Update bill</a></li>
-			<li><a href="payment-log.html"><i class="fas fa-money-bill-alt"></i>Payment Log</a></li>
-			<li><a href="visitor-log.html"><i class="fas fa-address-card"></i>Visitor Log</a></li>
-			<li><a href="announcement.html"><i class="fas fa-bell"></i>Announcements</a></li>
-			<li><a href="bookings.html"><i class="fas fa-building"></i>Facility bookings</a></li>
-			<li><a href="login.html" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-		</ul>
-	</div>
+		<?php
+			include "navbar.php";
+		?>
+		
+		<div class="content">	
+		<!--img src="images/success.png" alt="success-icon" style="width:5%"/>
+		<h1 class="bill-updated">Bill Updated</h1>
+		<h1 class="bill-updated-text">Updated bill will be sent to user shortly!</h1>
+		<h1 class="redirect">Please wait, you will be redirected to the homepage shortly....</h1-->
 		
 		<table id="update-bill-table" class="table mx-4 my-5">  
 			  <tbody>

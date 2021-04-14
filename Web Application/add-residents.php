@@ -32,19 +32,9 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 </head>
 
 <body>
-	<div class="sidebar">		
-		<ul>
-			<img src="images/dryx-logo.png" alt="dryx-logo">
-			<li><a href="residents.html"><i class="fas fa-user-friends"></i>Residents</a></li>
-			<li><a href="livechat.html"><i class="fas fa-comment-dots"></i>Live Chat</a></li>
-			<li><a href="update-bill.html"><i class="fas fa-bolt"></i>Update bill</a></li>
-			<li><a href="payment-log.html"><i class="fas fa-money-bill-alt"></i>Payment Log</a></li>
-			<li><a href="visitor-log.html"><i class="fas fa-address-card"></i>Visitor Log</a></li>
-			<li><a href="announcement.html"><i class="fas fa-bell"></i>Announcements</a></li>
-			<li><a href="bookings.html"><i class="fas fa-building"></i>Facility bookings</a></li>
-			<li><a href="login.html" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-		</ul>
-	</div>
+	<?php
+		include "navbar.php";
+	?>
 	
 	<div class="content">
 		<h1 id="test">Residents</h1>
@@ -60,6 +50,7 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 					<select onChange="addTenants()" class="form-control" id="resident-type">
 						<option value="landlord">Landlord</option>
 						<option value="tenant" <?php echo $selected; echo $disabled;?>>Tenant</option>
+						<option value="household">HouseHold</option>
 					</select>
 				</div>
 				
@@ -76,8 +67,14 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 				</div>
 				
 				<div id="have-tenant" class="col-md-4 mb-4 px-4" style="display:none;">
-					<label for="tenant">landlord</label>
+					<label for="tenant">landlord</label	>
 					<div class="tenant">							
+						<input id="yes-button" type="text" name="radAnswer" class="gender" <?php echo "value='$name'"?> disabled>		
+					</div>
+				</div>
+				<div id="have-household" class="col-md-4 mb-4 px-4" style="display:none;">
+					<label for="household">landlord/Tenant</label	>
+					<div class="household">							
 						<input id="yes-button" type="text" name="radAnswer" class="gender" <?php echo "value='$name'"?> disabled>		
 					</div>
 				</div>
@@ -178,6 +175,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 		carplates.remove();
 	}
 </script>
+
 <script src="add-residents.js"></script>
 </body>
 </html>

@@ -1,44 +1,3 @@
-<?php
-$img = "";
-if(isset($_FILES['annc_image']['name'])){
-	$img = $_REQUEST['imageurl'];
-	
-	$url = "https://fcm.googleapis.com/fcm/send";
-
-	$fields=array(
-		"to"=>"/topics/announcement",
-		"notification" => array(
-			"body" => $_REQUEST['annc_msg'],
-			"title" => $_REQUEST['annc_name'],
-			"image" => $img,
-			"click_action" => "FCM_PLUGIN_ACTIVITY"
-		),
-		"data"=>array(
-			"body"=> $_REQUEST['annc_msg'],
-			"title"=>$_REQUEST['annc_name'],
-			"image" => $img
-		)
-	);
-	
-	$header=array(
-		'Authorization: key=AAAAZA6ZULE:APA91bH8eD1hLLglnMxc68jmu2ynNyDvnVoNRCh5MfDwQB70WZZjzHOz3iCu8A69b4P7X_YbEu2LTGn4npcE1zyHaUMWW2rhdRoGmcuBMVbQdgXRDgf-8_h0grN8wKNS3Lx_IDzzaTZR',
-		'Content-Type:application/json'
-	);
-	
-	$ch = curl_init();
-	curl_setopt($ch,CURLOPT_URL,$url);
-	curl_setopt($ch,CURLOPT_POST,true);
-	curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
-	curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-	curl_setopt($ch,CURLOPT_POSTFIELDS,json_encode($fields));
-	$result = curl_exec($ch);
-	curl_close($ch);
-	
-	
-	header( "refresh:5; url=residents.html" ); 
-}
-
-?>
 <!doctype html>
 <html>
 <head>
@@ -54,25 +13,68 @@ if(isset($_FILES['annc_image']['name'])){
 </head>
 
 <body>
-	<div class="sidebar">		
-		<ul>
-			<img src="images/dryx-logo.png" alt="dryx-logo">
-			<li><a href="residents.html"><i class="fas fa-user-friends"></i>Residents</a></li>
-			<li><a href="livechat.html"><i class="fas fa-comment-dots"></i>Live Chat</a></li>
-			<li><a href="update-bill.html"><i class="fas fa-bolt"></i>Update bill</a></li>
-			<li><a href="payment-log.html"><i class="fas fa-money-bill-alt"></i>Payment Log</a></li>
-			<li><a href="visitor-log.html"><i class="fas fa-address-card"></i>Visitor Log</a></li>
-			<li><a href="announcement.html"><i class="fas fa-bell"></i>Announcements</a></li>
-			<li><a href="bookings.html"><i class="fas fa-building"></i>Facility bookings</a></li>
-			<li><a href="login.html" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-		</ul>
-	</div>
+	<?php
+		include "navbar.php";
+	?>
 	
-	<div class="content">	
-		<img src="images/success.png" alt="success-icon" style="width:5%"/>
-		<h1 class="announcement-sent">Announcement Sent</h1>
-		<h1 class="announcement-text">Your announcement was posted successfully!</h1>
-		<h1 class="redirect">Please wait, you will be redirected to homepage shortly....</h1>
+	<div class="content">
+		<h1>Announcements</h1>		
+		<div class="col-md-6">
+			<form action="Cannouncement.php" method="post" class="form-horizontal" enctype="multipart/form-data" id="annc-form">
+
+				<div class="form-group">
+					<label class="col-md-3 control-label">Announcement Name</label>	
+					<div class="col-md-6">
+						<input name="annc_name" type="text" required class="form-control"  id="form_title"> 
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-md-3 control-label"> Announcement Message </label> 
+					<div class="col-md-6"> 
+						<textarea name="annc_msg" class="form-control" required id="form_msg" cols="50" rows="5">
+  						</textarea>
+					</div>
+					
+				</div>
+				
+				<div class="form-group">
+					<label class="col-md-3 control-label"> Announcement Image </label> 
+					<div class="col-md-6"> 
+						<input name="annc_image" type="file" class="form-control" required id="image_url" >  
+					</div>
+					
+				</div>
+				
+<!--
+				<div class="form-group" >
+					<div class="col-md-6" id="image_preview"> 
+  
+					</div>
+				</div>
+-->
+				
+				<div>
+					<label class="col-md-3 control-label"></label> 
+					<div class="col-md-6">
+						<input name="post" value="Post" type="submit" class="btn form-control" id="submit_btn"> 
+					</div>   
+				</div>
+				
+			</form>  
+		</div>  
 	</div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-functions.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
+<script src="firebase.js"></script>
+<script src="auth(logged in).js"></script>
+<script src="announcement.js"></script>
 </body>
 </html>
