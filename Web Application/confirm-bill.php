@@ -202,9 +202,9 @@ function getinv($desc1,$price1,$desc2,$price2,$desc3,$price3,$desc4,$price4,$des
 	<script src="confirm-bill.js"></script>
 </head>
 	<body>
-		<div class="sidebar">
-		<header><img src="images/dryx-black.png" alt="dryx-logo" width="50%"></header>
+	<div class="sidebar">		
 		<ul>
+			<img src="images/dryx-logo.png" alt="dryx-logo">
 			<li><a href="residents.html"><i class="fas fa-user-friends"></i>Residents</a></li>
 			<li><a href="livechat.html"><i class="fas fa-comment-dots"></i>Live Chat</a></li>
 			<li><a href="update-bill.html"><i class="fas fa-bolt"></i>Update bill</a></li>
@@ -214,7 +214,7 @@ function getinv($desc1,$price1,$desc2,$price2,$desc3,$price3,$desc4,$price4,$des
 			<li><a href="bookings.html"><i class="fas fa-building"></i>Facility bookings</a></li>
 			<li><a href="login.html" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
 		</ul>
-		</div>
+	</div>
 		
 		<table id="update-bill-table" class="table mx-4 my-5">  
 			  <tbody>
