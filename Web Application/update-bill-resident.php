@@ -59,10 +59,9 @@ div.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-wei
 </head>
 
 <body>
-	<!-- Place required backend part is fill with #-->
-	<div class="sidebar" id="sidebar_opac">
-		<header><img src="images/dryx-black.png" alt="dryx-logo" width="50%"></header>
+ 	<div class="sidebar" id="sidebar_opac">		
 		<ul>
+			<img src="images/dryx-logo.png" alt="dryx-logo">
 			<li><a href="residents.html"><i class="fas fa-user-friends"></i>Residents</a></li>
 			<li><a href="livechat.html"><i class="fas fa-comment-dots"></i>Live Chat</a></li>
 			<li><a href="update-bill.html"><i class="fas fa-bolt"></i>Update bill</a></li>
