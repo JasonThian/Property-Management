@@ -37,7 +37,7 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 	?>
 	
 	<div class="content">
-		<h1 id="test">Residents</h1>
+		<h1 class="page-title" id="test">Residents</h1>
 		<a id ="add-residents" href="add-residents.html" ><i class="fas fa-plus"></i>  Add Residents</a>
 		<a id ="create-admin" href="create-admin.html" ><i class="fas fa-plus"></i>  Create Admin</a>
 		
