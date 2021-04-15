@@ -18,19 +18,19 @@
 	?>
 	
 	<div class="content">
-		<h1>Announcements</h1>		
-		<div class="col-md-6">
+		<h1 class="page-title">Announcements</h1>		
+		<div class="announcement-form">
 			<form action="Cannouncement.php" method="post" class="form-horizontal" enctype="multipart/form-data" id="annc-form">
 
 				<div class="form-group">
-					<label class="col-md-3 control-label">Announcement Name</label>	
+					<label class="col-md-12 control-label">Announcement Name</label>	
 					<div class="col-md-6">
 						<input name="annc_name" type="text" required class="form-control"  id="form_title"> 
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-md-3 control-label"> Announcement Message </label> 
+					<label class="col-md-6 control-label"> Announcement Message </label> 
 					<div class="col-md-6"> 
 						<textarea name="annc_msg" class="form-control" required id="form_msg" cols="50" rows="5">
   						</textarea>
@@ -39,7 +39,7 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="col-md-3 control-label"> Announcement Image </label> 
+					<label class="col-md-6 control-label"> Announcement Image </label> 
 					<div class="col-md-6"> 
 						<input name="annc_image" type="file" class="form-control" required id="image_url" >  
 					</div>
