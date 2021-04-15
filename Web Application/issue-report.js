@@ -1,8 +1,9 @@
 // JavaScript Document
 var t = $('#issue-report').DataTable({
 	"pagingType": "simple_numbers",
-	info: false,
-	"sDom": '<"top"i>rt<"bottom"flp><"clear">'
+	"info": false,
+	"dom": '<"top"fp>',
+	"language": {search : "", searchPlaceholder: "Search..."}
 });
 
 var issuesDoc = db.collection("issues");
