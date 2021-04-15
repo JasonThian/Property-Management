@@ -3,7 +3,7 @@ auth.onAuthStateChanged(user => {
   if (!user) {
 	  
 	  console.log("no user logged in.");
-	  location.replace("login.html");
+	  location.replace("login.php");
   }else{
 	  console.log(user,"logged in.");
 	  user.getIdTokenResult().then(idTokenResult => {
@@ -26,6 +26,6 @@ function logout(){
 	
 	auth.signOut().then(()=>{
 		console.log("user signed out");
-		location.replace("login.html");
+		location.replace("login.php");
 	});
 }
