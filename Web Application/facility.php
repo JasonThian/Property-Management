@@ -11,6 +11,11 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+		.bottom{
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
@@ -18,9 +23,9 @@
 		include "navbar.php";
 	?>
 	<div class="content">
-		<h1>Facility</h1>
+		<h1 class="page-title">Facility</h1>
 		
-		<table id="resident-list" class="table hover order-column">
+		<table id="resident-list" class="table table-sm hover order-column dt-responsive nowrap">
 		<div  style="margin:0 auto; width:580px; height: 290px;">
 			<canvas id="myChart" width="580" height="290"></canvas>
 		</div>	
@@ -30,8 +35,7 @@
 					<th>Action</th>
 				</tr>
 			</thead>		
-		</table>
-			
+		</table>			
 	</div>
 	
 </body>
