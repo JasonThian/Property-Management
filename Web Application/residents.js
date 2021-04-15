@@ -11,26 +11,30 @@ auth.onAuthStateChanged(user => {
 });
 
 var t = $('#resident-list').DataTable({
-					"pagingType": "simple_numbers",
-					info: false,
-					"sDom": '<"top"i>rt<"bottom"flp><"clear">'
-				});	
+	"pagingType": "simple_numbers",
+	"info": false,
+	"dom": '<"top"fp>',
+	"language": {search : "", searchPlaceholder: "Search..."}
+});	
+
 db.collection("landlord").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
 		
 		if(doc.data().role == 'landlord')
-			var button = `<form style="position:relative; " method="post" action="add-residents.php">
-<input type="hidden" value="${doc.id}" name="id"></input>
-<input type="hidden" value="${doc.data().name}" name="name"></input>
-<input type="submit" value="Add tenant"></input>
-<input style="margin-top:10px;" type="submit" value="Add household"></input>
-</form>`
+			var button = `
+			<form style="position:relative; " method="post" action="add-residents.php">
+				<input type="hidden" value="${doc.id}" name="id"></input>
+				<input type="hidden" value="${doc.data().name}" name="name"></input>
+				<input type="submit" value="Add tenant"></input>
+				<input style="margin-top:10px;" type="submit" value="Add household"></input>
+			</form>`
 		else if(doc.data().role == 'tenant')
-			var button = `<form style="position:relative;" method="post" action="add-residents.php">
+			var button = `
+			<form style="position:relative;" method="post" action="add-residents.php">
 				<input type="hidden" value="${doc.id}" name="id"></input>
 				<input type="hidden" value="${doc.data().name}" name="name"></input>
 				<input  type="submit" value="Add household"></input>
-				</form>`
+			</form>`
 		else
 			var button = '';
 		console.log(button);
