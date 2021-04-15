@@ -23,7 +23,7 @@
 	</div>
 	
 	<div class="content">
-		<h1>Issue Report</h1>
+		<h1 class="page-title">Issue Report</h1>
 		
 		<table id="issue-report" class="table hover order-column">
 			<thead>
