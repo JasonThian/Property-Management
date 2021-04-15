@@ -12,7 +12,7 @@ body{
 /*Side menu*/
 .sidebar{
 	position: fixed;
-	width: 300px;
+	width: 20%;
 	height: 100%;
 	background: #C8E0FF;
 	overflow: auto
@@ -27,8 +27,8 @@ body{
 
 .sidebar ul li{
 	position: relative;
-	width: 100%;
-	/* height: 60px; */
+    text-align: center;
+	height: 3vw;
 }
 
 .sidebar ul img{
@@ -37,14 +37,12 @@ body{
 	margin: 5% auto;
 }
 
-.sidebar ul a{
-	height: 4vw;
-	font-size: 1.5vw;
+.sidebar ul li a{
+	width: 100%;
+	font-size: 1.3vw;
+	padding: 2% 5%;
 	color: #5F6392;
 	text-decoration: none;
-	padding: 1.5%;
-	display: block;
-	text-align: center;
 }
 
 .sidebar ul li a i{
@@ -52,10 +50,10 @@ body{
 }
 
 ul li:hover a{
-	padding-left: 50px;
+	padding-left: 20px;
 	background-color: #7278B9;
 	color: #CCA679;
-	transition: 0.5s;
+	transition: 0.4s;
 }
 
 #logout{
@@ -103,7 +101,7 @@ ul li:hover a{
 	
 /* FORM TYPOGRAPHY*/
 
-/* .loginpage input[type=button], .loginpage input[type=submit], .loginpage input[type=reset]  {
+.loginpage input[type=button], .loginpage input[type=submit], .loginpage input[type=reset]  {
   background-color: #7278B9;
   border: none;
   color: white;
@@ -113,7 +111,7 @@ ul li:hover a{
   display: inline-block;
   text-transform: uppercase;
   font-size: 1vw;
-  -webkit-border-radius: 5px 5px 5px 5px;
+  /* -webkit-border-radius: 5px 5px 5px 5px; */
   border-radius: 5px 5px 5px 5px;
   margin: 5px 20px 40px 20px;
   transition: all 0.3s ease-in-out;
@@ -126,7 +124,7 @@ ul li:hover a{
 
 .loginpage input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
   transform: scale(0.95);
-}
+} 
 
 .loginpage input[type=text], input[type=password] {
   background-color: #f6f6f6;
@@ -161,7 +159,7 @@ ul li:hover a{
 
 .loginpage input[type=text]:placeholder, input[type=password]:placeholder {
   color: #cccccc;
-} */
+}
 
 /* OTHERS */
 *:focus {
@@ -175,14 +173,12 @@ ul li:hover a{
 
 /* Add residents page */
 #add-residents, #create-admin{
-	position: absolute;	
 	background-color: #C8E0FF;
 	color: #5F6392;	
 	border-radius: 5px;
 	padding: 1% 2%;
 	text-decoration: none;
 	font-size: 1.2vw;
-	top: 5%;
 }
 
 #add-residents:hover, #create-admin:hover{
@@ -191,46 +187,62 @@ ul li:hover a{
 	transition: 0.5s;
 }
 
-#add-residents{
-	left: 0%;
+.buttons{	
+	width: 90%;
+    position: relative;
+    text-align: right;
+    margin: 0 auto;
 }
 
-#create-admin{
-	left: 15%;
-}
-
-/* Resident List , Payment Log, Visitor Log, Issue Report */
-#resident-list, #payment-log, #visitor-log, #issue-report{
-	/* position: relative; */
-	width: 100%;
-	margin-top: 8%;
-	left: 22%;
-	right: 5%;
-}
-
-
-/* #bookings{
+/*Content*/
+.content, .content1, .user-list{
 	position: absolute;
-	width: 75%;
-	margin-top: 10%;
-	left: 22%;
-	right: 5%;
-	overflow: auto;
+	width: calc(100% - 20%);
+	left: 20%;
+	min-height: 100vh;
+	background-color: transparent;
+	transition: 0.5s;
+}
+
+.content .page-title{
+	color: #CCA679;
+	margin: 1% 5%;
+}
+
+#done-button{
+	position: fixed;	
+	background-color: #C8E0FF;
+	color: #5F6392;
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	padding: 1% 2%;
+	left: 75%;
+	top: 13%;
+}
+
+#done-button:hover{
+	cursor: pointer;
+}
+
+/* Resident List , Payment Log, Visitor Log, Issue Report, Facility Bookings */
+#resident-list, #payment-log, #visitor-log, #issue-report, #bookings{
+	width: 90%;
+	margin: 1% auto 1%;
 }
 
 th{
 	font-size: 1vw;
 	background-color: #C8E0FF!important;
-	font-family: "Nunito", sans-serif; 
 }
 
 td{
-	font-size: 0.8vw;
+	font-size: 0.9vw;
 	padding: 2%;
 	border-bottom: 1px solid #7278B9!important;
 }
 
-td input, td button{
+/* td input, td button{
 	border: none;
 	border-radius: 5px;
 	padding: 10%;
@@ -240,17 +252,15 @@ td input{
 	background-color: #28a745;
 	color: white;
 	cursor: pointer;
-}
+} */
 
 .limit_slot input, .limit_slot input[type=number]
-{
-	
+{	
 	border-bottom: 1px solid #7278B9!important;
 	border-radius: 5px;
 	padding: 1%;
 	color: black;
-	background-color:white;
-	
+	background-color:white;	
 }
 
 td input[type=number]{
@@ -270,30 +280,38 @@ td button{
 	background-color: #dc3545;
 	color: white;
 	cursor: pointer;
-} */
+}
+
+.top{
+	width: 85%;
+	margin: 0 auto; 
+}
 
 /* Data Tables */
-/* .dataTables_paginate {
-	position: fixed;
-	left: 75%;
-	margin-top: 3%;
-	
+.dataTables_wrapper{
+	width: 90%;
+	margin: 0 auto;
 }
 
-
-.dataTables_filter{
-	position: absolute;
-	left: 75%;
-	margin-top: 7%;
+.dataTables_filter, .dataTables_paginate{
+	float: left !important;
+	text-align: left !important;
 }
 
-.dataTables_length{
-	display: none;
+.dataTables_paginate{
+	padding-top: 0 !important;
 }
 
-.dt-body-nowrap {
-   white-space: nowrap;
-} */
+.dataTables_paginate .paginate_button{
+	background-color: white !important;
+	border: 1px solid #CCA679 !important;
+}
+
+.dataTables_paginate .paginate_button .current{
+	background: red !important;
+	border: 1px solid #CCA679 !important;
+}
+
 
 /* Update bill */
 #update-bill-table{
@@ -303,47 +321,8 @@ td button{
 	left: 22%;
 }
 
-/*Content*/
-.content, .content1, .user-list{
-	position: absolute;
-	width: calc(100% - 300px);
-	left: 300px;
-	min-height: 100vh;
-	background-color: #f5f5f5;
-	transition: 0.5s;
-}
-
-/* .content h1{
-	color: #CCA679;	
-	top: 3%;
-	left: 22%;
-}
-
-.content form{
-	position: relative;
-	top: 23%;
-	left: 21%;
-	width: 70%;
-}
-
-#done-button{
-	position: fixed;	
-	background-color: #C8E0FF;
-	color: #5F6392;
-	font-weight: bold;
-	border: none;
-	border-radius: 5px;
-	padding: 1% 2%;
-	left: 75%;
-	top: 13%;
-}
-
-#done-button:hover{
-	cursor: pointer;
-} */
-
 /*Update bill page*/
-/* .update-bill{
+.update-bill{
 	background: white;
 	z-index: 1;		
 	position: relative;	
@@ -381,13 +360,12 @@ td button{
 
 #confirm-password{
 	margin-bottom: 10%;
-} */
+}
 
 /* Create admin button */
-/* .create-admin{
-	background: white;
-	z-index: 900;		
-	position: relative;	
+/* admin only features */
+.create-admin{
+	display: none;
 }
 
 .create-admin h1{
@@ -427,7 +405,7 @@ td button{
 }  */
 
 /* form elements */
-/* .gender{
+.gender{
 	border: 1px solid #495057;
 	border-radius: 3.5px;
 	padding: 1.8% 0.8%;
@@ -444,13 +422,11 @@ td button{
 
 .gender[name="male"]{
 	margin-left: 2%;
-} */
+}
 
 /* Live Chat */
-/* .user-list{
+ .user-list{
 	width: 80%;
-	margin-left: 20%;
-	margin-right: auto;
 }
 
 #searchbar{
@@ -499,16 +475,16 @@ input[name="searchbar"]{
     
 .text p {
  	margin:  auto;
-} */
+}
 
-/*Announcement php */
-/* .content img{
-	position: fixed;
+/* Announcement php */
+.content img{
+	/* position: fixed;
 	top: 10%;
-	left: 55%;
-} */
+	left: 55%; */
+}
 
-/* .content .announcement-sent{
+.content .announcement-sent{
 	top: 25%;
 	left: 45%;
 	color: #5F6392;
@@ -519,42 +495,45 @@ input[name="searchbar"]{
 	top: 35%;
 	font-size: 1.8vw;
 	color: maroon;
-} */
+}
 
-/*Content*/
-/* .content1{
-	background: white;
-	z-index: 900;		
-	position: relative;	
-} */
+.announcement-form{
+	margin-left: 3.5%;
+}
 
-/* .content1 h1{
-	position: fixed;
-	color: #CCA679;	
-	top: 3%;
-	left: 22%;
-} */
-
-
-/* .content .redirect{
-	left: 40%;
-	top: 43%;
-	font-size: 1.5vw;
-	color: #CCA679;
-} */
-
-/* Announcement */
-/* #submit_btn{
+#submit_btn{
 	background-color: #7278B9;
 	color: white;
 }
 
 #submit_btn:hover{
 	background-color: #CCA679;
-} */
+}
+
+/*Content*/
+.content1{
+	background: white;
+	z-index: 900;		
+	position: relative;	
+}
+
+.content1 h1{
+	position: fixed;
+	color: #CCA679;	
+	top: 3%;
+	left: 22%;
+}
+
+
+.content .redirect{
+	left: 40%;
+	top: 43%;
+	font-size: 1.5vw;
+	color: #CCA679;
+}
 
 /* Update bill */
-/* .content img{
+.content img{
 	position: fixed;
 	top: 10%;
 	left: 55%;
@@ -571,12 +550,7 @@ input[name="searchbar"]{
 	top: 35%;
 	font-size: 1.8vw;
 	color: maroon;
-}	 */
-
-/*admin only features*/
-/* #create-admin{
-	display:none;
-}  */
+}	
 
 /* .btn-primary{
 	background-color: #C8E0FF !important;
@@ -585,14 +559,14 @@ input[name="searchbar"]{
 	border-radius: 5px !important;
 	font-family: 'Nunito', sans-serif !important;
 	font-size: 1.2vw !important;
-}
+} */
 
 /*invoice*/
-/* #confirm_bill{
+#confirm_bill{
 	position: absolute;
     width: 200px;
     right: 0;
-} */
+}
 
 
 
