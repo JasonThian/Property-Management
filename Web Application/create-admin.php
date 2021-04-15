@@ -15,8 +15,7 @@
 	?>
 	
 	<div class="create-admin">
-		<h1>Residents</h1>
-		<a id ="add-residents" href="add-residents.php" ><i class="fas fa-plus"></i>  Add Residents</a>
+		<h1 class="page-title">Create Admin</h1>
 		<a id ="create-admin" href="create-admin.html" ><i class="fas fa-plus"></i>  Create Admin</a>
 		
 		<form action="" method="post" class="mt-0 col-md-10" id="add-resident-form">
