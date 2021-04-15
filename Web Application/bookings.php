@@ -18,9 +18,9 @@
 	?>
 	
 	<div class="content">
-		<h1>Booking Log</h1>
+		<h1 class="page-title">Booking Log</h1>
 		
-		<table id="bookings" class="table hover order-column">
+		<table id="bookings" class="table table-sm hover order-column dt-responsive nowrap">
 			<thead>
 				<tr>
 					<th>User Name</th>
