@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Visitor Log - Project Management System</title>
+	<title>Payment Log - Project Management System</title>
 	<link rel="stylesheet" href="style/style.css"/>
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"></script>
+	<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
@@ -18,9 +18,9 @@
 	?>
 	
 	<div class="content">
-		<h1>Visitor Log</h1>
+		<h1 class="page-title">Visitor Log</h1>
 		
-		<table id="visitor-log" class="table hover order-column">
+		<table id="visitor-log" class="table hover order-column dt-responsive nowrap">
 			<thead>
 				<tr>
 					<th>Resident Name</th>
@@ -42,8 +42,7 @@
 			<nav>
 				<ul class="pagination"></ul>
 			</nav>
-		</div>
-			
+		</div>			
 	</div>
 </body>
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
