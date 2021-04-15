@@ -23,9 +23,10 @@ db.collection("booking").get().then((querySnapshot) => {
 	booking_log.innerHTML = list;
 });*/
 var t = $('#bookings').DataTable({
-  "pagingType": "simple_numbers",
-  "info": false,
-  "sDom": '<"top"i>rt<"bottom"flp><"clear">'
+	"pagingType": "simple_numbers",
+	"info": false,
+	"dom": '<"top"fp>',
+	"language": {search : "", searchPlaceholder: "Search..."}
 });
 
  const monthNames = ["January", "February", "March", "April", "May", "June",
