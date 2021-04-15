@@ -18,7 +18,7 @@
 	?>
 	
 	<div class="content">
-		<h1>Update Bill</h1>
+		<h1 class="page-title">Update Bill</h1>
 		<table id="resident-list" class="table table-bordered striped ">
 			<thead>
 				<tr>
