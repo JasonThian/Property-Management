@@ -227,7 +227,7 @@ div.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-wei
 	};
 </script>
 <script>
-	/* function hideButtons(){
+	function hideButtons(){
 		var s = document.getElementById("send");
 		var c = document.getElementById("cancel");
 		
@@ -241,7 +241,7 @@ div.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-wei
 			s.style.display = "none";
 			c.style.display = "none";
 		}
-	} */
+	}
 </script>
 </body>
 </html>
