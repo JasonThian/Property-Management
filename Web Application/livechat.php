@@ -15,19 +15,14 @@
 	
 	<div class="user-list">
 		<div class="top-bar">
-			<i id="searchbar" class="fa fa-search"></i><input name="searchbar" type="text" placeholder="Search for user">
-		</div>
-		
-		<div class="pagination-container">
-			<nav>
-				<ul class="pagination"></ul>
-			</nav>
+			<i id="searchbar" class="fa fa-search"></i>
+			<input name="searchbar" type="text" placeholder="Search Resident...">
 		</div>
 		
 		<div class="chatbox">
-			  <div class="col-md-12 border-bottom" id="livechat-resident">		
-				
-			  </div>
+			<div class="col-md-12 border-bottom" id="livechat-resident">		
+			
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
