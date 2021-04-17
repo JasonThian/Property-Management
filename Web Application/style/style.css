@@ -244,17 +244,17 @@ td{
 	border-bottom: 1px solid #7278B9!important;
 }
 
-/* td input, td button{
+td input, td button{
 	border: none;
 	border-radius: 5px;
-	padding: 10%;
+	padding: 5%;
 }
 
 td input{
 	background-color: #28a745;
 	color: white;
 	cursor: pointer;
-} */
+}
 
 .limit_slot input, .limit_slot input[type=number]
 {	
@@ -515,6 +515,8 @@ input[name="searchbar"]{
 	bottom: 0 !important;
 	position: static !important;
 	width: 90%;
+	display: flex;
+	justify-content: space-evenly;
 }
   
 input {
@@ -526,9 +528,8 @@ input {
 
 i {
 	color: #7278B9;
-	font-size: 1.8vw;
+	font-size: 25px;
 	vertical-align: middle;
-	margin-left: 3%;
 }
 
 /* Announcement php */
