@@ -38,18 +38,27 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 	
 	<div class="content">
 		<h1 class="page-title" id="test">Residents</h1>
-		<a id ="add-residents" href="add-residents.html" ><i class="fas fa-plus"></i>  Add Residents</a>
-		<a id ="create-admin" href="create-admin.html" ><i class="fas fa-plus"></i>  Create Admin</a>
+		<div class="buttons">
+			<a id ="add-residents" href="add-residents.php" ><i class="fas fa-plus"></i>  Add Residents</a>
+			<a id ="create-admin" href="create-admin.php" ><i class="fas fa-plus"></i>  Create Admin</a>
+		</div>
 		
-		<form action="" method="post" class="mt-0 col-md-10" id="add-resident-form">
+		<form action="" method="post" class="col-sm-10 ml-5 mt-1" id="add-resident-form">
 			<?php echo $element;?>
-			
-			<div class="form-row">
+			<div class="form-row mb-4">
+				<div class="col-md-12">
+					<button id="done-button" type="submit" name="done"><i class="fas fa-check "></i>  Done</button>
+				</div>			
+			</div>
+
+			<div class="form-row">	
+
 				<div class="col-md-4 mb-4">
 					<label for="resident-type">Resident Type</label>
-					<select onChange="addTenants()" class="form-control" id="resident-type">
-						<option value="landlord">Landlord</option>
-						<option value="tenant" <?php echo $selected; echo $disabled;?>>Tenant</option>
+					<select onChange="addTenants()" class="form-control" id="resident-type" >
+						<option value=" "></option>
+						<option value="tenant" <?php echo $selected; echo $disabled;?> selected>Tenant</option>
+						<option value="landlord">Landlord</option>						
 						<option value="household">HouseHold</option>
 					</select>
 				</div>
@@ -57,8 +66,8 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 				<div class="col-md-4 mb-4 px-4">
 					<label for="unitno">Unit no.</label>
 					<input type="text" id="unitno" class="form-control" placeholder="e.g. B-8-1" required>		
-				</div>				
-			</div>
+				</div>
+			</div>			
 		
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
@@ -69,13 +78,13 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 				<div id="have-tenant" class="col-md-4 mb-4 px-4" style="display:none;">
 					<label for="tenant">landlord</label	>
 					<div class="tenant">							
-						<input id="yes-button" type="text" name="radAnswer" class="gender" <?php echo "value='$name'"?> disabled>		
+						<input id="yes-button" type="text" name="radAnswer" class="form-control gender" <?php echo "value='$name'"?> disabled>		
 					</div>
 				</div>
 				<div id="have-household" class="col-md-4 mb-4 px-4" style="display:none;">
-					<label for="household">landlord/Tenant</label	>
+					<label for="household">Landlord/Tenant</label	>
 					<div class="household">							
-						<input id="yes-button" type="text" name="radAnswer" class="gender" <?php echo "value='$name'"?> disabled>		
+						<input id="yes-button" type="text" name="radAnswer" class="form-control gender" <?php echo "value='$name'"?> disabled>		
 					</div>
 				</div>
 			</div>
@@ -83,7 +92,7 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
 					<label for="icnumber">Identificaton No.</label>
-					<input type="text" id="idno" class="form-control" placeholder="e.g. XXXXX-XX-XXXX" required>
+					<input type="text" id="idno" class="form-control" placeholder="e.g. 12345-13-1234" required>
 				</div>
 			
 				<div class="col-md-4 mb-4 px-4">
@@ -95,32 +104,24 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
 					<label for="email">Email</label>
-					<input type="text" id="email" class="form-control" placeholder="eg. example@gmail.com" required>		
-
-
+					<input type="text" id="email" class="form-control" placeholder="eg. example@gmail.com" required>
 				</div>
 				
-				<div class="col-md-4 mb-4 px-4" id="carplates">
-					<label for="carplate-no">Carplate No.</label>		
-
-
+				<div class="col-md-6 mb-4 px-4" id="carplates">
+					<label for="carplate-no">Carplate No.</label>	
 					<div class="form-inline">
 						<input type="text" id="carplate-number" class="form-control mr-1" placeholder="QAA123" required>
-						<button id="add" class='btn btn-primary' type="button">Add</i></button>
+						<button id="add" class='btn btn-primary' type="button">Add</button>
 					</div>
-
-					
 					<div class="form-inline">
 						<div id="new_carplate_no">
 						
 						</div>				
 					</div>
 				</div>
-			</div>
-			
-			
-							
-			<button id="done-button" type="submit" name="done"><i class="fas fa-check"></i>  Done</button>					
+			</div>		
+			<div>
+		</div>				
 		</form>
 	</div>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -146,8 +147,8 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 													
 
 	function add() { 	
-		
-	  	var new_input = "<input type='text' id='carplate"+new_carplate_no+"' id='carplate-number' class='form-control mr-1' class='carplates' placeholder='QAA123' required'><button name='remove-carplate' class='btn btn-primary' id='"+new_carplate_no+"' type='button'>Remove</button>";
+	
+		var new_input = "<input type='text' id='carplate"+new_carplate_no+"' id='carplate-number' class='form-control mr-1' class='carplates' placeholder='QAA123' required'><button name='remove-carplate' class='btn btn-primary' id='"+new_carplate_no+"' type='button'>Remove</button>";
 
 	  	$('#new_carplate_no').append(new_input);
 				
