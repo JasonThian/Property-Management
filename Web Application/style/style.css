@@ -189,9 +189,25 @@ ul li:hover a{
 
 .buttons{	
 	width: 90%;
-    position: relative;
-    text-align: right;
+	text-align: right;
     margin: 0 auto;
+}
+
+.add-resident-form{
+	width: 90%;
+	margin: 0 auto;
+}
+
+#done-button{
+	background-color: #C8E0FF;
+	color: #5F6392;
+	border: none;
+	border-radius: 8px;
+	padding: 1% 2%;
+}
+
+#done-button:hover{
+	cursor: pointer;
 }
 
 /*Content*/
@@ -206,23 +222,9 @@ ul li:hover a{
 
 .content .page-title{
 	color: #CCA679;
-	margin: 1% 5%;
-}
-
-#done-button{
-	position: fixed;	
-	background-color: #C8E0FF;
-	color: #5F6392;
-	font-weight: bold;
-	border: none;
-	border-radius: 5px;
-	padding: 1% 2%;
-	left: 75%;
-	top: 13%;
-}
-
-#done-button:hover{
-	cursor: pointer;
+	width: 90%;
+    text-align: left;
+    margin: 2% auto;
 }
 
 /* Resident List , Payment Log, Visitor Log, Issue Report, Facility Bookings */
@@ -280,11 +282,6 @@ td button{
 	background-color: #dc3545;
 	color: white;
 	cursor: pointer;
-}
-
-.top{
-	width: 85%;
-	margin: 0 auto; 
 }
 
 /* Data Tables */
@@ -402,7 +399,7 @@ td button{
 
 #create-button:focus{
 	cursor: pointer; 
-}  */
+}
 
 /* form elements */
 .gender{
@@ -431,7 +428,6 @@ td button{
 
 #searchbar{
 	color: #e3e3e3;
-	margin: 1% 0 0 2%;
 }
 
 input[name="searchbar"]{
@@ -441,40 +437,98 @@ input[name="searchbar"]{
 	border-radius: 3%;
 }
 
-.container {
-	background: #fff;
-	padding: 0;
-	border-radius: 44%;
-}
-
 .profile-image {
-	width: 4rem;
-	height: 4rem;
-	border-radius: 50%;
-	margin-left: 2vw;
-	float: left;
+	width: 45px;
+    height: 45px;
+    margin: 20px;
 }
 
 .time{
-	float: right;
+	width: -webkit-fill-available;
+    text-align: end;
+}
+
+.top-bar {
+    height: fit-content;
+    padding: 8px;
 }
 
 .friend-drawer{
-	height: 11vh;
-	margin-top: 1.2%;
-}
-
-.text{
-	margin-left: 10%;
+	height: 90px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .text h6{
-	margin: 0 auto;
-	vertical-align: center;
+    display: inline-block;
+    text-align: left;
+    margin: 20px auto;
+    width: max-content;
 }
     
 .text p {
  	margin:  auto;
+}
+
+.user-info{
+	position: sticky;
+    top: 0;
+    background: #c8e0ff;
+    z-index: 5;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.chat-panel{
+	/* height: 450px; */
+}
+
+.profile-image {
+	border-radius: 50%;
+}
+
+.chat-bubble {
+	padding: 10px 14px;
+	background: #eee;
+	margin: 10px 30px;
+	border-radius: 9px;
+	position: relative;
+}
+
+.chat-bubble--left{
+	left: 0;
+	border-right-color: #eee;
+	border-left: 0;
+}
+
+.chat-bubble--right{
+	right: 0;
+	border-left-color: blue;
+	border-right: 0;
+}	
+
+.chat-box-tray {
+	background: #c8e0ff !important;
+	padding: 10px 15px !important;
+	align-items: center;
+	bottom: 0 !important;
+	position: static !important;
+	width: 90%;
+}
+  
+input {
+	padding: 10px;
+	border: none;
+	border-radius: 8px;
+	width: 90%;
+}
+
+i {
+	color: #7278B9;
+	font-size: 1.8vw;
+	vertical-align: middle;
+	margin-left: 3%;
 }
 
 /* Announcement php */
@@ -567,7 +621,6 @@ input[name="searchbar"]{
     width: 200px;
     right: 0;
 }
-
 
 
 
