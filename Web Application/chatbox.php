@@ -6,104 +6,40 @@
 <link rel="stylesheet" href="style/style.css"/>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <style>
-.container {
-  margin: 60px auto;
-  background: #fff;
-  padding: 0;
-  border-radius: 7px;
+.message-holder{
+	min-height: 80vh;
+	/* overflow-y: scroll; */
 }
 
-.profile-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 40px;
+.profile-image{
+	width: 45px;
+	height: 45px;
+	margin: 8px;
 }
-
-hr {
-  margin: 5px auto;
-  width: 60%;
-}
-
-.chat-bubble {
-  padding: 10px 14px;
-  background: #eee;
-  margin: 10px 30px;
-  border-radius: 9px;
-  position: relative;
-  animation: fadeIn 1s ease-in;
-}
-	
-.round{
-	border-radius: 30px;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-}
-
-/*Right triangle, placed bottom left side slightly in*/
-.tri-right.border.btm-left-in:before {
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	left: 30px;
-  right: auto;
-  top: auto;
-	bottom: -40px;
-	border: 20px solid;
-	border-color: #666 transparent transparent #666;
-}
-.tri-right.btm-left-in:after{
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	left: 38px;
-  right: auto;
-  top: auto;
-	bottom: -20px;
-	border: 12px solid;
-	border-color: lightyellow transparent transparent lightyellow;
-}
-
-/* talk bubble contents */
-.talktext{
-  padding: 1em;
-	text-align: left;
-  line-height: 1.5em;
-}
-.talktext p{
-  /* remove webkit p margins */
-  -webkit-margin-before: 0em;
-  -webkit-margin-after: 0em;
-}
-	
 </style>
 </head>
 
 <body>
-	<div class="container">
+	<div class="col-md-12">
 	  <div class="col-md-12">
-		<div class="settings-tray">
-			<div class="friend-drawer no-gutters friend-drawer--grey">
-			<img class="profile-image" id="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/robocop.jpg" alt="profile-pice">
+		<div class="user-info">
+			<img class="profile-image" id="profile-image" src="https://saiuniversity.edu.in/wp-content/uploads/2021/02/default-img.jpg" alt="profile-pic">
 			<div class="text" id="username">
-			  
+			<!-- User name -->
 			</div>
-		  </div>
-		</div>
-		 
-		  <div class="talk-bubble tri-right round btm-left">
 		</div>
 		
 		<div class="chat-panel" id="chat-panel">
-		  
-		  <!--Generate chats here-->
-		  
+			<div class="message-holder" id="message-holder">
+				<!--Generate chats here-->
+			</div>
+		</div>
+
+		<div class="col-md-12 chat-box-tray">
+			<input type="text" placeholder="Type your message here..." id="message">
+			<i class="far fa-paper-plane" id="send-message"></i>
 		</div>
 	  </div>
 	</div>
