@@ -33,7 +33,10 @@
 					<th>Email</th>
 					<th>Contact No.</th>
 					<th>Identification No.</th>
-					<th>Unit number</th>			
+					<th>Unit number</th>
+					<th>Resident type</th>
+					<th>Action</th>
+					<th>Priviledged Action</th>		
 				</tr>
 			</thead>			
 		</table>
