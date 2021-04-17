@@ -1,6 +1,6 @@
 // JavaScript Document
 var userid = location.search.substring(1);
-var chat_list = document.getElementById("chat-panel");
+var chat_list = document.getElementById("message-holder");
 
 var chats = "";
 var docref = db.collection("landlord").doc(userid).collection("chatroom");
@@ -43,7 +43,7 @@ function sendmessage(){
 	var myTimestamp = firebase.firestore.Timestamp.fromDate(new Date());
 	if(message != null || message != ""){
 		docref.add({
-			imageurl: "dryx.png",
+			imageurl: "dryx-logo.png",
 			message: msg,
 			user: "admin",
 			time: myTimestamp
@@ -64,32 +64,26 @@ docref.orderBy("time","desc").limit(5)
 			var docdata =  doc.data();
 			if(docdata.user == "user"){
 				chats = `<div class="row no-gutters">
-					<div class="col-md-3">
-					  <div class="chat-bubble chat-bubble--left">
-						${docdata.message}
-					  </div>
-					</div>
-				  </div>`+ chats;
+							<div class="col-md-4">
+								<div class="chat-bubble chat-bubble--left">
+									${docdata.message}
+								</div>
+							</div>
+						</div>`+ chats;
 			}else{
 				chats = `<div class="row no-gutters">
-					<div class="col-md-3 offset-md-9">
-					  <div class="chat-bubble chat-bubble--right">
-						${docdata.message}
-					  </div>
-					</div>
-				  </div>`+ chats;
+							<div class="col-md-4 offset-md-8">
+								<div class="chat-bubble chat-bubble--right">
+									${docdata.message}
+								</div>
+							</div>
+						</div>`+ chats;
 			}
         });
 	//insert send message box
-			chats = chats + `<div class='row'>
-						<div class='col-10'>
-						  <div class="chat-box-tray">
-							<i class="far fa-grin"></i>
-							<input type="text" placeholder="Type your message here..." id="message">
-							<i class="far fa-paper-plane" id="send-message"></i>
-						  </div>
-						</div>
-					  </div>`;
+			// chats = chats + `
+				
+			// 		`;
 
 			chat_list.innerHTML = chats;
 			//add on click event on the icon
