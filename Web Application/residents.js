@@ -19,6 +19,7 @@ var t = $('#resident-list').DataTable({
 		searchPlaceholder: "Search..."
 	},
 	"pageLength": 6
+	}
 });	
 db.collection("landlord").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {

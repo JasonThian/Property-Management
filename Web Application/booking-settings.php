@@ -18,7 +18,7 @@
 	<?php
 		include "navbar.php";
 	?>
-	<div class="content1">
+	<div class="content">
 		<h1 class="page-title">Booking Setting</h1>
 		
 		
