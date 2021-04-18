@@ -18,7 +18,7 @@
 	?>
 	
 	<div class="content">
-		<h1>Announcements</h1>		
+		<h1 class="page-title">Announcements</h1>		
 		<div class="col-md-6">
 			<form action="Cannouncement.php" method="post" class="form-horizontal" enctype="multipart/form-data" id="annc-form">
 
