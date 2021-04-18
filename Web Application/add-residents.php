@@ -32,26 +32,27 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 </head>
 
 <body>
-	<!-- Place required backend part is fill with #-->
 	<?php
 		include "navbar.php";
 	?>
 	
 	<div class="content">
-		<h1 id="test">Residents</h1>
-		<a id ="add-residents" href="add-residents.html" ><i class="fas fa-plus"></i>  Add Residents</a>
-		<a id ="create-admin" href="create-admin.html" ><i class="fas fa-plus"></i>  Create Admin</a>
+		<h1 class="page-title" id="test">Residents</h1>
+		<div class="buttons">
+			<a id ="add-residents" href="add-residents.php" ><i class="fas fa-plus"></i>  Add Residents</a>
+			<a id ="create-admin" href="create-admin.php" ><i class="fas fa-plus"></i>  Create Admin</a>
+		</div>
 		
-		<form action="" method="post" class="mt-0 col-md-10" id="add-resident-form">
+		<form action="" method="post" class="mt-0 ml-5 col-md-11" id="add-resident-form">
 			<?php echo $element;?>
 			
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
 					<label for="resident-type">Resident Type</label>
 					<select onChange="addTenants()" class="form-control" id="resident-type">
-						<option value="landlord">Landlord</option>
-						<option value="tenant" <?php echo $selected; echo $disabled;?>>Tenant</option>
-						<option value="household">HouseHold</option>
+					<option value="tenant" <?php echo $disabled;?>selected>Tenant</option>	
+						<option value="landlord">Landlord</option>						
+						<option value="household">Household</option>
 					</select>
 				</div>
 				
@@ -68,13 +69,13 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 				</div>
 				
 				<div id="have-tenant" class="col-md-4 mb-4 px-4" style="display:none;">
-					<label for="tenant">landlord</label	>
+					<label for="tenant">Landlord</label	>
 					<div class="tenant">							
 						<input id="yes-button" type="text" name="radAnswer" class="gender" <?php echo "value='$name'"?> disabled>		
 					</div>
 				</div>
 				<div id="have-household" class="col-md-4 mb-4 px-4" style="display:none;">
-					<label for="household">landlord/Tenant</label	>
+					<label for="household">Landlord/Tenant</label	>
 					<div class="household">							
 						<input id="yes-button" type="text" name="radAnswer" class="gender" <?php echo "value='$name'"?> disabled>		
 					</div>
@@ -101,7 +102,7 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 
 				</div>
 				
-				<div class="col-md-4 mb-4 px-4" id="carplates">
+				<div class="col-md-5 mb-4 px-4" id="carplates">
 					<label for="carplate-no">Carplate No.</label>
 					<div class="form-inline">
 						<input type="text" id="carplate-number" class="form-control mr-1" placeholder="QAA123" required>
@@ -146,7 +147,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 	function add() {
 	  	
 		
-	  	var new_input = "<input type='text' id='carplate"+new_carplate_no+"' id='carplate-number' class='form-control mr-1' class='carplates' placeholder='QAA123' required'><button name='remove-carplate' class='btn btn-primary' id='"+new_carplate_no+"' type='button'>Remove</button>";
+		var new_input = "<input type='text' id='carplate"+new_carplate_no+"' id='carplate-number' class='form-control mr-1' class='carplates' placeholder='QAA123' required'><button name='remove-carplate' class='btn btn-primary' id='"+new_carplate_no+"' type='button'>Remove</button>";
 
 	  	$('#new_carplate_no').append(new_input);
 				
@@ -158,7 +159,6 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 				this.remove();
 			});
 			
-			//Got bug
 			if(i >= 4){				
 				alert("You can only add up to 5 carplates.");
 				document.getElementById('button').disabled = true;
