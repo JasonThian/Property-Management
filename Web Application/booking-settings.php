@@ -25,37 +25,45 @@
 	<div class="content">
 		<h1 class="page-title">Booking Setting</h1>
 
-		<div class="date-range">
-			<label for="unitno">Date Range</label>
-			<input type="text" name="daterange" value=""/>
+		
+		<div class="form-group px-0 row col-sm-11 mx-auto date-range">
+			<label class="col-sm-2 col-form-label" for="unitno">Date Range</label>
+			<input class="form-control form-contol-sm col-sm-3" type="text" name="daterange" value=""/>
 		</div>
 
-		<div class="limit_slot">
-			<form class="facility_selection">
-				<label for="facility">Facility</label>
-					<select name="facility" id="facility">
-					<option value="BBQ Pit">Bbq Pit</option>
-					<option value="Sky Lounge">Sky Lounge</option>
-					<option value="Gym">Gym</option>
-					<option value="AV Room">AV Room</option>
-					<option value="Sauna">Sauna</option>					
-				</select>
-			</form>
-			<label for="unitno">Limit</label>
-			<input id="limit" type="number" name="limit"/>
-			<p>*The default booking limit for each timeslot is 3</p>
-			<button id="complete-button" type="submit" name="done"><i class="fas fa-check"></i>  Done</button>
-		</div>
-
-		<div class="targeted-user">
-			<label for="user_type">Targeted User</label>
-			<select name="user_type" id="user_type">
+		<div class="form-group px-0 row col-md-11 mx-auto date-range">
+			<label class="col-sm-2 col-form-label" for="user_type">Targeted User</label>
+			<select class="form-control form-contol-sm col-sm-3" name="user_type" id="user_type">
 				<option value="landlord">Landlords</option>
 				<option value="user">Tenants</option>
 				<option value="all">All</option>					
-			</select>				
+			</select>
 		</div>
 
+		<div class="col-md-11 mx-auto form-group">
+			<form class="needs-validation facility_selection" novalidate>
+				<div class="form-row">
+					<div class="col-md-4 mb-3 limit_slot">
+						<label class="col-form-label choose-facility" for="facility">Facility</label>
+						<select class="form-control form-contol-sm col-sm-10" name="facility" id="facility">
+							<option value="BBQ Pit">Bbq Pit</option>
+							<option value="Sky Lounge">Sky Lounge</option>
+							<option value="Gym">Gym</option>
+							<option value="AV Room">AV Room</option>
+							<option value="Sauna">Sauna</option>					
+						</select>
+					</div>	
+				
+					<div class="col-md-4 limit_slot">
+						<label class="col-form-label" for="unitno">Limit</label>
+						<input class="form-control form-contol-sm col-sm-10" id="limit" type="number" name="limit"/>
+						<p class="limit-text text-muted"><small>*The default booking limit for each timeslot is 3*</small></p>
+					</div>	
+				</div>
+				<button class="mx-auto" id="complete-button" type="submit" name="done"><i class="fas fa-check"></i>  Done</button>
+			</form>	
+		</div>
+		
 		<table id="resident-list" class="table-sm hover order-column">
 		<thead>
 			<th><input type="checkbox" id="SelectAll"><br></th>
