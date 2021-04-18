@@ -19,7 +19,6 @@
 	?>
 	
 	<div class="create-admin">
-
 		<h1 class="page-title">Add Facility</h1>
 		
 		<form action="" method="post" class="mt-0 col-md-10" id="facility_form">
