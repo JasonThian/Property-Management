@@ -5,6 +5,10 @@
 	<title>Home - Project Management System</title>
 	<link rel="stylesheet" href="style/style.css"/>
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
@@ -15,25 +19,21 @@
 	?>
 	
 	<div class="create-admin">
-		<h1>Residents</h1>
-		<a id ="add-residents" href="add-residents.php" ><i class="fas fa-plus"></i>  Add Residents</a>
-		<a id ="create-admin" href="create-admin.html" ><i class="fas fa-plus"></i>  Create Admin</a>
+		<h1 class="page-title">Add Facility</h1>
 		
 		<form action="" method="post" class="mt-0 col-md-10" id="facility_form">
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
-					<label for="Fname" >Name</label>
-					<input type="text" id="Fname" class="form-control"placeholder="john@hotmail.com" required>
+					<label for="Fname" >Facility Name</label>
+					<input type="text" id="Fname" class="form-control" placeholder="john@hotmail.com" required>
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
-				  <label for="img">Select image:</label>
+				  <label for="img">Select Facility Image:</label>
 				  <input type="file" id="img" name="img" accept="image/*">
 				</div>
 			</div>
-
-		
 				
 			<button id="create-button" type="submit" name="create"><i class="fas fa-check"></i>  Create</button>					
 		</form>
