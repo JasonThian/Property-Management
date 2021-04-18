@@ -339,9 +339,6 @@ td button{
 #done-button, #create-button{
 	background-color: #C8E0FF;
 	color: #5F6392;
-	/* border: none;
-	border-radius: 5px;
-	padding: 1% 2%; */
 }
 
 #complete-button{
@@ -372,10 +369,6 @@ td button{
 
 #update-button:hover{
 	cursor: pointer;
-}
-
-#confirm-password{
-	margin-bottom: 10%;
 }
 
 /* Create admin button */
