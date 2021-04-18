@@ -9,7 +9,6 @@
 </head>
 
 <body>
-	<!-- Place required backend part is fill with #-->
 	<?php
 		include "navbar.php";
 	?>
