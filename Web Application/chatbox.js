@@ -1,6 +1,6 @@
 // JavaScript Document
 var userid = location.search.substring(1);
-var chat_list = document.getElementById("chat-panel");
+var chat_list = document.getElementById("chat-messages");
 
 var chats = "";
 var docref = db.collection("landlord").doc(userid).collection("chatroom");
@@ -49,6 +49,7 @@ function sendmessage(){
 			time: myTimestamp
 		});
 	}
+
 }
 //listen to changes
 docref.orderBy("time","desc").limit(5)
@@ -63,36 +64,59 @@ docref.orderBy("time","desc").limit(5)
 			
 			var docdata =  doc.data();
 			if(docdata.user == "user"){
-				chats = `<div class="row no-gutters">
+				chats = `
+				<div class="row no-gutters">
 					<div class="col-md-3">
-					  <div class="chat-bubble chat-bubble--left">
+					<div class="chat-bubble chat-bubble-left">
 						${docdata.message}
-					  </div>
 					</div>
-				  </div>`+ chats;
+					</div>
+				</div>
+				`+ chats;
 			}else{
-				chats = `<div class="row no-gutters">
-					<div class="col-md-3 offset-md-9">
-					  <div class="chat-bubble chat-bubble--right">
+				chats = `
+				<div class="row no-gutters">
+					<div class="col-md-3 offset-md-9"">
+					<div class="chat-bubble chat-bubble-right bg-primary text-white">
 						${docdata.message}
-					  </div>
 					</div>
-				  </div>`+ chats;
+					</div>
+				</div>
+				`+ chats;
 			}
         });
 	//insert send message box
-			chats = chats + `<div class='row'>
-						<div class='col-10'>
-						  <div class="chat-box-tray">
-							<i class="far fa-grin"></i>
-							<input type="text" placeholder="Type your message here..." id="message">
-							<i class="far fa-paper-plane" id="send-message"></i>
-						  </div>
-						</div>
-					  </div>`;
+			// chats = chats + `
+			// <div class="row">
+			// 	<div class="col-md-12">
+			// 		<div class="chat-box-tray">
+			// 		<input id="message" type="text" placeholder="Type your message here...">
+			// 		<i id="send-message" class="material-icons">send</i>
+			// 		</div>
+			// 	</div>
+			// </div>
+			// `;
 
 			chat_list.innerHTML = chats;
 			//add on click event on the icon
 			var icon = document.getElementById("send-message");
-			icon.addEventListener("click",sendmessage);
+			text_input = document.getElementById("message");
+
+			//send message on clicking "send" button
+			icon.addEventListener("click", sendmessage);
+
+
+			//send message on tapping enter
+			
+			text_input.addEventListener("keyup", function(e) {
+			// Number 13 is the "Enter" key on the keyboard
+				if (e.keyCode === 13) {
+					// Cancel the default action, if needed
+					e.preventDefault();
+					// Trigger the button element with a click
+					icon.click(sendmessage);
+					e.currentTarget.value = "";
+				}
+			});
+			
     });

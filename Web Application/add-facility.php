@@ -35,7 +35,7 @@
 				</div>
 			</div>
 				
-			<button id="create-button" type="submit" name="create"><i class="fas fa-check"></i>  Create</button>					
+			<button id="create-button" type="submit" name="done"><i class="fas fa-check"></i>  Create</button>					
 		</form>
 	</div>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
