@@ -2,7 +2,7 @@
 auth.onAuthStateChanged(user => {
   if (user) {
 	  console.log(user, " logged in.");
-	  //window.location.replace("residents.html");
+	//   window.location.replace("residents.php");
   }else{
 	  console.log("user not logged in.");
   }
@@ -18,7 +18,7 @@ document.getElementById ('login-form').addEventListener ('submit',(e) => {
 	
     auth.signInWithEmailAndPassword(email, password).then((cred) => {
 		console.log("user logged in");
-		//location.replace("residents.html");
+		// location.replace("residents.php");
 		err.innerHTML = '';
   	}).catch(err => {
 		console.log(err.message);

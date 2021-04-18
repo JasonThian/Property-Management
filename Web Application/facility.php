@@ -60,7 +60,7 @@
 		include "navbar.php";
 	?>
 	<div class="content">
-		<h1>Facility</h1>
+		<h1 class="page-title">Facility</h1>
 
 		<a id ="add-residents"><i class="fas fa-plus"></i>Chart</a>
 		<div id="myModal" class="modal">
@@ -74,8 +74,6 @@
 				<tr>
 					<th>Name</th>
 					<th>Action</th>
-					
-					
 				</tr>
 			</thead>		
 		</table>

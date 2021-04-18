@@ -1,8 +1,12 @@
 // JavaScript Document
 var t = $('#payment-log').DataTable({
-  "pagingType": "simple_numbers",
-  info: false,
-  "sDom": '<"top"i>rt<"bottom"flp><"clear">'
+          "pagingType": "simple_numbers",
+          "info": false,
+          "dom": '<"top"fp>',
+          "language": {
+              search: "_INPUT_",
+              searchPlaceholder: "Search..."
+          }
 });
 
 db.collection("billing").get().then((querySnapshot) => {

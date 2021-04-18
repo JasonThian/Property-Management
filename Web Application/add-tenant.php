@@ -15,7 +15,7 @@
 	?>
 	
 	<div class="content">
-		<h1>Add Tenants</h1>		
+		<h1 class="page-title">Add Tenants</h1>		
 		
 		<form action="add-tenant.php" method="post" class="mt-0 col-md-10" id="add-resident-form">
 		

@@ -11,30 +11,33 @@ body{
 
 /*Side menu*/
 .sidebar{
-	position: absolute;
-	float: left;
-	width: 20%;
+	position: fixed;
+	width: 280px;
 	height: 100%;
 	background: #C8E0FF;
-	z-index: 950;
+	transition: 0.5s;
 	overflow: hidden;
 }
 
-.sidebar header{	
-	text-align: center;
-	user-select: none;
-	margin-top: 10%;
-	padding-right: 25%;
+.sidebar ul li{
+	position: relative;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
 }
 
-.sidebar ul a{
-	display: block;
-	height: 100%;	
-	line-height: 4.5vw;
-	font-size: 20px;
-	color: #5F6392;
-	padding-left: 40px;	
-	text-decoration: none;
+.sidebar ul li a{
+	position: relative;
+    display: block;
+    height: 100%;
+    color: #5F6392;
+}
+
+.sidebar img{
+	border-style: none;
+    width: 50%;
+    margin: 0 auto;
+    display: block;
 }
 
 ul li:hover a{
@@ -55,8 +58,9 @@ ul li:hover a{
 	background: none;
 }
 
-.sidebar ul a i{
-	margin-right: 16px;
+.sidebar ul li a i{
+	text-align: center;
+    margin-right: 15px;
 }
 
 
@@ -320,22 +324,10 @@ ul li:hover a{
 }
 
 /* Resident List , Payment Log, Visitor Log, Issue Report */
-#resident-list, #payment-log, #visitor-log, #issue-report{
-	position: absolute;
-	width: 75%;
-	margin-top: 8%;
-	left: 22%;
-	right: 5%;
-}
-
-
-#bookings{
-	position: absolute;
-	width: 75%;
-	margin-top: 10%;
-	left: 22%;
-	right: 5%;
-	overflow: auto;
+#resident-list, #payment-log, #visitor-log, #issue-report, #bookings{
+	position: relative;
+    width: 90%;
+    margin: 0 auto;
 }
 
 th{
@@ -392,26 +384,33 @@ td button{
 }
 
 /* Data Tables */
-.dataTables_paginate {
-	position: fixed;
-	left: 75%;
-	margin-top: 3%;
-	
+.dataTables_paginate {	
+	color: #cca679 !important;
+	padding: 0 !important;
 }
 
-
 .dataTables_filter{
-	position: absolute;
-	left: 75%;
-	margin-top: 7%;
+	text-align: left !important;
+}
+
+.dataTables_filter input{
+	padding: 10px;
+}
+
+.dataTables_paginate .paginate_button{
+	cursor: pointer;
+    
+}
+
+.top{
+	width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .dataTables_length{
 	display: none;
-}
-
-.dt-body-nowrap {
-   white-space: nowrap;
 }
 
 /* Update bill */
@@ -424,19 +423,22 @@ td button{
 
 /*Content*/
 .content{
-	background: white;
-	z-index: 900;		
-	position: relative;	
+	position: absolute;
+	width: calc(100% - 280px);
+	left: 280px;
+	min-height: 100vh;
+	background: #f5f5f5;
+	transition: 0.5s;
 }
 
-.content h1{
-	position: fixed;
+.page-title{
 	color: #CCA679;	
-	top: 3%;
-	left: 22%;
+	width: 90%;
+	margin: 10px auto;
+	text-align: left;
 }
 
-.content form{
+/* .content form{
 	position: fixed;
 	top: 23%;
 	left: 21%;
@@ -454,22 +456,18 @@ td button{
 	left: 75%;
 	top: 13%;
 }
+
 #complete-button{
-	
 	background-color: #C8E0FF;
 	color: #5F6392;
 	font-weight: bold;
 	border: none;
 	border-radius: 5px;
-	padding: 1% 2%;
-	
-	
-	
 }
 
 #done-button:hover{
 	cursor: pointer;
-}
+} */
 
 
 /*Update bill page*/
