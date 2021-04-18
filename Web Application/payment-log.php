@@ -12,7 +12,6 @@
     <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
     <script src="https://nightly.datatables.net/js/dataTables.bootstrap4.min.js "></script>
-	
 </head>
 
 <body>

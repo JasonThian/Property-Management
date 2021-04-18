@@ -9,7 +9,6 @@
 </head>
 
 <body>
-	<!-- Place required backend part is fill with #-->
 	<?php
 		include "navbar.php";
 	?>
@@ -30,7 +29,6 @@
 				<input type="text" id="carplate-number" class="form-control" placeholder="QAA123" required>
 				
 					<button class="add">Add carplate</button>
-					<!--button class="remove">Remove carplate</button-->
 				
 				<div id="new_carplate_no"></div>
 				<input type="hidden" value="1" id="total_carplate_no">
@@ -47,7 +45,7 @@
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
 					<label for="icnumber">Identificaton No.</label>
-					<input type="text" id="idno" class="form-control" placeholder="e.g. XXXXX-XX-XXXX" required>		
+					<input type="text" id="idno" class="form-control" placeholder="e.g. 12345-13-1234" required>		
 				</div>
 			</div>
 			

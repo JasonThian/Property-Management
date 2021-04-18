@@ -66,10 +66,10 @@ div.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-wei
 		include "navbar.php";
 	?>
 	
-	<div class="update-bill" id="form_opac">
-		<h1>Update bill</h1>
+	<div class="content" id="form_opac">
+		<h1 class="page-title">Update bill</h1>
 		
-		<form action="" id="update-bill-form" method="post" class="mt-0 col-md-10" class="update-bill-form">
+		<form action="" id="update-bill-form" method="post" class="mt-0 ml-5 col-md-11" class="update-bill-form">
 			<input type="hidden" name="user_id" id="user_id" <?php setValue($_POST['user_id']); ?> />
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
@@ -105,26 +105,14 @@ div.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-wei
 					<input type="text" name="payment-desc" id="payment-desc" class="form-control" placeholder="<?php getMonth(); ?> Bill" required />		
 				</div>		
 			</div>
-
-			<!--<div class="form-row">
-				<div class="col-md-4 mb-4">
-					<label for="bill-for">Bill for</label>
-					<select class="form-control" id="resident-type">
-						<optgroup label="User">
-						  <option value="landlord">Landlord</option>
-						  <option value="tenant">Tenant</option>
-						</optgroup>
-					</select>
-				</div>	
-			</div>-->
 			
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
 					<label for="unit_no">Unit No.</label>
 					<input type="text" name="unit_no" id="unit_no" class="form-control" <?php setValue($_POST['unit']); ?> placeholder="B-8-1" required <?php disable(); ?> />
 				</div>	
-			</div>
-			<input type="submit" value="Generate Invoice" id="generate_inv"/>
+			</div> 
+			<input type="submit" class="form-control col-8" value="Generate Invoice" id="generate_inv"/>
 				
 			
 			<!--<button action="confirm_bill.php" id="update-button" type="submit" value="Update" name="update"><i class="fas fa-check"></i> Update</button>-->				

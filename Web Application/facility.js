@@ -271,7 +271,10 @@ $(document).ready(() => {
 
 
 var t = $('#resident-list').DataTable({
-		
+	"paging":   false,
+	"ordering": false,
+	"info":     false,
+	"filter": false
 });	
 db.collection("config").doc('facilities').collection('facilities_list').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {

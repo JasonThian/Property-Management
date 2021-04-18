@@ -20,22 +20,23 @@
 	?>
 	
 	<div class="content">
-		<h1 class="page-title">Residents</h1>
-		
-		<a id ="add-residents" href="add-residents.php" ><i class="fas fa-plus"></i>  Add Residents</a>
-		<a id ="create-admin" href="create-admin.php" ><i class="fas fa-plus"></i>  Create Admin</a>
+		<h1 class="page-title">Residents</h1>		
+		<div class="buttons">
+			<a id ="add-residents" href="add-residents.php" ><i class="fas fa-plus"></i>  Add Residents</a>
+			<a id ="create-admin" href="create-admin.php" ><i class="fas fa-plus"></i>  Create Admin</a>
+		</div>
 		
 		<table id="resident-list" class="table hover order-column">
 			<thead>
 				<tr>
-					<!-- <th>Name</th>
+					<th>Name</th>
 					<th>Email</th>
 					<th>Contact No.</th>
 					<th>Identification No.</th>
 					<th>Unit number</th>
 					<th>Resident type</th>
 					<th>Action</th>
-					<th>Priviledged Action</th> -->
+					<th>Priviledged Action</th>
 				</tr>
 			</thead>		
 

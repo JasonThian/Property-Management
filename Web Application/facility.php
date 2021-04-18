@@ -62,14 +62,16 @@
 	<div class="content">
 		<h1 class="page-title">Facility</h1>
 
-		<a id ="add-residents"><i class="fas fa-plus"></i>Chart</a>
+		<div class="display-chart-button">
+			<a id ="display-chart"><i class="fas fa-plus"></i>Chart</a>
+		</div>
 		<div id="myModal" class="modal">
 			<div class="modal-content" style="margin:0 auto; width:580px; height: 400px;">
 				<span class="close">&times;</span>
 				<canvas id="myChart" width="580" height="290"></canvas>
 			</div>	
 		</div>
-		<table id="resident-list" class="table hover order-column">	
+		<table id="resident-list" class="table thead-light hover order-column">	
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -84,7 +86,7 @@
 		var modal = document.getElementById("myModal");
 
 		// Get the button that opens the modal
-		var btn = document.getElementById("add-residents");
+		var btn = document.getElementById("display-chart");
 
 		// Get the <span> element that closes the modal
 		var span = document.getElementsByClassName("close")[0];

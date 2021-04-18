@@ -16,10 +16,12 @@
 	
 	<div class="create-admin">
 		<h1 class="page-title">Residents</h1>
-		<a id ="add-residents" href="add-residents.php" ><i class="fas fa-plus"></i>  Add Residents</a>
-		<a id ="create-admin" href="create-admin.html" ><i class="fas fa-plus"></i>  Create Admin</a>
+		<div class="buttons">
+			<a id ="add-residents" href="add-residents.php" ><i class="fas fa-plus"></i>  Add Residents</a>
+			<a id ="create-admin" href="create-admin.php" ><i class="fas fa-plus"></i>  Create Admin</a>
+		</div>
 		
-		<form action="" method="post" class="mt-0 col-md-10" id="add-resident-form">
+		<form action="" method="post" class="mt-0 ml-5 col-md-11" id="add-resident-form">
 			<div class="form-row">
 				<div class="col-md-4 mb-4">
 					<label for="email" >Email</label>

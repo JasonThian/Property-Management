@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>Home - Project Management System</title>
 	<link rel="stylesheet" href="style/style.css"/>
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -15,7 +15,6 @@
 </head>
 
 <body>
-	<!-- Place required backend part is fill with #-->
 	<?php
 		include "navbar.php";
 	?>

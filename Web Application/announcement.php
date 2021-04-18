@@ -19,7 +19,7 @@
 	
 	<div class="content">
 		<h1 class="page-title">Announcements</h1>		
-		<div class="col-md-6">
+		<div class="col-md-11 ml-4">
 			<form action="Cannouncement.php" method="post" class="form-horizontal" enctype="multipart/form-data" id="annc-form">
 
 				<div class="form-group">

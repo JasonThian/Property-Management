@@ -29,7 +29,8 @@ var t = $('#bookings').DataTable({
 	"language": {
 		search: "_INPUT_",
 		searchPlaceholder: "Search..."
-	}
+	},
+	"pageLength": 6
 });
 
  const monthNames = ["January", "February", "March", "April", "May", "June",
