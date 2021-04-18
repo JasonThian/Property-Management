@@ -14,7 +14,7 @@
 		include "navbar.php";
 	?>
 	
-	<div class="create-admin">
+	<div class="content">
 		<h1 class="page-title">Residents</h1>
 		<div class="buttons">
 			<a id ="add-residents" href="add-residents.php" ><i class="fas fa-plus"></i>  Add Residents</a>
@@ -43,7 +43,7 @@
 				</div>
 			</div>
 				
-			<button id="create-button" type="submit" name="create"><i class="fas fa-check"></i>  Create</button>					
+			<button id="create-button" class="btn" type="submit" name="create"><i class="fas fa-check"></i>  Create</button>					
 		</form>
 	</div>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
