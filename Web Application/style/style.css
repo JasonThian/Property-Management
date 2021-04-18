@@ -1,40 +1,54 @@
-body{	
-	font-family: 'Roboto', sans-serif;
+/* body{	
+	font-family: "Nunito", sans-serif; 
+} */
+@font-face {
+    font-family: 'weblysleek_uisemilight';
+    src: url('weblysleekuisl-webfont.woff2') format('woff2'),
+         url('weblysleekuisl-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
+
 
 *{
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	text-decoration: none;		
+	text-decoration: none;	
+	font-family: 'weblysleek_uisemilight', Arial, Helvetica, sans-serif;	
 }
 
 /*Side menu*/
 .sidebar{
-	position: absolute;
-	float: left;
-	width: 20%;
+	position: fixed;
+	width: 35vh;
 	height: 100%;
 	background: #C8E0FF;
-	z-index: 950;
+	transition: 0.5s;
 	overflow: hidden;
 }
 
-.sidebar header{	
-	text-align: center;
-	user-select: none;
-	margin-top: 10%;
-	padding-right: 25%;
+.sidebar ul li{
+	position: relative;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+	line-height: 3vw;
 }
 
-.sidebar ul a{
-	display: block;
-	height: 100%;	
-	line-height: 4.5vw;
-	font-size: 20px;
-	color: #5F6392;
-	padding-left: 40px;	
-	text-decoration: none;
+.sidebar ul li a{
+	position: relative;
+    display: block;
+    height: 100%;
+    color: #5F6392;
+	font-size: 1.3vw;
+}
+
+.sidebar img{
+	border-style: none;
+    width: 50%;
+    margin: 15px auto;
+    display: block;
 }
 
 ul li:hover a{
@@ -55,8 +69,9 @@ ul li:hover a{
 	background: none;
 }
 
-.sidebar ul a i{
-	margin-right: 16px;
+.sidebar ul li a i{
+	text-align: center;
+    margin-right: 15px;
 }
 
 
@@ -173,113 +188,6 @@ ul li:hover a{
   color: #cccccc;
 }
 
-
-/* ANIMATIONS */
-
-/* Simple CSS3 Fade-in-down Animation 
-.fadeInDown {
-  -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-*/
-
-/* Simple CSS3 Fade-in Animation 
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-
-.fadeIn {
-  opacity:0;
-  -webkit-animation:fadeIn ease-in 1;
-  -moz-animation:fadeIn ease-in 1;
-  animation:fadeIn ease-in 1;
-
-  -webkit-animation-fill-mode:forwards;
-  -moz-animation-fill-mode:forwards;
-  animation-fill-mode:forwards;
-
-  -webkit-animation-duration:1s;
-  -moz-animation-duration:1s;
-  animation-duration:1s;
-}
-
-.fadeIn.first {
-  -webkit-animation-delay: 0.4s;
-  -moz-animation-delay: 0.4s;
-  animation-delay: 0.4s;
-}
-
-.fadeIn.second {
-  -webkit-animation-delay: 0.6s;
-  -moz-animation-delay: 0.6s;
-  animation-delay: 0.6s;
-}
-
-.fadeIn.third {
-  -webkit-animation-delay: 0.8s;
-  -moz-animation-delay: 0.8s;
-  animation-delay: 0.8s;
-}
-
-.fadeIn.fourth {
-  -webkit-animation-delay: 1s;
-  -moz-animation-delay: 1s;
-  animation-delay: 1s;
-}
-
-*/
-
-/* Simple CSS3 Fade-in Animation 
-.underlineHover:after {
-  display: block;
-  left: 0;
-  bottom: -10px;
-  width: 0;
-  height: 2px;
-  background-color: #56baed;
-  content: "";
-  transition: width 0.2s;
-}
-
-.underlineHover:hover {
-  color: #0d0d0d;
-}
-
-*/
-
-/* OTHERS */
-
 *:focus {
     outline: none;
 } 
@@ -290,19 +198,15 @@ ul li:hover a{
 }
 
 /* Add residents page */
-
-
-/* Add residents & Create admin button */
-#add-residents, #create-admin{
-	display: inline;
-	position: fixed;	
+#add-residents, #create-admin, #display-chart, #generate_inv{
 	background-color: #C8E0FF;
 	color: #5F6392;	
 	border-radius: 5px;
 	padding: 1% 2%;
 	text-decoration: none;
 	font-size: 1.2vw;
-	top: 13%;
+	margin: 3px;
+	cursor: pointer;
 }
 
 #add-residents:hover, #create-admin:hover{
@@ -311,65 +215,50 @@ ul li:hover a{
 	transition: 0.5s;
 }
 
-#add-residents{
-	left: 22%;
+.display-chart-button{
+	display: flex;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: flex-start;
+	cursor: pointer;
 }
 
-#create-admin{
-	left: 36%;
+.buttons{
+	display: flex;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: flex-end;
 }
 
 /* Resident List , Payment Log, Visitor Log, Issue Report */
-#resident-list, #payment-log, #visitor-log, #issue-report{
-	position: absolute;
-	width: 75%;
-	margin-top: 8%;
-	left: 22%;
-	right: 5%;
-}
-
-
-#bookings{
-	position: absolute;
-	width: 75%;
-	margin-top: 10%;
-	left: 22%;
-	right: 5%;
-	overflow: auto;
+#resident-list, #payment-log, #visitor-log, #issue-report, #bookings{
+	position: relative;
+    width: 90%;
+    margin: 0 auto !important;
 }
 
 th{
 	font-size: 1vw;
 	background-color: #C8E0FF!important;
-	font-family: "Nunito", sans-serif; 
 }
 
 td{
-	font-size: 0.8vw;
-	padding: 2%;
+	font-size: 0.9vw;
 	border-bottom: 1px solid #7278B9!important;
+	
 }
 
 td input, td button{
 	border: none;
-	border-radius: 5px;
-	padding: 10%;
 }
 
-td input{
-	background-color: #28a745;
-	color: white;
-	cursor: pointer;
-}
-.limit_slot input, .limit_slot input[type=number]
-{
+.limit_slot input, .limit_slot input[type=number]{
 	
 	border-bottom: 1px solid #7278B9!important;
 	border-radius: 5px;
 	padding: 1%;
 	color: black;
 	background-color:white;
-	
 }
 
 td input[type=number]{
@@ -378,93 +267,89 @@ td input[type=number]{
 	cursor: pointer;
 }
 
-th button
-{
-	background-color: #dc3545;
-	color: white;
+td input{
+	/* background-color: #28a745; */
+	background-color: transparent;
+	color: #28a745;
 	cursor: pointer;
+	font-weight: bold;
+	font-size: 1.2vw;
 }
 
 td button{
-	background-color: #dc3545;
-	color: white;
+	/* background-color: #dc3545; */
+	background-color: transparent;
+	color: red;
 	cursor: pointer;
+	font-weight: bold;
+	font-size: 1.2vw;
 }
 
 /* Data Tables */
-.dataTables_paginate {
-	position: fixed;
-	left: 75%;
-	margin-top: 3%;
-	
+.dataTables_wrapper{
+	height: 7vh;
 }
 
+.dataTables_paginate {	
+	color: #cca679 !important;
+	padding: 0 !important;
+}
 
 .dataTables_filter{
-	position: absolute;
-	left: 75%;
-	margin-top: 7%;
+	text-align: left !important;
+}
+
+.dataTables_filter input{
+	padding: 10px;
+}
+
+.dataTables_paginate .paginate_button{
+	cursor: pointer;
+    
+}
+
+.top{
+	width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 .dataTables_length{
 	display: none;
 }
 
-.dt-body-nowrap {
-   white-space: nowrap;
-}
-
-/* Update bill */
-#update-bill-table{
-	position: absolute;
-	width: 70%;
-	margin-top: 11%;
-	left: 22%;
-}
-
 /*Content*/
 .content{
-	background: white;
-	z-index: 900;		
-	position: relative;	
+	position: absolute;
+	width: calc(100% - 35vh);
+	left: 35vh;
+	min-height: 100vh;
+	background: #f2faff;
+	transition: 0.5s;
 }
 
-.content h1{
-	position: fixed;
+.page-title{
 	color: #CCA679;	
-	top: 3%;
-	left: 22%;
-}
-
-.content form{
-	position: fixed;
-	top: 23%;
-	left: 21%;
-	width: 70%;
+	width: 90%;
+	margin: 10px auto;
+	text-align: left;
 }
 
 #done-button{
-	position: fixed;	
 	background-color: #C8E0FF;
 	color: #5F6392;
-	font-weight: bold;
 	border: none;
 	border-radius: 5px;
 	padding: 1% 2%;
-	left: 75%;
-	top: 13%;
 }
+
 #complete-button{
-	
 	background-color: #C8E0FF;
 	color: #5F6392;
 	font-weight: bold;
 	border: none;
-	border-radius: 5px;
-	padding: 1% 2%;
-	
-	
-	
+	border-radius: 5px;	
 }
 
 #done-button:hover{
@@ -472,27 +357,7 @@ td button{
 }
 
 
-/*Update bill page*/
-.update-bill{
-	background: white;
-	z-index: 1;		
-	position: relative;	
-}
-
-.update-bill h1{
-	position: fixed;
-	color: #CCA679;	
-	top: 3%;
-	left: 22%;
-}
-
-.update-bill form{
-	position: fixed;
-	top: 20%;
-	left: 21%;
-	width: 70%;
-}
-
+/*Update Bill Resident page*/
 #update-button{
 	position: fixed;	
 	background-color: #C8E0FF;
