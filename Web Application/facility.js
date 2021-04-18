@@ -271,10 +271,11 @@ $(document).ready(() => {
 
 
 var t = $('#resident-list').DataTable({
-					"pagingType": "simple_numbers",
-					info: false,
-					"sDom": '<"top"i>rt<"bottom"flp><"clear">'
-				});	
+	"paging":   false,
+	"ordering": false,
+	"info":     false,
+	"filter": false
+});	
 db.collection("config").doc('facilities').collection('facilities_list').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
 		var button = '';
