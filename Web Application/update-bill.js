@@ -1,9 +1,13 @@
 // JavaScript Document
 var t = $('#resident-list').DataTable({
-					"pagingType": "simple_numbers",
-					info: false,
-					"sDom": '<"top"i>rt<"bottom"flp><"clear">'
-				});	
+  "pagingType": "simple_numbers",
+  "info": false,
+  "dom": '<"top"fp>',
+  "language": {
+      search: "_INPUT_",
+      searchPlaceholder: "Search..."
+  }
+});	
 db.collection("landlord").where("role","==","landlord").get().then((querySnapshot) => {
 	var i = 0;
     querySnapshot.forEach((doc) => {
