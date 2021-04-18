@@ -35,7 +35,7 @@ if(isset($_FILES['annc_image']['name'])){
 	curl_close($ch);
 	
 	
-	header( "refresh:5; url=residents.html" ); 
+	header( "refresh:2; url=residents.php" ); 
 }
 
 ?>
