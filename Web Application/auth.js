@@ -2,7 +2,7 @@
 auth.onAuthStateChanged(user => {
   if (user) {
 	  console.log(user, " logged in.");
-	//   window.location.replace("residents.php");
+	   window.location.replace("residents.php");
   }else{
 	  console.log("user not logged in.");
   }
