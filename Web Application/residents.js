@@ -11,10 +11,15 @@ auth.onAuthStateChanged(user => {
 });
 
 var t = $('#resident-list').DataTable({
-					"pagingType": "simple_numbers",
-					info: false,
-					"sDom": '<"top"i>rt<"bottom"flp><"clear">'
-				});	
+	"pagingType": "simple_numbers",
+	"info": false,
+	"dom": '<"top"fp>',
+	"language": {
+		search: "_INPUT_",
+		searchPlaceholder: "Search..."
+	},
+	"pageLength": 6
+});	
 db.collection("landlord").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
 		
