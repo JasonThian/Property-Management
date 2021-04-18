@@ -71,7 +71,7 @@
 				<canvas id="myChart" width="580" height="290"></canvas>
 			</div>	
 		</div>
-		<table id="resident-list" class="table thead-light hover order-column">	
+		<table id="facility-action-list" class="table-sm px-0 mx-0 hover order-column">	
 			<thead>
 				<tr>
 					<th>Name</th>
