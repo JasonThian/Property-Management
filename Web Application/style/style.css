@@ -21,7 +21,7 @@
 /*Side menu*/
 .sidebar{
 	position: fixed;
-	width: 35vh;
+	width: 40vh;
 	height: 100%;
 	background: #C8E0FF;
 	transition: 0.5s;
@@ -32,7 +32,7 @@
 	position: relative;
     width: 100%;
     display: inline-block;
-    text-align: center;
+    text-align: left;
 	line-height: 3vw;
 }
 
@@ -41,7 +41,8 @@
     display: block;
     height: 100%;
     color: #5F6392;
-	font-size: 1.3vw;
+    padding: 1% 10% 1% 20%;
+    font-size: 1.3vw;
 }
 
 .sidebar img{
@@ -320,10 +321,10 @@ td button{
 }
 
 /*Content*/
-.content{
+.content, .user-list{
 	position: absolute;
-	width: calc(100% - 35vh);
-	left: 35vh;
+	width: calc(100% - 40vh);
+	left: 40vh;
 	min-height: 100vh;
 	background: #f2faff;
 	transition: 0.5s;
@@ -336,7 +337,7 @@ td button{
 	text-align: left;
 }
 
-#done-button{
+#done-button, #create-button{
 	background-color: #C8E0FF;
 	color: #5F6392;
 	border: none;
@@ -398,20 +399,6 @@ td button{
 	width: 70%;
 }
 
-#create-button{
-	position: fixed;	
-	background-color: #C8E0FF;
-	color: #5F6392;
-	border: none;
-	border-radius: 5px;
-	padding: 1% 2%;
-	font-weight: bold;
-	left: 75%;
-	top: 13%;	
-	font-family: 'Nunito', sans-serif;
-	font-size: 1.2vw;
-}
-
 #create-button:hover{
 	cursor: pointer; 
 }
@@ -442,11 +429,7 @@ td button{
 }
 
 /* Live Chat */
-.user-list{
-	width: 80%;
-	margin-left: 20%;
-	margin-right: auto;
-}
+
 
 #searchbar{
 	color: #e3e3e3;
@@ -476,15 +459,19 @@ input[name="searchbar"]{
 
 .time{
 	float: right;
+    position: absolute;
+    width: 90%;
+    text-align: right;
 }
 
-.friend-drawer{
+.user-list-drawer{
 	height: 11vh;
-	margin-top: 1.2%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .text{
-	margin-left: 10%;
+	margin-left: 2%;
 }
 
 .text h6{
@@ -494,48 +481,35 @@ input[name="searchbar"]{
     
 .text p {
  	margin:  auto;
-}
+} 
 
 /*Announcement php */
-.content img{
-	position: fixed;
-	top: 10%;
-	left: 55%;
+.content .announcement-success{
+	display: flex;
+	margin: 5% auto;
 }
 
 .content .announcement-sent{
-	top: 25%;
-	left: 45%;
+	width: 90%;
+	margin: 10px auto;
 	color: #5F6392;
+	text-align: center;
 }
 
 .content .announcement-text{
-	left: 40%;
-	top: 35%;
+	width: 90%;
+	margin: 10px auto;
 	font-size: 1.8vw;
 	color: maroon;
+	text-align: center;
 }
-
-/*Content*/
-.content1{
-	background: white;
-	z-index: 900;		
-	position: relative;	
-}
-
-.content1 h1{
-	position: fixed;
-	color: #CCA679;	
-	top: 3%;
-	left: 22%;
-}
-
 
 .content .redirect{
-	left: 40%;
-	top: 43%;
+	width: 90%;
+	margin: 10px auto;
 	font-size: 1.5vw;
 	color: #CCA679;
+	text-align: center;
 }
 
 /* Announcement */
@@ -549,7 +523,7 @@ input[name="searchbar"]{
 }
 
 /* Update bill */
-.content img{
+/* .content img{
 	position: fixed;
 	top: 10%;
 	left: 55%;
@@ -566,7 +540,7 @@ input[name="searchbar"]{
 	top: 35%;
 	font-size: 1.8vw;
 	color: maroon;
-}	
+}	 */
 
 /*admin only features*/
 #create-admin{
