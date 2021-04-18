@@ -115,7 +115,7 @@ docref.orderBy("time","desc").limit(5)
 					e.preventDefault();
 					// Trigger the button element with a click
 					icon.click(sendmessage);
-					e.currentTarget.value = "";
+					// e.currentTarget.value = "";
 				}
 			});
 			
