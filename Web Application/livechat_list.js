@@ -19,15 +19,17 @@ async function chat(){
 		var minute = date.getMinutes();
 		var units = doc.data().unit.toString();
 
-		var user =`<div class="friend-drawer" id="${doc.id}" >
-				  <img id="${doc.data().imageurl}" class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/robocop.jpg" alt="">
-				  <div class="text">
-					<h6>${doc.data().name}(${units})</h6>		
-					<p class="text-muted">${doc.data().rmsg}</p>
-				  </div>
-				  <span class="time text-muted small">${hour +":" + minute}</span>
-				</div>
-				<hr>`;
+		var user =`
+		<div class="user-list-drawer" id="${doc.id}" >
+			<img id="${doc.data().imageurl}" class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/robocop.jpg" alt="">
+			<div class="text">
+				<h6>${doc.data().name}(${units})</h6>		
+				<p class="text-muted">${doc.data().rmsg}</p>				
+			</div>	  
+			<span class="time text-muted small">${hour +":" + minute}</span>
+		</div>
+		
+		<hr>`;
 		
 		
 		resident_list.innerHTML += user;
@@ -47,7 +49,7 @@ async function chat(){
 			}
 		}
 		
-		var landlords = document.getElementsByClassName('friend-drawer');
+		var landlords = document.getElementsByClassName('user-list-drawer');
 		console.log(landlords.length);
 		for (var i = 0; i < landlords.length; i++) {
 			
