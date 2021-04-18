@@ -187,6 +187,8 @@ function getinv($desc1,$price1,$desc2,$price2,$desc3,$price3,$desc4,$price4,$des
   
 }
 ?>
+
+
 <!doctype html>
 <html>
 <head>
@@ -195,11 +197,12 @@ function getinv($desc1,$price1,$desc2,$price2,$desc3,$price3,$desc4,$price4,$des
 	<link rel="stylesheet" href="style/style.css"/>
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+    <script src="https://nightly.datatables.net/js/dataTables.bootstrap4.min.js "></script>
 	<script src="confirm-bill.js"></script>
 </head>
 	<body>
@@ -208,50 +211,48 @@ function getinv($desc1,$price1,$desc2,$price2,$desc3,$price3,$desc4,$price4,$des
 		?>
 		
 		<div class="content">	
-		<!--img src="images/success.png" alt="success-icon" style="width:5%"/>
-		<h1 class="bill-updated">Bill Updated</h1>
-		<h1 class="bill-updated-text">Updated bill will be sent to user shortly!</h1>
-		<h1 class="redirect">Please wait, you will be redirected to the homepage shortly....</h1-->
-		
-		<div>
-			<table id="update-bill-table" class="table table-bordered">  
+		<img src="images/success.png" class="announcement-success" alt="success-icon" style="width:50px; margin: 2% auto;"/>
+		<h1 class="announcement-sent">Bill Updated</h1>
+		<h1 class="announcement-text">Updated bill will be sent to user shortly!</h1>
+		<h1 class="redirect">Please wait, you will be redirected to the homepage shortly....</h1>
+
+			<table id="update-bill-table" class="table bordered hover order-column">  
 			  <tbody>
 				<tr>
-					<td class="table-info">User ID</td>
+					<td class="table-head">User ID</td>
 					<td><?php setData('user_id');?></td>
 				</tr>
 
 				<tr>
-					<td class="table-info">Unit no</td>
+					<td class="table-head">Unit no</td>
 					<td><?php setData('unit_no');?></td>
 				</tr>
 				
 				<tr>
-					<td class="table-info">Name</td>
+					<td class="table-head">Name</td>
 					<td><?php setData('name');?></td>
 				</tr>
 
 				<tr>
-					<td class="table-info">Contact</td>
+					<td class="table-head">Contact</td>
 					<td><?php setData('contact');?></td>
 				</tr>
 				
 				<tr>
-					<td class="table-info">Email</td>
+					<td class="table-head">Email</td>
 					<td><?php setData('email');?></td>
 				</tr>
 
 				<tr>
-					<td class="table-info">Price</td>
+					<td class="table-head">Price</td>
 					<td>90.00</td>
 				</tr>
 				<tr>
-					<td class="table-info">Description</td>
+					<td class="table-head">Description</td>
 					<td>Payment Bill</td>
 				</tr>
 			  </tbody>
 			</table>
-		</div>
 		
 		<!--?php setData('user_id'); setData('price'); setData('payment-desc'); setData('name'); setData('contact'); setData('unit_no'); setData('email'); ?>-->
 		<p style="position:absolute; left: 20%;"><?php echo $message; ?></p>
