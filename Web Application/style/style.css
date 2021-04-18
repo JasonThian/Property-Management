@@ -523,7 +523,7 @@ input[name="searchbar"]{
 }
 
 /* Update bill */
-/* .content img{
+.content img{
 	position: fixed;
 	top: 10%;
 	left: 55%;
@@ -540,7 +540,7 @@ input[name="searchbar"]{
 	top: 35%;
 	font-size: 1.8vw;
 	color: maroon;
-}	 */
+}	
 
 /*admin only features*/
 #create-admin{
