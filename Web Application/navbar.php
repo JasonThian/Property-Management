@@ -10,10 +10,12 @@
 				<li><a href="payment-log.php"><i class="fas fa-money-bill-alt"></i>Payment Log</a></li>
 				<li><a href="visitor-log.php"><i class="fas fa-address-card"></i>Visitor Log</a></li>
 				<li><a href="announcement.php"><i class="fas fa-bell"></i>Announcements</a></li>
+
 				<li><a href="bookings.php"><i class="fas fa-building"></i>Facility Bookings</a></li>
 				<li><a href="facility.php"><i class="fas fa-building"></i>Add Facility</a></li>
-				<li><a href="login.php" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-				
+				<li><a href="booking-settings.php"><i class="fas fa-building"></i>Facility Bookings</a></li>
+
+				<li><a href="login.php" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>				
 			</ul>
 	</div>';
 ?>

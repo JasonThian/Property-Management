@@ -270,7 +270,7 @@ $(document).ready(() => {
 });
 
 
-var t = $('#resident-list').DataTable({
+var t = $('#facility-action-list').DataTable({
 	"paging":   false,
 	"ordering": false,
 	"info":     false,

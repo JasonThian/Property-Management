@@ -232,10 +232,10 @@ ul li:hover a{
 }
 
 /* Resident List , Payment Log, Visitor Log, Issue Report */
-#resident-list, #payment-log, #visitor-log, #issue-report, #bookings{
+#resident-list, #payment-log, #visitor-log, #issue-report, #bookings, #facility-action-list{
 	position: relative;
     width: 90%;
-    margin: 0 auto !important;
+    margin: 1% auto !important;
 }
 
 th{
@@ -246,7 +246,6 @@ th{
 td{
 	font-size: 0.9vw;
 	border-bottom: 1px solid #7278B9!important;
-	
 }
 
 td input, td button{
@@ -340,9 +339,6 @@ td button{
 #done-button, #create-button{
 	background-color: #C8E0FF;
 	color: #5F6392;
-	border: none;
-	border-radius: 5px;
-	padding: 1% 2%;
 }
 
 #complete-button{
@@ -351,6 +347,7 @@ td button{
 	font-weight: bold;
 	border: none;
 	border-radius: 5px;	
+	padding: 0.5% 2%;
 }
 
 #done-button:hover{
@@ -372,10 +369,6 @@ td button{
 
 #update-button:hover{
 	cursor: pointer;
-}
-
-#confirm-password{
-	margin-bottom: 10%;
 }
 
 /* Create admin button */
@@ -452,6 +445,7 @@ input[name="searchbar"]{
 .profile-image {
 	width: 4rem;
 	height: 4rem;
+	border: 1px solid #CCA679;
 	border-radius: 50%;
 	margin-left: 2vw;
 	float: left;
@@ -523,10 +517,20 @@ input[name="searchbar"]{
 }
 
 /* Update bill */
-/* .content img{
-	position: fixed;
+.content img{
+	/* position: fixed;
 	top: 10%;
-	left: 55%;
+	left: 55%; */
+}
+
+#update-bill-table{
+	width: 50%;
+	margin: 0 auto;
+}
+
+.table-head{
+	color: rgb(100, 100, 100);
+	background-color: #C8E0FF;
 }
 
 .content .bill-updated{
@@ -540,7 +544,7 @@ input[name="searchbar"]{
 	top: 35%;
 	font-size: 1.8vw;
 	color: maroon;
-}	 */
+}	
 
 /*admin only features*/
 #create-admin{
@@ -564,7 +568,23 @@ input[name="searchbar"]{
     right: 0;
 }
 
+.date-range {
+	color: #7278b9;
+}
 
+.data-range input[name="daterange"]{
+	color: #770c17;
+}
 
+.limit_slot {
+	color: #7278b9;
+}
 
+.targeted-user {
+    width: 80%;
+    margin-left: 5%;
+}
 
+select{
+	color: #770c17
+}

@@ -24,33 +24,58 @@
 	?>
 	<div class="content">
 		<h1 class="page-title">Booking Setting</h1>
+
 		
+		<div class="form-group px-0 row col-sm-11 mx-auto date-range">
+			<label class="col-sm-2 col-form-label" for="unitno">Date Range</label>
+			<input class="form-control form-contol-sm col-sm-3" type="text" name="daterange" value=""/>
+		</div>
+
+		<div class="form-group px-0 row col-md-11 mx-auto date-range">
+			<label class="col-sm-2 col-form-label" for="user_type">Targeted User</label>
+			<select class="form-control form-contol-sm col-sm-3" name="user_type" id="user_type">
+				<option value="landlord">Landlords</option>
+				<option value="user">Tenants</option>
+				<option value="all">All</option>					
+			</select>
+		</div>
+
+		<div class="col-md-11 mx-auto form-group">
+			<form class="needs-validation facility_selection" novalidate>
+				<div class="form-row">
+					<div class="col-md-4 mb-3 limit_slot">
+						<label class="col-form-label choose-facility" for="facility">Facility</label>
+						<select class="form-control form-contol-sm col-sm-10" name="facility" id="facility">
+							<option value="BBQ Pit">Bbq Pit</option>
+							<option value="Sky Lounge">Sky Lounge</option>
+							<option value="Gym">Gym</option>
+							<option value="AV Room">AV Room</option>
+							<option value="Sauna">Sauna</option>					
+						</select>
+					</div>	
+				
+					<div class="col-md-4 limit_slot">
+						<label class="col-form-label" for="unitno">Limit</label>
+						<input class="form-control form-contol-sm col-sm-10" id="limit" type="number" name="limit"/>
+						<p class="limit-text text-muted"><small>*The default booking limit for each timeslot is 3*</small></p>
+					</div>	
+				</div>
+				<button class="mx-auto" id="complete-button" type="submit" name="done"><i class="fas fa-check"></i>  Done</button>
+			</form>	
+		</div>
 		
-		<table id="resident-list" class="table hover order-column">
-			<thead>
-				<tr>
-					<th colspan="3" scope="col">
-						
-						<label for="unitno">Date Range</label>
-						<input type="text" name="daterange" value="" />
-					
-					</th>
-				</tr>
-				<tr>
-					
-					<th><button id="SelectAll">Select All</button><br></th>
-					<th>End Time</th>
-					<th>Start time</th>
-					
-				</tr>
-			</thead>
+		<table id="resident-list" class="table-sm hover order-column">
+		<thead>
+			<th><input type="checkbox" id="SelectAll"><br></th>
+			<th>End Time</th>
+			<th>Start time</th>
+		</thead>
 			<tbody>
 			<tr>
 				<td>
-					
-						<input type="checkbox" class="timeslots" name="time1" value="08:00">						<label class="custom-control-label" for="customCheck1"></label>
-						<label for="time1"></label><br>
-
+					<input type="checkbox" class="timeslots" name="time1" value="08:00">
+					<!-- <label class="custom-control-label" for="customCheck1"></label> -->
+					<label for="time1"></label><br>
 				</td>
 				
 				<td>8:00 am</td>
@@ -58,54 +83,40 @@
 			</tr>
 			<tr>
 				<td>
-					
-						<input type="checkbox" class="timeslots" name="time2" value="10:00">
-						<label for="time2"></label><br>	
-
+					<input type="checkbox" class="timeslots" name="time2" value="10:00">
+					<label for="time2"></label><br>	
 				</td>
-				
 				<td>10:00 am</td>
 				<td>12:00 pm</td>
 			</tr>
 			<tr>
 				<td>
-					
-						<input type="checkbox" class="timeslots" name="time3" value="12:00">
-						<label for="time3"></label><br>	
-
+					<input type="checkbox" class="timeslots" name="time3" value="12:00">
+					<label for="time3"></label><br>	
 				</td>
-				
 				<td>12:00 pm</td>
 				<td>2:00 pm</td>
 			</tr>
 			<tr>
 				<td>
-					
-						<input type="checkbox" class="timeslots" name="time4" value="14:00">
-						<label for="time4"></label><br>	
-
+					<input type="checkbox" class="timeslots" name="time4" value="14:00">
+					<label for="time4"></label><br>	
 				</td>
-				
 				<td>2:00 pm</td>
 				<td>4:00 pm</td>
 			</tr>
 			<tr>
 				<td>
-					
-						<input type="checkbox" class="timeslots" name="time5" value="16:00">
-						<label for="time5"></label><br>	
-
+					<input type="checkbox" class="timeslots" name="time5" value="16:00">
+					<label for="time5"></label><br>	
 				</td>
-				
 				<td>4:00 pm</td>
 				<td>6:00 pm</td>
 			</tr>
 			<tr>
 				<td>
-					
-						<input type="checkbox" class="timeslots" name="time6" value="18:00">
-						<label for="time6"></label><br>	
-
+					<input type="checkbox" class="timeslots" name="time6" value="18:00">
+					<label for="time6"></label><br>	
 				</td>
 				
 				<td>6:00 pm</td>
@@ -113,10 +124,8 @@
 			</tr>
 			<tr>
 				<td>
-					
-						<input type="checkbox" class="timeslots" name="time7" value="20:00">
-						<label for="time7"></label><br>		
-
+					<input type="checkbox" class="timeslots" name="time7" value="20:00">
+					<label for="time7"></label><br>	
 				</td>
 				
 				<td>8:00 pm</td>
@@ -124,52 +133,14 @@
 			</tr>
 			<tr>
 				<td>
-					
-						<input type="checkbox" class="timeslots" name="time8" value="22:00">
-						<label for="time8"></label><br>				
-
+					<input type="checkbox" class="timeslots" name="time8" value="22:00">
+					<label for="time8"></label><br>		
 				</td>
-				
 				<td>10:00 pm</td>
 				<td>12:00 pm</td>
-			</tr>
-			<tr >
-			<td>
-				<tr>
-					<label for="user_type">Targeted User</label>
-					  <select name="user_type" id="user_type">
-						<option value="landlord">Landlords</option>
-						<option value="user">Tenants</option>
-						<option value="all">All</option>					
-					  </select>				
-				</tr>
-			</td>
-			<td class="limit_slot" colspan="3">
-				<form class="facility_selection">
-				  <label for="facility">Facility</label>
-				  <select name="facility" id="facility">
-					<option value="BBQ Pit">BBQ PIT</option>
-					<option value="Sky Lounge">SKY LOUNGE</option>
-					<option value="Gym">GYM</option>
-					<option value="AV Room">AV ROOM</option>
-					<option value="Sauna">SAUNA</option>					
-				  </select>
-				 
-				</form>
-			
-				<label for="unitno">Limit</label>
-				<input id="limit" type="number" name="limit"/>
-				<p>*The default booking limit for each timeslot is 3</p>
-				<button id="complete-button" type="submit" name="done"><i class="fas fa-check"></i>  Done</button>
-			</td>
 			</tr>
 			</tbody>
-			
-
-			
 		</table>
-		
-			
 	</div>
 	
 <!-- The core Firebase JS SDK is always required and must be listed first -->

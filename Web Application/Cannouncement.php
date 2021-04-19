@@ -35,7 +35,7 @@ if(isset($_FILES['annc_image']['name'])){
 	curl_close($ch);
 	
 	
-	header( "refresh:5; url=residents.html" ); 
+	header( "refresh:2; url=residents.php" ); 
 }
 
 ?>
@@ -59,7 +59,7 @@ if(isset($_FILES['annc_image']['name'])){
 	?>
 	
 	<div class="content">	
-		<img src="images/success.png" class="announcement-success" alt="success-icon" style="width:8%"/>
+		<img src="images/success.png" class="announcement-success" alt="success-icon" style="width:50px; margin: 2% auto;"/>
 		<h1 class="announcement-sent">Announcement Sent</h1>
 		<h1 class="announcement-text">Your announcement was posted successfully!</h1>
 		<h1 class="redirect">Please wait, you will be redirected to homepage shortly....</h1>
