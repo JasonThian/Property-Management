@@ -72,7 +72,10 @@ function preview_invoice(show){
 		
 		inv.innerHTML += '<div style="position:absolute;left:423.27px;top:406.80px" class="cls_009"><span class="cls_009">Total</span></div><div style="position:absolute;left:502.88px;top:406.80px" class="cls_009"><span class="cls_009">'+total.toFixed(2)+'</span></div><div style="position:absolute;left:45.35px;top:807.05px" class="cls_010"><span class="cls_010">Dryx Residence</span></div><div style="position:absolute;left:499.21px;top:807.05px" class="cls_010"><span class="cls_010">Page 1 of 1</span></div>';
 		
-		confirm_bill.innerHTML += '<input type="hidden" id="total_p" name="total_p" value="'+total+'"> <input type="submit" id="send"></input><button id="cancel">Cancel</button>';
+		confirm_bill.innerHTML += '<input type="hidden" id="total_p" name="total_p" value="'+total+'"> <input type="submit" id="send"></input><button type="button" id="cancel">Cancel</button>';
+		
+		$("#cancel").prop("onclick", null).off("click");
+		$("#send").prop("onclick", null).off("click");
 		
 		document.getElementById('cancel').addEventListener ('click',(e) => {
 			console.log('click cancel');
@@ -129,9 +132,9 @@ function preview_invoice(show){
 		});
 		
 	}else{
-		document.getElementById('cancel').style.display = "none";
-		document.getElementById('send').style.display = "none";
 		inv_box.style.display = "none";
+		$("#cancel").remove();
+		$("#send").remove();
 		sidebar.style.opacity = "1";
 		form.style.opacity = "1";
 	}
