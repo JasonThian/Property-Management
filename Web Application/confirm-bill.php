@@ -183,7 +183,7 @@ function getinv($desc1,$price1,$desc2,$price2,$desc3,$price3,$desc4,$price4,$des
   
   
   
-  $total = floatval($price1) + floatval($price2)+ floatval($price3)+ floatval($price4)
+  $total = floatval($price1) + floatval($price2)+ floatval($price3)+ floatval($price4);
   $invoice->addTotal("Total",$total);
   
   //$invoice->addBadge("Payment Paid");
