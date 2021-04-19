@@ -98,7 +98,7 @@ div.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-wei
 			<div class="form-row">
 				<div class="col-md-4 mb-4" id="prices">
 					<label for="price" >Price</label>
-					<input type="digit" name="price" id="price" class="form-control" placeholder="89.95" pattern="^[1-9][0-9]+[.]?[0-9]{0,2}$" required />
+					<input type="number" name="price" id="price" class="form-control" placeholder="89.95" pattern="^[1-9][0-9]+[.]?[0-9]{0,2}$" required />
 				</div>
 				<div class="col-md-4 mb-4" id="descriptions">
 					<label for="payment-desc">Payment Description</label>
