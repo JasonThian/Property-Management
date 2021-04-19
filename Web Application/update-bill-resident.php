@@ -180,7 +180,8 @@ div.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-wei
 		<div style="position:absolute;left:428.17px;top:301.79px" class="cls_008"><span class="cls_008">DISCOUNT</span></div>
 		<div style="position:absolute;left:505.67px;top:301.79px" class="cls_008"><span class="cls_008">TOTAL</span></div>
 		<!--row of items-->
-	
+		<div id="inv_items">
+		</div>
 	</div>
 	<form action="confirm-bill.php" method="post" id="confirm_bill">
 		<input type="hidden" name="name" id="name" <?php setValue($_POST['name']); ?> ></input>

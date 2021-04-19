@@ -34,14 +34,16 @@ function preview_invoice(show){
 	var prices = document.getElementById('prices').getElementsByTagName('input');
 	var descriptions = document.getElementById('descriptions').getElementsByTagName('input');
 	
-	var inv = document.getElementById('inv_box');
+	var inv_box = document.getElementById('inv_box');
+	var inv = document.getElementById('inv_items');
+	
 	var items = document.getElementsByClassName('item');
 	var total_amount = document.getElementById('total_amount');
 	var confirm_bill = document.getElementById('confirm_bill');
 	
 	var sidebar = document.getElementById('sidebar_opac');
 	var form = document.getElementById('form_opac');
-	
+	inv.innerHTML = "";
 	
 	var total = 0;
 	
@@ -54,7 +56,7 @@ function preview_invoice(show){
 	
 	if(show){
 		//updateui
-		inv.style.display = "block";
+		inv_box.style.display = "block";
 		sidebar.style.opacity = "0.5";
 		form.style.opacity = "0.5";
 		
@@ -129,7 +131,7 @@ function preview_invoice(show){
 	}else{
 		document.getElementById('cancel').style.display = "none";
 		document.getElementById('send').style.display = "none";
-		inv.style.display = "none";
+		inv_box.style.display = "none";
 		sidebar.style.opacity = "1";
 		form.style.opacity = "1";
 	}
