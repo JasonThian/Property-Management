@@ -73,7 +73,7 @@ else
 	function setData($data)
 	{
 		$value = $_POST["$data"];
-		//echo "<input type='hidden' value='$value' id='$data' name='$data' />";
+		echo "<input type='hidden' value='$value' id='$data' name='$data' />";
 		echo $value;
 	}
 	
