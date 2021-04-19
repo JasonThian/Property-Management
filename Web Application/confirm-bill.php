@@ -157,7 +157,7 @@ function getinv($desc1,$price1,$desc2,$price2,$desc3,$price3,$desc4,$price4,$des
   $invoice = new InvoicePrinter();
   
   /* Header settings */
-  $invoice->setLogo("images/dryx-black.png");   //logo image path
+  $invoice->setLogo("images/dryx-logo.png");   //logo image path
   $invoice->setColor("#007fff");      // pdf color scheme
   $invoice->setType("Monthly Bill");    // Invoice Type
   $invoice->setReference("INV-0000001");   // Reference
