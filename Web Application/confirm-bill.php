@@ -168,12 +168,23 @@ function getinv($desc1,$price1,$desc2,$price2,$desc3,$price3,$desc4,$price4,$des
   $invoice->setTo(array("name","D'ryx Resident","Sunny Hill Garden","Kuching Sabah, 93250"));
   
   $invoice->addItem($desc1,"",1,0,floatval($price1),0,floatval($price1));
-  $invoice->addItem($desc2,"",1,0,floatval($price2),0,floatval($price2));
-  $invoice->addItem($desc3,"",1,0,floatval($price3),0,floatval($price3));
-  $invoice->addItem($desc4,"",1,0,floatval($price4),0,floatval($price4));
-  $invoice->addItem($desc5,"",1,0,floatval($price5),0,floatval($price5));
+  if(floatval($price2) > 0){
+	  $invoice->addItem($desc2,"",1,0,floatval($price2),0,floatval($price2));
+  }
+  if(floatval($price3) > 0){
+	 $invoice->addItem($desc3,"",1,0,floatval($price3),0,floatval($price3));
+  }
+  if(floatval($price4) > 0){
+	  $invoice->addItem($desc4,"",1,0,floatval($price4),0,floatval($price4));
+  }
+  if(floatval($price5) > 0){
+	  $invoice->addItem($desc5,"",1,0,floatval($price5),0,floatval($price5));
+  }
   
-  $invoice->addTotal("Total",9460);
+  
+  
+  $total = floatval($price1) + floatval($price2)+ floatval($price3)+ floatval($price4)
+  $invoice->addTotal("Total",$total);
   
   //$invoice->addBadge("Payment Paid");
   
