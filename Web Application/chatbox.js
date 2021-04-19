@@ -85,17 +85,6 @@ docref.orderBy("time","desc").limit(5)
 				`+ chats;
 			}
         });
-	//insert send message box
-			// chats = chats + `
-			// <div class="row">
-			// 	<div class="col-md-12">
-			// 		<div class="chat-box-tray">
-			// 		<input id="message" type="text" placeholder="Type your message here...">
-			// 		<i id="send-message" class="material-icons">send</i>
-			// 		</div>
-			// 	</div>
-			// </div>
-			// `;
 
 			chat_list.innerHTML = chats;
 			//add on click event on the icon
@@ -114,7 +103,7 @@ docref.orderBy("time","desc").limit(5)
 					// Cancel the default action, if needed
 					e.preventDefault();
 					// Trigger the button element with a click
-					icon.click(sendmessage);
+					icon.click();
 					e.currentTarget.value = "";
 				}
 			});

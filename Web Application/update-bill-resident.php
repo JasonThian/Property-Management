@@ -35,7 +35,7 @@ else{
     <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
     <script src="https://nightly.datatables.net/js/dataTables.bootstrap4.min.js "></script>
-	<!-- <style type="text/css">
+	<style type="text/css">
 
 span.cls_002{font-family:Arial,serif;font-size:20.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
 div.cls_002{font-family:Arial,serif;font-size:20.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
@@ -56,7 +56,7 @@ div.cls_009{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-wei
 span.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-weight:normal;font-style:normal;text-decoration: none}
 div.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-weight:normal;font-style:normal;text-decoration: none}
 
-</style> -->
+</style>
 <script type="text/javascript" src="inv_files/wz_jsgraphics.js"></script>
 </head>
 
@@ -188,8 +188,7 @@ div.cls_010{font-family:Arial,serif;font-size:8.1px;color:rgb(49,49,49);font-wei
 		<input type="hidden" name="email" id="email" <?php setValue($_POST['email']); ?> ></input>
 		<input type="hidden" name="unit_no" id="unit_no" <?php setValue($_POST['unit']); ?> ></input>
 		<input type="hidden" name="user_id" id="user_id" <?php setValue($_POST['user_id']); ?> />
-		<input type="submit" id="send"></input>
-		<button id="cancel">Cancel</button>
+		
 	</form>
 	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js"></script>

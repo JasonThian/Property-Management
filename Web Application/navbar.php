@@ -1,7 +1,7 @@
 <?php
 	echo '	
 	
-	<div class="sidebar">
+	<div class="sidebar" id="sidebar_opac">
 			<ul>
 				<img src="images/dryx-logo.png" alt="dryx-logo" width="50%">
 				<li><a href="residents.php"><i class="fas fa-user-friends"></i>Residents</a></li>
