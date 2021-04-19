@@ -68,7 +68,7 @@ function preview_invoice(show){
 			confirm_bill.innerHTML += '<input type="hidden" id="item'+i+'" name="item'+i+'" value="'+descriptions[i].value+'">';
 		}
 		
-		inv.innerHTML += '<div style="position:absolute;left:423.27px;top:406.80px" class="cls_009"><span class="cls_009">Total</span></div><div style="position:absolute;left:502.88px;top:406.80px" class="cls_009"><span class="cls_009">'+total+'</span></div><div style="position:absolute;left:45.35px;top:807.05px" class="cls_010"><span class="cls_010">Dryx Residence</span></div><div style="position:absolute;left:499.21px;top:807.05px" class="cls_010"><span class="cls_010">Page 1 of 1</span></div>';
+		inv.innerHTML += '<div style="position:absolute;left:423.27px;top:406.80px" class="cls_009"><span class="cls_009">Total</span></div><div style="position:absolute;left:502.88px;top:406.80px" class="cls_009"><span class="cls_009">'+total.toFixed(2)+'</span></div><div style="position:absolute;left:45.35px;top:807.05px" class="cls_010"><span class="cls_010">Dryx Residence</span></div><div style="position:absolute;left:499.21px;top:807.05px" class="cls_010"><span class="cls_010">Page 1 of 1</span></div>';
 		
 		confirm_bill.innerHTML += '<input type="hidden" id="total_p" name="total_p" value="'+total+'"> <input type="submit" id="send"></input><button type="button" id="cancel">Cancel</button>';
 		

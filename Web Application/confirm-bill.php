@@ -81,8 +81,7 @@ else
 	
 	//initialize variables
 	$name = $_POST['name'];
-	$price = "test";
-	$payment = "8.00";
+
 	$unitno = $_POST['unit_no'];
 	$email = $_POST['email'];
 //	$contact = $_POST['contact'];
@@ -256,11 +255,11 @@ function getinv($desc1,$price1,$desc2,$price2,$desc3,$price3,$desc4,$price4,$des
 
 				<tr>
 					<td class="table-head">Price</td>
-					<td>90.00</td>
+					<td><?php setData('total_p');?></td>
 				</tr>
 				<tr>
 					<td class="table-head">Description</td>
-					<td>Payment Bill</td>
+					<td><?php setData('item0');?></td>
 				</tr>
 			  </tbody>
 			</table>
