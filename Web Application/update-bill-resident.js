@@ -29,11 +29,6 @@ document.getElementById('generate_inv').addEventListener ('click',(e) => {
 		
 });
 
-var confirm_bill = document.getElementById('confirm_bill');
-confirm_bill.addEventListener ('click',(e) => {
-	e.preventDefault();
-	console.log("submitted");
-})
 
 function preview_invoice(show){
 	var prices = document.getElementById('prices').getElementsByTagName('input');
