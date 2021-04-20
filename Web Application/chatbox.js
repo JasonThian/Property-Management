@@ -6,6 +6,7 @@ var chats = "";
 var docref = db.collection("landlord").doc(userid).collection("chatroom");
 console.log(userid);
 
+
 //set user profile img
 db.collection("landlord").doc(userid).get().then(function(doc) {
 		
@@ -48,18 +49,35 @@ function sendmessage(){
 			user: "admin",
 			time: myTimestamp
 		});
+		
+		db.collection("landlord").doc(userid).update({
+			rmsg: msg
+		})
 	}
 
 }
+
+var text_input = document.getElementById("message");
+var send_icon = document.getElementById("send-message");
+text_input.addEventListener("keyup", function(e) {
+// Number 13 is the "Enter" key on the keyboard
+	if (e.keyCode === 13) {
+		// Cancel the default action, if needed
+		e.preventDefault();
+		// Trigger the button element with a click
+		send_icon.click();
+		e.currentTarget.value = "";
+	}
+});
+
 //listen to changes
-docref.orderBy("time","desc").limit(5)
+docref.orderBy("time","desc").limit(10)
     .onSnapshot(function(querySnapshot) {
-		var i = 0;
 		chats = "";
-		var querysize = querySnapshot.size;
+
 		//loop through collection
         querySnapshot.forEach(function(doc) {
-			i++;
+
             console.log(doc.data().message);
 			
 			var docdata =  doc.data();
@@ -88,24 +106,16 @@ docref.orderBy("time","desc").limit(5)
 
 			chat_list.innerHTML = chats;
 			//add on click event on the icon
+			chat_list.scrollTop = chat_list.scrollHeight;
+			
+			
 			var icon = document.getElementById("send-message");
-			text_input = document.getElementById("message");
+			
 
 			//send message on clicking "send" button
 			icon.addEventListener("click", sendmessage);
 
-
 			//send message on tapping enter
 			
-			text_input.addEventListener("keyup", function(e) {
-			// Number 13 is the "Enter" key on the keyboard
-				if (e.keyCode === 13) {
-					// Cancel the default action, if needed
-					e.preventDefault();
-					// Trigger the button element with a click
-					icon.click();
-					e.currentTarget.value = "";
-				}
-			});
 			
     });
