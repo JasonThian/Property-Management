@@ -69,6 +69,7 @@
 			<div class="modal-content" style="margin:0 auto; width:580px; height: 400px;">
 				<span class="close">&times;</span>
 				<canvas id="myChart" width="580" height="290"></canvas>
+				<p><input type="month" value="2020-12" id="startFacilityFilter" /> - <input type="month" id="endFacilityFilter" /><button type="button" id="generateGraph">Generate</button></p>
 			</div>	
 		</div>
 		<table id="facility-action-list" class="table-sm px-0 mx-0 hover order-column">	

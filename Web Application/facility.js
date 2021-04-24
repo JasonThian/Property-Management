@@ -1,7 +1,16 @@
+var myChart;
+
 function createGraph(){
+	
+	try{
+		myChart.destroy();
+	}catch(err){
+		console.log(err);
+	}
+	
 	var ctx = document.getElementById('myChart').getContext('2d');
-	var min = "2021/03";
-	var max = "2022/02"
+	var min = document.getElementById("startFacilityFilter").value;
+	var max = document.getElementById("endFacilityFilter").value;
 	
 	/* Get All Booking Details */
 	db.collection("booking").get().then((querySnapshot) => {
@@ -74,7 +83,7 @@ function createGraph(){
 					break;
 			}
 			
-			var keyname = date[2] + "/" + month;
+			var keyname = date[2] + "-" + month;
 			
 			/* Push Date */
 			function pushDate(){
@@ -84,10 +93,10 @@ function createGraph(){
 			
 			/* Min Max Date Filter */
 			if(min != "" || max != ""){
-				let min_date = min.split("/");
+				let min_date = min.split("-");
 				let min_month = min_date[1];
 				let min_year = min_date[0];
-				let max_date = max.split("/");
+				let max_date = max.split("-");
 				let max_month = max_date[1];
 				let max_year = max_date[0];
 				
@@ -181,7 +190,7 @@ function createGraph(){
 		
 		/* Convert Date to Graph Label */
 		for(var i = 0; i < label.length; i++){
-			let year = label[i].split("/");
+			let year = label[i].split("-");
 			let month = "";
 			let label_name = "";
 			switch(year[1]){
@@ -248,7 +257,7 @@ function createGraph(){
 		};
 		
 		/* Set Graph */
-		var myChart = new Chart(ctx, {
+		myChart = new Chart(ctx, {
 			type: 'bar',
 			data: datasets,
 			options: {
@@ -265,10 +274,18 @@ function createGraph(){
 	});
 }
 
-$(document).ready(() => {
+var defaultMaxDate = new Date();
+var value = (defaultMaxDate.getFullYear()+5) + "-" + ("0"+(defaultMaxDate.getMonth()+1)).slice(-2);
+console.log(value);
+document.getElementById("endFacilityFilter").value = value;
+	
+$("#generateGraph").click(() => {
 	createGraph();
 });
 
+$(document).ready(() => {
+	createGraph();
+});
 
 var t = $('#facility-action-list').DataTable({
 	"paging":   false,
@@ -276,6 +293,7 @@ var t = $('#facility-action-list').DataTable({
 	"info":     false,
 	"filter": false
 });	
+
 db.collection("config").doc('facilities').collection('facilities_list').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
 		var button = '';
