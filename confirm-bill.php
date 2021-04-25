@@ -75,7 +75,9 @@ else
 		echo $value;
 	}
 	
-	chmod("bills/", 777);
+	$oldmask = umask(0);
+    mkdir("bills", 0777);
+    umask($oldmask);
 	
 	//initialize variables
 	$name = $_POST['name'];
