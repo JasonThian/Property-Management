@@ -3,7 +3,7 @@
 	
 	<div class="sidebar" id="sidebar_opac">
 			<ul>
-				<img src="images/dryx-logo.png" alt="dryx-logo" width="50%">
+				<li><img src="images/dryx-logo.png" alt="dryx-logo" width="50%"></li>
 				<li><a href="residents.php"><i class="fas fa-user-friends"></i>Residents</a></li>
 				<li><a href="livechat.php"><i class="fas fa-comment-dots"></i>Live Chat</a></li>
 				<li><a href="update-bill.php"><i class="fas fa-bolt"></i>Update Bill</a></li>

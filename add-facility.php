@@ -33,7 +33,7 @@
 				<div class="form-group">
 					<label class="col-md-3 control-label"> Select Facility Image: </label> 
 					<div class="col-md-6"> 
-						<input  type="file" class="form-control" accept="image/*" >  
+						<input  id="img" type="file" class="form-control" accept="image/*" >  
 					</div>
 					
 				</div>
@@ -54,7 +54,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-md-6"> 
-						<button id="create-button" lass="btn btn-primary" type="submit" name="done"><i class="fas fa-check"></i>  Create</button>
+						<button id="create-button" lass="btn btn-primary" type="submit"><i class="fas fa-check"></i>  Create</button>
 					</div>
 				</div>	
 									
