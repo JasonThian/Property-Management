@@ -1,4 +1,6 @@
 <?php
+// Load Composer's autoloader
+require '../vendor/autoload.php';
 require 'vendor/autoload.php';
 
 use Konekt\PdfInvoice\InvoicePrinter;
@@ -6,9 +8,6 @@ $message = "";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
-// Load Composer's autoloader
-require 'vendor/autoload.php';
 
 $timestamp = strtotime("now");
 
