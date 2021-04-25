@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 // Load Composer's autoloader
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 $timestamp = strtotime("now");
 
@@ -124,29 +124,31 @@ else
 	
 	
 	//send notification to fcm
-//	$url = "https://fcm.googleapis.com/fcm/send";
-//
-//	$id = $_POST['user_id'];
-//	$fields=array(
-//		"to" => "/topics/$id",
-//		"notification" => array(
-//			"body" => "Your bill is ready. Click here for more info.",
-//			"title" => "Your bill is ready"
-//		)
-//	);
-//	
-//	$header=array(
-//		'Authorization: key=AAAAZA6ZULE:APA91bH8eD1hLLglnMxc68jmu2ynNyDvnVoNRCh5MfDwQB70WZZjzHOz3iCu8A69b4P7X_YbEu2LTGn4npcE1zyHaUMWW2rhdRoGmcuBMVbQdgXRDgf-8_h0grN8wKNS3Lx_IDzzaTZR',
-//		'Content-Type:application/json'
-//	);
-//	$ch = curl_init();
-//	curl_setopt($ch,CURLOPT_URL,$url);
-//	curl_setopt($ch,CURLOPT_POST,true);
-//	curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
-//	curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-//	curl_setopt($ch,CURLOPT_POSTFIELDS,json_encode($fields));
-//	$result = curl_exec($ch);
-//	curl_close($ch);
+	$url = "https://fcm.googleapis.com/fcm/send";
+
+	$id = $_POST['user_id'];
+	$fields=array(
+		"to" => "/topics/$id",
+		"priority" => "high",
+		"notification" => array(
+			"body" => "Your bill is ready. Click here for more info.",
+			"title" => "Your bill is ready",
+			'click_action' => 'FCM_PLUGIN_ACTIVITY'
+		)
+	);
+	
+	$header=array(
+		'Authorization: key=AAAAZA6ZULE:APA91bH8eD1hLLglnMxc68jmu2ynNyDvnVoNRCh5MfDwQB70WZZjzHOz3iCu8A69b4P7X_YbEu2LTGn4npcE1zyHaUMWW2rhdRoGmcuBMVbQdgXRDgf-8_h0grN8wKNS3Lx_IDzzaTZR',
+		'Content-Type:application/json'
+	);
+	$ch = curl_init();
+	curl_setopt($ch,CURLOPT_URL,$url);
+	curl_setopt($ch,CURLOPT_POST,true);
+	curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
+	curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+	curl_setopt($ch,CURLOPT_POSTFIELDS,json_encode($fields));
+	$result = curl_exec($ch);
+	curl_close($ch);
 	
 	
 }
