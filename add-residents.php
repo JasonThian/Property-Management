@@ -59,7 +59,11 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 				<div class="col-md-4 mb-4 px-4">
 					<label for="unitno">Unit no.</label>
 					<input type="text" id="unitno" class="form-control" placeholder="e.g. B-8-1" required>		
-				</div>				
+				</div>	
+
+				<div class="col-md-4 mb-4 px-4">
+					<button id="done-button" type="submit" name="done"><i class="fas fa-check"></i>  Done</button>		
+				</div>								
 			</div>
 		
 			<div class="form-row">
@@ -115,11 +119,10 @@ if(isset($_POST['id']) && isset($_POST['name'])){
 						</div>				
 					</div>
 				</div>
+				
 			</div>
-			
-			
-							
-			<button id="done-button" type="submit" name="done"><i class="fas fa-check"></i>  Done</button>					
+
+						
 		</form>
 	</div>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
