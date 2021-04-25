@@ -75,9 +75,12 @@ else
 		echo $value;
 	}
 	
-	$oldmask = umask(0);
-    mkdir("bills", 0777);
-    umask($oldmask);
+	
+	if(!file_exists("bills")){
+		$oldmask = umask(0);
+		mkdir("bills", 0777);
+		umask($oldmask);
+	}
 	
 	//initialize variables
 	$name = $_POST['name'];
