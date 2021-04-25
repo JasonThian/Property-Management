@@ -38,12 +38,19 @@
 					
 				</div>
 				<div class="col-md-3 control-label">
-						<label class="col-form-label choose-facility" for="facility">Facility Charge</label>
-						<select class="form-control form-contol-sm col-sm-10" id="payment_method">
+						<label class="col-form-label payment_method" for="facility">Facility Charge</label>
+						<select class="form-control form-contol-sm col-sm-10"  onChange="needpay()" id="payment_method">
+							<option value="Free">Free-Of-Charge</option>	
 							<option value="Charge"> Pay-To-Use</option>
-							<option value="Free">Free-Of-Charge</option>					
+											
 						</select>
 			
+				</div>
+				<div class="form-group" id="need_pay" style="display:none; margin-top:25px;" >
+						<label class="col-md-3 control-label pay" >Price</label>
+						<div class="col-md-6 pay">
+							<input type="text" id="price" class="form-control"required>
+						</div>
 				</div>
 				<div class="form-group">
 					<div class="col-md-6"> 

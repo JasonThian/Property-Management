@@ -25,6 +25,18 @@ document.getElementById("img").addEventListener("change",function(){
 	}
 });
 
+function needpay(){
+	var select_facility = document.getElementById('payment_method');
+	var pay = document.getElementById('need_pay');
+	
+	if(select_facility.value == "Free"){
+		pay.style.display = "none";
+		
+	}
+	else if(select_facility.value == "Charge"){
+		pay.style.display = "block";
+	}
+}
 document.getElementById('facility_form').addEventListener("submit", function(e){
 	e.preventDefault();    //stop form from submitting
 	
