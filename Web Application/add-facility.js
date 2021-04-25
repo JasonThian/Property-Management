@@ -29,14 +29,14 @@ document.getElementById('facility_form').addEventListener("submit", function(e){
 	e.preventDefault();    //stop form from submitting
 	
 	var title = document.getElementById('Fname').value;
-
+	var payment_method =  document.getElementById('payment_method').value;
 	
 	//validate user input
 	if(title!= ""){
 		// sign up the user & add firestore data
 		//by default icno will be password
 	
-		createfacility(title,url);
+		createfacility(title,url,payment_method);
 	}else{
 		alert("input incorrect");
 	}
@@ -45,13 +45,13 @@ document.getElementById('facility_form').addEventListener("submit", function(e){
 
 
 
-async function createfacility(FTitle,FimageUrl){
+async function createfacility(FTitle,FimageUrl,payment_method){
 	
 	await db.collection("config").doc('facilities').collection('facilities_list').add({
 
     name: FTitle,
 	img: FimageUrl,
-		
+	payment: payment_method
 	}).then(async function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
 		console.log(blob);

@@ -39,7 +39,7 @@
 				</div>
 				<div class="col-md-3 control-label">
 						<label class="col-form-label choose-facility" for="facility">Facility Charge</label>
-						<select class="form-control form-contol-sm col-sm-10" >
+						<select class="form-control form-contol-sm col-sm-10" id="payment_method">
 							<option value="Charge"> Pay-To-Use</option>
 							<option value="Free">Free-Of-Charge</option>					
 						</select>
