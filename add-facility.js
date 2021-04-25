@@ -2,6 +2,18 @@
 var url = "";
 var blob = "";
 var tokens = [];
+var pay = document.getElementById('need_pay');
+var price = document.getElementById('price');
+var select_facility = document.getElementById('payment_method');	
+if(select_facility.value == "Free"){
+	pay.style.display = "none";
+	price.disabled = true;
+}
+else if(select_facility.value == "Charge"){
+	pay.style.display = "block";
+	price.disabled = false;
+}
+
 
 document.getElementById("img").addEventListener("change",function(){
 	console.log("changed img");
@@ -28,13 +40,15 @@ document.getElementById("img").addEventListener("change",function(){
 function needpay(){
 	var select_facility = document.getElementById('payment_method');
 	var pay = document.getElementById('need_pay');
+	var price = document.getElementById('price');
 	
 	if(select_facility.value == "Free"){
 		pay.style.display = "none";
-		
+		price.disabled = true;
 	}
 	else if(select_facility.value == "Charge"){
 		pay.style.display = "block";
+		price.disabled = false;
 	}
 }
 document.getElementById('facility_form').addEventListener("submit", function(e){
@@ -42,13 +56,14 @@ document.getElementById('facility_form').addEventListener("submit", function(e){
 	
 	var title = document.getElementById('Fname').value;
 	var payment_method =  document.getElementById('payment_method').value;
+	var price = document.getElementById('price').value;
 	
 	//validate user input
 	if(title!= ""){
 		// sign up the user & add firestore data
 		//by default icno will be password
 	
-		createfacility(title,url,payment_method);
+		createfacility(title,url,payment_method,price);
 	}else{
 		alert("input incorrect");
 	}
@@ -57,13 +72,14 @@ document.getElementById('facility_form').addEventListener("submit", function(e){
 
 
 
-async function createfacility(FTitle,FimageUrl,payment_method){
-	
+async function createfacility(FTitle,FimageUrl,payment_method,price){
+	console.log("create facility");
 	await db.collection("config").doc('facilities').collection('facilities_list').add({
 
     name: FTitle,
 	img: FimageUrl,
-	payment: payment_method
+	payment: payment_method,
+	price: price
 	}).then(async function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
 		console.log(blob);
