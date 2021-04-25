@@ -75,7 +75,6 @@ else
 		echo $value;
 	}
 	
-	
 	if(!file_exists("bills")){
 		$oldmask = umask(0);
 		mkdir("bills", 0777);
@@ -91,6 +90,8 @@ else
 	getinv($item1,$price1,$item2,$price2,$item3,$price3,$item4,$price4,$item5,$price5,$timestamp);
 	
 	if(isset($_POST['user_id'])){
+	    //localhost
+	    /*
 		$msg = "Hi $name, your bills for unit $unitno is now ready for payment";
 		
 		
@@ -99,16 +100,16 @@ else
 		$mail->isSMTP();                            // Set mailer to use SMTP
 		$mail->Host = 'smtp.gmail.com';             // Specify main and backup SMTP servers
 		$mail->SMTPAuth = true;                     // Enable SMTP authentication
-		$mail->Username = 'jtang0308@gmail.com';          // SMTP username
-		$mail->Password = 'Avenger 123'; // SMTP password
+		$mail->Username = 'admin@rjproperty.site';          // SMTP username
+		$mail->Password = '0/F]N1x]vX'; // SMTP password
 		$mail->SMTPSecure = 'tls';                  // Enable TLS encryption, `ssl` also accepted
 		$mail->Port = 587;                          // TCP port to connect to
 
-		$mail->setFrom('jtang0308@gmail.com', "Dry'x Residence");
+		$mail->setFrom('admin@rjproperty.site', "Dry'x Residence");
 		//$mail->addAddress('jtang0308@gmail.com');   // Add a recipient
 		$mail->addAddress($email); 
-//		$mail->addCC('cc@example.com');
-//		$mail->addBCC('bcc@example.com');
+		$mail->addCC('cc@example.com');
+		$mail->addBCC('bcc@example.com');
 
 		$mail->isHTML(true);  // Set email format to HTML
 
@@ -121,6 +122,21 @@ else
 		if(!$mail->send()) {
 			$message = "Message could not be sent.<br>Mailer Error: " . $mail->ErrorInfo;
 		} else {
+			$message = 'Message has been sent';
+		}
+		*/
+		
+		//website
+		$from = "admin@rjproperty.site";
+		$to = $email;
+		$subject = "Reminder for Bill";
+		$message = "Hi $name, your bills for unit $unitno is now ready for payment";
+		$headers = "From: ".$from;
+		
+		$send = mail($to,$subject,$message,$headers);
+		if(!$send){
+		    $message = "Message could not be sent.<br>Mailer Error: ".$send;
+		}else {
 			$message = 'Message has been sent';
 		}
 	}
