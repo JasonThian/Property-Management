@@ -64,7 +64,9 @@
 
 		<div class="display-chart-button">
 			<a id ="display-chart"><i class="fas fa-plus"></i>Chart</a>
+			<a   id ="display-chart" href="add-facility.php" ><i class="fas fa-plus"></i>Add Facility</a>
 		</div>
+	
 		<div id="myModal" class="modal">
 			<div class="modal-content" style="margin:0 auto; width:580px; height: 400px;">
 				<span class="close">&times;</span>

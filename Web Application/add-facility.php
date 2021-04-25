@@ -18,25 +18,41 @@
 		include "navbar.php";
 	?>
 	
-	<div class="create-admin">
+	<div class="content">
 		<h1 class="page-title">Add Facility</h1>
-		
-		<form action="" method="post" class="mt-0 col-md-10" id="facility_form">
-			<div class="form-row">
-				<div class="col-md-4 mb-4">
-					<label for="Fname" >Facility Name</label>
-					<input type="text" id="Fname" class="form-control" placeholder="john@hotmail.com" required>
+		<div class="col-md-11 ml-4">
+			<form action="" method="post" class="mt-0 col-md-10" id="facility_form">
+				<div class="form-group">
+					
+						<label class="col-md-3 control-label" for="Fname" >Facility Name</label>
+						<div class="col-md-6">
+							<input type="text" id="Fname" class="form-control" placeholder="john@hotmail.com" required>
+						</div>
+					
 				</div>
-			</div>
-			<div class="form-row">
-				<div class="col-md-4 mb-4">
-				  <label for="img">Select Facility Image:</label>
-				  <input type="file" id="img" name="img" accept="image/*">
+				<div class="form-group">
+					<label class="col-md-3 control-label"> Select Facility Image: </label> 
+					<div class="col-md-6"> 
+						<input  type="file" class="form-control" accept="image/*" >  
+					</div>
+					
 				</div>
-			</div>
-				
-			<button id="create-button" type="submit" name="done"><i class="fas fa-check"></i>  Create</button>					
-		</form>
+				<div class="col-md-3 control-label">
+						<label class="col-form-label choose-facility" for="facility">Facility Charge</label>
+						<select class="form-control form-contol-sm col-sm-10" >
+							<option value="Charge"> Pay-To-Use</option>
+							<option value="Free">Free-Of-Charge</option>					
+						</select>
+			
+				</div>
+				<div class="form-group">
+					<div class="col-md-6"> 
+						<button id="create-button" lass="btn btn-primary" type="submit" name="done"><i class="fas fa-check"></i>  Create</button>
+					</div>
+				</div>	
+									
+			</form>
+		</div>
 	</div>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>

@@ -199,7 +199,7 @@ ul li:hover a{
 }
 
 /* Add residents page */
-#add-residents, #create-admin, #display-chart, #generate_inv{
+#add-residents, #create-admin, #display-chart, #generate_inv,#create-button,#generateGraph{
 	background-color: #C8E0FF;
 	color: #5F6392;	
 	border-radius: 5px;
@@ -210,7 +210,7 @@ ul li:hover a{
 	cursor: pointer;
 }
 
-#add-residents:hover, #create-admin:hover{
+#add-residents:hover, #create-admin:hover,#create-button:hover,#generateGraph:hover{
 	background: #7278B9;
 	color: #CCA679;
 	transition: 0.5s;
@@ -223,7 +223,41 @@ ul li:hover a{
     justify-content: flex-start;
 	cursor: pointer;
 }
+/* Removes the clear button from date inputs */
+input[type="month"]::-webkit-clear-button {
+    display: none;
+}
 
+/* Removes the spin button */
+input[type="month"]::-webkit-inner-spin-button { 
+    display: none;
+}
+
+/* Always display the drop down caret */
+input[type="month"]::-webkit-calendar-picker-indicator {
+    color: #2c3e50;
+}
+
+/* A few custom styles for date inputs */
+input[type="month"] {
+    appearance: none;
+    -webkit-appearance: none;
+    color: #95a5a6;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 15px;
+    border:1px solid #ecf0f1;
+    background:#ecf0f1;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+input[type="month"], focus {
+    color: #95a5a6;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
 .buttons{
 	display: flex;
     width: 90%;
@@ -339,6 +373,7 @@ td button{
 #done-button, #create-button{
 	background-color: #C8E0FF;
 	color: #5F6392;
+	margin-top:15px;
 }
 
 #complete-button{
