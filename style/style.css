@@ -370,10 +370,42 @@ td button{
 	text-align: left;
 }
 
-#done-button, #create-button{
+#create-button{
 	background-color: #C8E0FF;
 	color: #5F6392;
 	margin-top:15px;
+	border: none;
+    border-radius: 8px;
+}
+
+#done-button, #send, #cancel{
+	background-color: #C8E0FF;
+	color: #5F6392;
+	margin-top:15px;
+    padding: 6% 8%;
+    border: none;
+    border-radius: 8px;
+}
+
+#send, #cancel{
+	background-color: #C8E0FF;
+	color: #5F6392;
+    padding: 2% 3%;
+    border: none;
+    border-radius: 8px;
+	width: 80%;
+}
+
+#send:hover{
+	background-color: #5F6392;
+	color: #c8e0ff;
+	transition: 0.3s;
+}
+
+#cancel:hover{
+	background-color: maroon;
+	color: white;
+	transition: 0.3s;
 }
 
 #complete-button{
