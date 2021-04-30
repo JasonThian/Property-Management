@@ -3,6 +3,7 @@ var userid = location.search.substring(1);
 var chat_list = document.getElementById("chat-messages");
 
 var chats = "";
+var name = "";
 var docref = db.collection("landlord").doc(userid).collection("chatroom");
 console.log(userid);
 
@@ -13,6 +14,7 @@ db.collection("landlord").doc(userid).get().then(function(doc) {
 	if (doc.exists) {
 		var username = document.getElementById("username");
 		var units = doc.data().unit.toString();
+		name = doc.data().name;
 		
 		username.innerHTML = `<h6>${doc.data().name}(${units})</h6>`;
 		if(doc.data().imageurl != null){
@@ -37,8 +39,12 @@ db.collection("landlord").doc(userid).get().then(function(doc) {
 	console.log("Error getting document:", error);
 });
 
+async function fcm(PostData) {
+    return $.post("backend/fcm.php", PostData);
+}
+
 //send message
-function sendmessage(){
+async function sendmessage(){
 	var msg = document.getElementById("message").value;
 	//get firebase server timestamp
 	var myTimestamp = firebase.firestore.Timestamp.fromDate(new Date());
@@ -53,6 +59,18 @@ function sendmessage(){
 		db.collection("landlord").doc(userid).update({
 			rmsg: msg
 		})
+		
+		var postData = {
+			body: msg,
+			title: name,
+			type: "chat",
+			users: userid
+		}
+		
+		let response = await fcm(postData);
+		console.log("before",response.trim());
+		var json = JSON.parse(response.trim());
+		console.log("after",json);
 	}
 
 }
