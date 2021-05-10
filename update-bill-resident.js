@@ -122,6 +122,19 @@ function preview_invoice(show){
 			  }).then(function (docRef) {
 				console.log("Document written with ID: ", docRef.id);
 				var myForm = document.getElementById("confirm_bill");
+				
+				var postData = {
+					body: Your bill is ready,
+					title: Your bill is ready,
+					type: "bill",
+					users: `/topics/${id}`
+				}
+				
+				let response = await fcm(postData);
+				console.log("before",response.trim());
+				var json = JSON.parse(response.trim());
+				console.log("after",json);
+				
 				myForm.submit();
 			  }).catch(function (error) {
 				console.log("Error adding document: ", error);

@@ -64,7 +64,7 @@ async function sendmessage(){
 			body: msg,
 			title: name,
 			type: "chat",
-			users: userid
+			users: `/topics/${userid}`
 		}
 		
 		let response = await fcm(postData);
