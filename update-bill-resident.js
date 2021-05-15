@@ -124,8 +124,8 @@ function preview_invoice(show){
 				var myForm = document.getElementById("confirm_bill");
 				
 				var postData = {
-					body: Your bill is ready,
-					title: Your bill is ready,
+					body: "Your bill is ready",
+					title: "Your bill is ready",
 					type: "bill",
 					users: `/topics/${id}`
 				}
