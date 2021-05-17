@@ -13,7 +13,8 @@
 
 				<li><a href="bookings.php"><i class="fas fa-building"></i>Facility Bookings</a></li>
 				<li><a href="facility.php"><i class="fas fa-building"></i>Add Facility</a></li>
-				<li><a href="booking-settings.php"><i class="fas fa-building"></i>Facility Bookings</a></li>
+				<li><a href="booking-settings.php"><i class="fas fa-building"></i>Booking Bookings</a></li>
+				<li><a href="issue-report.php"><i class="fas fa-building"></i>Issue Report</a></li>
 
 				<li><a href="login.php" id="logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>				
 			</ul>
